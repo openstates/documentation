@@ -3,80 +3,6 @@ Committees
 
 There are two methods available for committee data:
 
-.. raw:: html
-
-   <table>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <th>
-
-Method
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-URL pattern
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-Description
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-::
-
-    <td> [Committee Search](#methods/committee-search) </td>
-    <td> /committees/ </td>
-    <td> Search committees by any of their attributes.  </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-::
-
-    <td> [Committee Detail](#methods/committee-detail) </td>
-    <td> /committees/`committee_id`/ </td>
-    <td> Get full detail for committee, including all members. </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </table>
-
 Committee Fields
 ----------------
 
@@ -107,6 +33,8 @@ The following fields are available on committee objects:
 Methods
 -------
 
+.. _committee-search:
+
 Committee Search
 ~~~~~~~~~~~~~~~~
 
@@ -122,6 +50,8 @@ members by default.
 
 **Example:**
 `openstates.org/api/v1/committees/?state=dc <#examples/committee-search>`__
+
+.. _committee-detail:
 
 Committee Detail
 ~~~~~~~~~~~~~~~~

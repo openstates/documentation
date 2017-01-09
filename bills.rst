@@ -3,80 +3,6 @@ Bills
 
 There are two methods available for bill data:
 
-.. raw:: html
-
-   <table>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <th>
-
-Method
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-URL pattern
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-Description
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-::
-
-    <td> [Bill Search](#methods/bill-search) </td>
-    <td> /bills/ </td>
-    <td> Search bills by (almost) any of their attributes, or full text.  </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-::
-
-    <td> [Bill Detail](#methods/bill-detail) </td>
-    <td> /bills/`state`/`session`/`bill_id`/ </td>
-    <td> Get full detail for bill, including any actions, votes, etc. </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </table>
-
 Bill Fields
 -----------
 
@@ -174,6 +100,8 @@ The following fields are available on bill objects:
 Methods
 -------
 
+.. _bill-search:
+
 Bill Search
 ~~~~~~~~~~~
 
@@ -240,6 +168,8 @@ results returned:
 
 **Example:**
 `openstates.org/api/v1/bills/?state=dc&q=taxi <#examples/bill-search>`__
+
+.. _bill-detail:
 
 Bill Detail
 ~~~~~~~~~~~

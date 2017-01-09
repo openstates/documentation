@@ -7,80 +7,6 @@ available check the ``feature_flags`` list in a states'
 
 There are two methods available for event data:
 
-.. raw:: html
-
-   <table>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <th>
-
-Method
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-URL pattern
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-Description
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-::
-
-    <td> [Event Search](#methods/event-search) </td>
-    <td> /events/ </td>
-    <td> Search events by state and type.  </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-::
-
-    <td> [Event Detail](#methods/event-detail) </td>
-    <td> /event/`event_id`/ </td>
-    <td> Get full detail for event. </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </table>
-
 Event Fields
 ------------
 
@@ -127,6 +53,8 @@ The following fields are available on event objects:
 Methods
 -------
 
+.. _event-search:
+
 Event Search
 ~~~~~~~~~~~~
 
@@ -140,6 +68,8 @@ specifying ``format=rss`` or ``format=ics``.
 
 **Example:**
 `openstates.org/api/v1/events/?state=ca <#examples/event-search>`__
+
+.. _event-detail:
 
 Event Detail
 ~~~~~~~~~~~~

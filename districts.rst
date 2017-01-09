@@ -83,6 +83,8 @@ Description
 Methods
 -------
 
+.. _district-search:
+
 District Search
 ~~~~~~~~~~~~~~~
 
@@ -106,6 +108,8 @@ The method returns a list of district objects with the following fields:
 
 **Example:**
 `openstates.org/api/v1/districts/nc/lower/ <#examples/district-search>`__
+
+.. _district-detail:
 
 District Boundary Lookup
 ~~~~~~~~~~~~~~~~~~~~~~~~

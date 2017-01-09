@@ -1,81 +1,6 @@
 State Metadata
 ==============
 
-There are two methods available for access to general metadata:
-
-.. raw:: html
-
-   <table>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <th>
-
-Method
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-URL pattern
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-Description
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-::
-
-    <td> [Metadata Overview](#methods/metadata-overview) </td>
-    <td> /metadata/ </td>
-    <td> Get list of all states with data available and basic metadata about their status.  </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-::
-
-    <td> [State Metadata](#methods/state-metadata) </td>
-    <td> /metadata/`state`/ </td>
-    <td> Get detailed metadata for a particular state. </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </table>
 
 Metadata Fields
 ---------------
@@ -142,6 +67,8 @@ with bills.
 Methods
 -------
 
+.. _metadata-overview:
+
 Metadata Overview
 ~~~~~~~~~~~~~~~~~
 
@@ -151,6 +78,8 @@ entities.
 
 **Example:**
 `openstates.org/api/v1/metadata/ <#examples/metadata-overview>`__
+
+.. _state-metadata:
 
 State Metadata
 ~~~~~~~~~~~~~~

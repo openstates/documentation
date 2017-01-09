@@ -3,70 +3,6 @@ Legislators
 
 There are three methods available for access to legislator information:
 
-.. raw:: html
-
-   <table>
-
-.. raw:: html
-
-   <tr>
-
-::
-
-    <th> Method </th>
-    <th> URL pattern </th>
-    <th> Description </th>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-::
-
-    <td> [Legislator Search](#methods/legislator-search) </td>
-    <td> /legislators/ </td>
-    <td> Search legislators by their attributes.  </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-::
-
-    <td> [Legislator Detail](#methods/legislator-detail) </td>
-    <td> /legislators/`leg_id`/ </td>
-    <td> Get full detail for a legislator, including all roles. </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-::
-
-    <td> [Geo Lookup](#methods/geo-lookup) </td>
-    <td> /legislators/geo/?lat=`latitude`&long=`longitude` </td>
-    <td> Lookup all legislators that serve districts containing a given point. </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </table>
-
 Legislator Fields
 -----------------
 
@@ -94,9 +30,6 @@ The following fields are available on legislator objects:
    system.
 -  ``updated_at`` The date that this object was last updated in our
    system.
--  ``transparencydata_id`` Legislator's ID on `Influence
-   Explorer <http://data.influenceexplorer.com/api>`__ if a match has
-   been found.
 -  ``created_at`` Date at which this legislator was added to our system.
 -  ``updated_at`` Date at which this legislator was last updated.
 -  ``offices`` List of office objects representing contact details for
@@ -152,6 +85,8 @@ And if the type is 'committee member':
 Methods
 -------
 
+.. _legislator-search:
+
 Legislator Search
 ~~~~~~~~~~~~~~~~~
 
@@ -177,6 +112,8 @@ Parameters
 **Example:**
 `openstates.org/api/v1/legislators/?state=dc&chamber=upper <#examples/legislator-search>`__
 
+.. _legislator-detail:
+
 Legislator Detail
 ~~~~~~~~~~~~~~~~~
 
@@ -184,6 +121,8 @@ This method returns the full detail for a legislator.
 
 **Example:**
 `openstates.org/api/v1/legislators/DCL000012/ <#examples/legislator-detail>`__
+
+.. _legislator-geo:
 
 Geo Lookup
 ~~~~~~~~~~
