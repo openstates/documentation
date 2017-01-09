@@ -118,3 +118,11 @@ state in question to see what extra data we are able to provide.
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :hidden:
+
+   metadata
+   bills
+   legislators
+   committees
+   events
+   districts
