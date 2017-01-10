@@ -1,6 +1,12 @@
+.. _metadata:
+
 State Metadata
 ==============
 
+:ref:`metadata-overview`
+    Get list of all states with data available and basic metadata about their status.
+:ref:`state-metadata`
+    Get detailed metadata for a particular state.
 
 Metadata Fields
 ---------------
@@ -77,7 +83,7 @@ This method returns just a subset (``abbreviation``, ``name``,
 entities.
 
 **Example:**
-`openstates.org/api/v1/metadata/ <#examples/metadata-overview>`__
+:ref:`openstates.org/api/v1/metadata/ <metadata-overview-example>`
 
 .. _state-metadata:
 
@@ -87,10 +93,12 @@ State Metadata
 This method returns the full metadata for a state.
 
 **Example:**
-`openstates.org/api/v1/metadata/nc/ <#examples/state-metadata>`__
+:ref:`openstates.org/api/v1/metadata/nc/ <metadata-detail-example>`
 
 Examples
 --------
+
+.. _metadata-overview-example:
 
 Metadata Overview
 ~~~~~~~~~~~~~~~~~
@@ -164,6 +172,8 @@ Metadata Overview
       } },
       ...truncated...
     ]
+
+.. _metadata-detail-example:
 
 State Metadata
 ~~~~~~~~~~~~~~

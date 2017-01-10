@@ -1,7 +1,10 @@
 Committees
 ==========
 
-There are two methods available for committee data:
+:ref:`committee-search`
+    Search committees by any of their attributes.
+:ref:`committee-detail`
+    Get full detail for committee, including all members.
 
 Committee Fields
 ----------------
@@ -49,7 +52,7 @@ Committee objects returned by this method do not include the list of
 members by default.
 
 **Example:**
-`openstates.org/api/v1/committees/?state=dc <#examples/committee-search>`__
+:ref:`openstates.org/api/v1/committees/?state=dc <committee-search-example>`
 
 .. _committee-detail:
 
@@ -59,10 +62,12 @@ Committee Detail
 This method returns the full committee object given a committee id.
 
 **Example:**
-`openstates.org/api/v1/committees/DCC000029/ <#examples/committee-detail>`__
+:ref:`openstates.org/api/v1/committees/DCC000029/ <committee-detail-example>`
 
 Examples
 --------
+
+.. _committee-search-example:
 
 Committee Search
 ~~~~~~~~~~~~~~~~
@@ -109,6 +114,8 @@ Committee Search
       "id": "DCC000014" }, 
       ...truncated...
     ]
+
+.. _committee-detail-example:
 
 Committee Detail
 ~~~~~~~~~~~~~~~~

@@ -1,7 +1,10 @@
 Legislators
 ===========
 
-There are three methods available for access to legislator information:
+:ref:`legislator-search`
+    Search legislators by their attributes.
+:ref:`legislator-detail`
+    Get full detail for a legislator, including all roles.
 
 Legislator Fields
 -----------------

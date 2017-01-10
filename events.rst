@@ -3,9 +3,10 @@ Events
 
 Events are not available in all states, to ensure that events are
 available check the ``feature_flags`` list in a states'
-`metadata <metadata.html>`__.
+:ref:`metadata`.
 
-There are two methods available for event data:
+:ref:`event-search`                  /events/                                            Search events by state and type.
+:ref:`event-detail`                  /event/`event_id`/                                  Get full detail for event.
 
 Event Fields
 ------------
