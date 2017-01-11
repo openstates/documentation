@@ -48,7 +48,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Open States API'
+project = 'Open States Documentation'
 copyright = '2017, Open States'
 author = 'Open States'
 
