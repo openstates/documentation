@@ -1,3 +1,5 @@
+.. _committees:
+
 Committees
 ==========
 
@@ -72,7 +74,7 @@ Examples
 Committee Search
 ~~~~~~~~~~~~~~~~
 
-``http://openstates.org/api/v1/committees/?state=dc``
+``openstates.org/api/v1/committees/?state=dc``
 
 .. code:: json
 
@@ -120,7 +122,7 @@ Committee Search
 Committee Detail
 ~~~~~~~~~~~~~~~~
 
-``http://openstates.org/api/v1/committees/DCC000029/``
+``openstates.org/api/v1/committees/DCC000029/``
 
 .. code:: json
 

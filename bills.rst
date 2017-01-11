@@ -1,3 +1,5 @@
+.. _bills:
+
 Bills
 =====
 
@@ -194,7 +196,7 @@ Examples
 Bill Search
 ~~~~~~~~~~~
 
-``http://openstates.org/api/v1/bills/?state=dc&q=taxi``
+``openstates.org/api/v1/bills/?state=dc&q=taxi``
 
 .. code:: json
 
@@ -326,7 +328,7 @@ Bill Search
 Bill Detail
 ~~~~~~~~~~~
 
-``http://openstates.org/api/v1/bills/ca/20092010/AB%20667/``
+``openstates.org/api/v1/bills/ca/20092010/AB%20667/``
 
 .. code:: json
 

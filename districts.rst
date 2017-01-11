@@ -1,84 +1,13 @@
+.. _districts:
+
 Districts
 =========
 
-Open States makes it possible to get a listing of all districts or
-retrieve the boundary of a given district.
+:ref:`district-search`
+    List districts for state (and optionally filtered by chamber).
+:ref:`district-detail`
+    Get geographic boundary for a district.
 
-There are two methods available for district data:
-
-.. raw:: html
-
-   <table>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <th>
-
-Method
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-URL pattern
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-Description
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-::
-
-    <td> [District Search](#methods/district-search) </td>
-    <td> /districts/`state`/[`chamber`/] </td>
-    <td> List districts for state (and optionally filtered by chamber).  </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-::
-
-    <td> [District Boundary Lookup](#methods/district-boundary-lookup) </td>
-    <td> /districts/boundary/`boundary_id`/ </td>
-    <td> Get geographic boundary for a district. </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </table>
 
 Methods
 -------
@@ -94,8 +23,7 @@ take a ``chamber`` as part of the URL.
 The method returns a list of district objects with the following fields:
 
 -  ``abbr`` State abbreviation.
--  \`boundary\_id\`\` boundary\_id used in `District Boundary
-   Lookup <#methods/district-boundary-lookup>`__
+-  ``boundary_id`` boundary\_id used in :ref:`district-detail`
 -  ``chamber`` Whether this district belongs to the upper or lower
    chamber.
 -  ``id`` A unique ID for this district (separate from boundary\_id).
@@ -107,7 +35,7 @@ The method returns a list of district objects with the following fields:
    district.
 
 **Example:**
-`openstates.org/api/v1/districts/nc/lower/ <#examples/district-search>`__
+:ref:`openstates.org/api/v1/districts/nc/lower/ <district-search-example>`
 
 .. _district-detail:
 
@@ -123,7 +51,7 @@ The returned object has the following fields:
 -  ``bbox`` A bounding box composed of a list of two (long, lat) points.
    The first point is the upper left corner, and the second point is the
    lower right.
--  \`boundary\_id\`\` boundary\_id for this boundary.
+-  ``boundary_id`` boundary\_id for this boundary.
 -  ``chamber`` Whether this district belongs to the upper or lower
    chamber.
 -  ``id`` A unique ID for this district (separate from boundary\_id).
@@ -144,15 +72,17 @@ The returned object has the following fields:
    coordinates describing a single polygon.
 
 **Example:**
-`openstates.org/api/v1/districts/boundary/sldl/nc-120/ <#examples/district-boundary-lookup>`__
+:ref:`openstates.org/api/v1/districts/boundary/sldl/nc-120/ <district-lookup-example>`
 
 Examples
 --------
 
+.. _district-search-example:
+
 District Search
 ~~~~~~~~~~~~~~~
 
-``http://openstates.org/api/v1/districts/nc/lower/``
+``openstates.org/api/v1/districts/nc/lower/``
 
 .. code:: json
 
@@ -205,10 +135,13 @@ District Search
      ... truncated ...
     ]
 
+
+.. _district-lookup-example:
+
 District Boundary Lookup
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-``http://openstates.org/api/v1/districts/boundary/sldl/nc-120/``
+``openstates.org/api/v1/districts/boundary/sldl/nc-120/``
 
 .. code:: json
 

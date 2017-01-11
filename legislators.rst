@@ -1,3 +1,5 @@
+.. _legislators:
+
 Legislators
 ===========
 
@@ -5,6 +7,8 @@ Legislators
     Search legislators by their attributes.
 :ref:`legislator-detail`
     Get full detail for a legislator, including all roles.
+:ref:`legislator-geo`
+    Lookup all legislators that serve districts containing a given point.
 
 Legislator Fields
 -----------------
@@ -47,10 +51,11 @@ The following fields are available on legislator objects:
    -  ``email`` Email address. *Any of these fields may be ``null`` if
       not found.*
 
--  ``roles`` List of currently active `role
-   objects <#legislator-fields/roles>`__ if legislator is in office.
+-  ``roles`` List of currently active :ref:`role objects <roles>` if legislator is in office.
 -  ``old_roles`` Dictionary mapping term keys to lists of roles that
    were valid for that term.
+
+.. _roles:
 
 Roles
 ~~~~~
@@ -59,8 +64,8 @@ Roles
 
 Role objects can have the following fields:
 
--  ``term`` Term key for this role. (See metadata `notes on terms and
-   sessions <metadata.html#metadata-fields/terms-sessions>`__ for
+-  ``term`` Term key for this role. (See metadata :ref:`notes on terms and
+   sessions <terms-sessions>` for
    details.)
 -  ``chamber``
 -  ``state``
@@ -113,7 +118,7 @@ Parameters
    party.
 
 **Example:**
-`openstates.org/api/v1/legislators/?state=dc&chamber=upper <#examples/legislator-search>`__
+:ref:`openstates.org/api/v1/legislators/?state=dc&chamber=upper <example-legislator-search>`
 
 .. _legislator-detail:
 
@@ -123,7 +128,7 @@ Legislator Detail
 This method returns the full detail for a legislator.
 
 **Example:**
-`openstates.org/api/v1/legislators/DCL000012/ <#examples/legislator-detail>`__
+:ref:`openstates.org/api/v1/legislators/DCL000012/ <example-legislator-detail>`
 
 .. _legislator-geo:
 
@@ -133,15 +138,17 @@ Geo Lookup
 Lookup all legislators serving districts containing a given location.
 
 **Example:**
-`openstates.org/api/v1/legislators/geo/?lat=35.79&long=-78.78 <#examples/geo-lookup>`__
+:ref:`openstates.org/api/v1/legislators/geo/?lat=35.79&long=-78.78 <example-legislator-geo>`
 
 Examples
 --------
 
+.. _example-legislator-search:
+
 Legislator Search
 ~~~~~~~~~~~~~~~~~
 
-``http://openstates.org/api/v1/legislators/?state=dc&chamber=upper``
+``openstates.org/api/v1/legislators/?state=dc&chamber=upper``
 
 .. code:: json
 
@@ -578,10 +585,12 @@ Legislator Search
      }
     ]
 
+.. _example-legislator-detail:
+
 Legislator Detail
 ~~~~~~~~~~~~~~~~~
 
-``http://openstates.org/api/v1/legislators/DCL000012/``
+``openstates.org/api/v1/legislators/DCL000012/``
 
 .. code:: json
 
@@ -755,10 +764,12 @@ Legislator Detail
      "votesmart_id": "72074"
     }
 
+.. _example-legislator-geo:
+
 Geo Lookup
 ~~~~~~~~~~
 
-``http://openstates.org/api/v1/legislators/geo/?lat=35.79&long=-78.78``
+``openstates.org/api/v1/legislators/geo/?lat=35.79&long=-78.78``
 
 .. code:: json
 

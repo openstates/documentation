@@ -28,19 +28,18 @@ Data Types
 
 Open States provides data about six core data types.
 
--  `State Metadata <metadata.html#metadata-fields>`__ - Details on what
-   data is available, including terms, sessions, and state-specific
-   names for things.
--  `Bills <bills.html#bill-fields>`__ - Details on bills & resolutions,
-   including actions & votes.
--  `Legislators <legislators.html#legislator-fields>`__ - Details on
-   legislators, including contact details.
--  `Committees <committees.html#committee-fields>`__ - Details on
-   committees as they currently stand.
--  `Events <events.html#event-fields>`__ - Details on upcoming events
-   such as committee meetings and hearings.
--  `Districts <districts.html#district-fields>`__ - Details on districts
-   and their boundaries.
+:ref:`metadata`
+    Details on what data is available, including terms, sessions, and state-specific names for things.
+:ref:`bills`
+    Details on bills & resolutions, including actions & votes.
+:ref:`legislators`
+    Details on legislators, including contact details.
+:ref:`committees`
+    Details on committees as they currently stand.
+:ref:`events`
+    Details on upcoming events such as committee meetings and hearings.
+:ref:`districts`
+    Details on districts and their boundaries.
 
 Methods
 -------

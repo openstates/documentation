@@ -59,6 +59,8 @@ The following fields are available on metadata objects:
    -  ``sessions`` List of sessions (e.g. '2009'). Each session will be
       present in ``session_details``.
 
+.. _terms-sessions:
+
 Terms & Sessions
 ~~~~~~~~~~~~~~~~
 
@@ -103,7 +105,7 @@ Examples
 Metadata Overview
 ~~~~~~~~~~~~~~~~~
 
-``http://openstates.org/api/v1/metadata/``
+``openstates.org/api/v1/metadata/``
 
 .. code:: json
 
@@ -178,7 +180,7 @@ Metadata Overview
 State Metadata
 ~~~~~~~~~~~~~~
 
-``http://openstates.org/api/v1/metadata/nc/``
+``openstates.org/api/v1/metadata/nc/``
 
 .. code:: json
 
