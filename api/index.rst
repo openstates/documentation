@@ -20,7 +20,7 @@ Basics
    Group <https://groups.google.com/group/fifty-state-project/>`__. It is
    recommended you subscribe if you're using the API.
 -  For Python users, there's an official
-   `python-sunlight <https://python-sunlight.readthedocs.org>`__ package
+   `pyopenstates <http://docs.openstates.org/projects/pyopenstates/en/latest/>`__ package
    available.
 
 Data Types
