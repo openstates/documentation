@@ -39,8 +39,7 @@ The following fields are available on bill objects:
    -  ``action`` Name of action as state provides it.
    -  ``actor`` The chamber, person, committee, etc. responsible for
       this action.
-   -  ``type`` Open States-provided action categories, see `action
-      categorization <https://github.com/openstates/openstates/wiki/Categorization#action-types>`_.
+   -  ``type`` Open States-provided action categories, see :ref:`action-categorization`.
 
 -  ``chamber`` The chamber of origination ('upper' or 'lower')
 -  ``created_at`` The date that this object first appeared in our
@@ -55,8 +54,7 @@ The following fields are available on bill objects:
 -  ``scraped_subjects`` List of subject areas that the state categorized
    this bill under.
 -  ``subjects`` List of Open States standardized bill subjects, see
-   `subject
-   categorization <https://github.com/openstates/openstates/wiki/Categorization#subjects>`_.
+   :ref:`subject-categorization`.
 -  ``sources`` List of source URLs used to compile information on this
    object.
 -  ``sponsors`` List of bill sponsors.
@@ -66,8 +64,7 @@ The following fields are available on bill objects:
       match was found).
    -  ``type`` Type of sponsor ('primary' or 'cosponsor')
 
--  ``type`` List of `bill
-   types <https://github.com/openstates/openstates/wiki/Categorization#bill-types>`_.
+-  ``type`` List of :ref:`bill-types`.
 -  ``versions`` Versions of the bill text. Both documents and
    ``versions`` have the following fields:
 
