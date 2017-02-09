@@ -15,6 +15,6 @@ Currently only two states require API keys:
   * Request Form: http://legislation.nysenate.gov/
 
 * Indiana - http://docs.api.iga.in.gov/api.html
-  * API Key Request Process: TBD
+  * API Key Request Process: Email Bob Amos (bob.amos@iga.in.gov or bamos@iga.in.gov), and include your name, address, phone, email address and company. Also indicate that you have read the terms of service at the link above.
 
 If you're in need of an API key and unable to via these channels please contact a member of the core team to discuss getting access to the development key.
