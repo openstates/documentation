@@ -123,13 +123,18 @@ At the end of the scrape you should see a message like::
 
     18:19:18 INFO billy: Finished importing 169 legislator files.
 
-This means that the data is now in the database.  Congratulations, you just ran you first state scrape!
+This means that the data is now in the database.  Congratulations, you just ran your first state scrape!
+
+To access the data you just fetched, you can connect to the database as follows: ::
+
+    $ docker-compose run --entrypoint mongo database mongodb://database
+
+You can also view the data in the ``data`` directory of the project root.
 
 .. note::
     It is of course possible that the scrape fails.  If so there's a good chance that isn't your fault, especially if it starts to run and then errors out.  Scrapers do break, and there's no guarantee North Carolina didn't change their legislator page yesterday, breaking our tutorial here.
 
     If that's the case and you think the issue is with the scraper, feel free to get in touch with us or `file an issue <https://github.com/openstates/openstates/issues>`_.
-
 
 Scraper Overview
 ----------------
