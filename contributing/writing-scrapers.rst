@@ -29,7 +29,7 @@ First thing you will need to do is get a working development environment on your
     * On Linux: Use your package manager of choice or `follow Docker's instructions <https://docs.docker.com/engine/installation/linux/>`_.
     * `Generic instructions from Docker <https://docs.docker.com/compose/install/>`_.
 
-**Step 2)** Ensure that Docker (and docker-compose) are installed locally::
+**Step 2)** Ensure that Docker (and docker-compose) are installed locally and check their versions::
 
     $ docker -v
     Docker version 1.12.5, build 7392c3b
@@ -79,6 +79,8 @@ Some will differ a bit, but all will have ``__init__.py``, ``bills.py``, and ``l
 
     $ docker-compose build
     $ docker-compose up database
+
+If these commands fail with an error, check that your copy of docker-compose is a recent vintage, at least v1.9.0.
 
 At this point we have two docker images:
 
