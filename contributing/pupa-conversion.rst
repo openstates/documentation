@@ -15,7 +15,7 @@ Before You Start
 
 Before you start it is important to check the current status of the pupa-migration for the state you're considering migrating.
 
-The master ticket tracking this is `#1442 <https://github.com/openstates/openstates/issues/1442`_, and contains a table on the current status of each state.  Before beginning work, check to make sure that there isn't already work in progress.  If there is consider picking another state or seeing how you can help out with the existing work.
+The master ticket tracking this is `#1442 <https://github.com/openstates/openstates/issues/1442>`_, and contains a table on the current status of each state.  Before beginning work, check to make sure that there isn't already work in progress.  If there is consider picking another state or seeing how you can help out with the existing work.
 
 Beginning Work
 --------------
@@ -37,83 +37,64 @@ For the period during the conversion, we're going to need to make sure we keep t
 
 2) Edit ``billy_metadata/nc.py``
 
-All we need to leave is the ``metadata`` dictionary and any imports it requires.
+    All we need to leave is the ``metadata`` dictionary and any imports it requires.
 
-It is especially important to remove the scraper imports that look like::
+    It is especially important to remove the scraper imports that look like::
 
-    from .bills import NCBillScraper
-    from .legislators import NCLegislatorScraper
-    from .committees import NCCommitteeScraper
-    from .votes import NCVoteScraper
+        from .bills import NCBillScraper
+        from .legislators import NCLegislatorScraper
+        from .committees import NCCommitteeScraper
+        from .votes import NCVoteScraper
 
-As those will no longer be available for import.  You temporarily may want to leave ``session_list`` around for now as we'll be using it in the next step.
+    As those will no longer be available for import.  You temporarily may want to leave ``session_list`` around for now as we'll be using it in the next step.
 
-You can check out what the diff looks like: `NC billy_metadata diff <https://github.com/openstates/openstates/commit/29b7bb41405ad5001d783e5d9a5c9cd81fd06fcf?w=1>`_.
+    You can check out what the diff looks like: `NC billy_metadata diff <https://github.com/openstates/openstates/commit/29b7bb41405ad5001d783e5d9a5c9cd81fd06fcf?w=1>`_.
 
 3) Create a new ``openstates/nc/__init__.py``:
 
-(TODO: link to pupa docs for Jurisdiction)
+    There's a script to help with this, it isn't guaranteed to work perfectly but should at least provide a start::
 
-You'll start by defining a class for the Jurisdiction::
+        $ ./scripts/convert_metadata.py nc > openstates/nc/__init__.py
 
-    # sessions dict:
-    # key -> identifier
-    # display_name -> name
+    `example output of this script <https://github.com/openstates/openstates/commit/3adba1ebe903fc448260b6a75133d6799a5eb27d>`_
 
-    class NC(Jurisdiction):
-        division_id = "ocd-division/country:us/state:nc"
-        classification = "government"
-        name = "North Carolina"
-        url = "http://nc.gov"
-        scrapers = {
-        }
-        parties = [
-            {'name': 'Republican'},
-            {'name': 'Democratic'}
-        ]
-        legislative_sessions = [
-        '2009': {'start_date': datetime.date(2009, 1, 28), 'type': 'primary',
-                 'name': '2009-2010 Session',
-                 '_scraped_name': '2009-2010 Session',
-                 },
-        '2011': {'start_date': datetime.date(2011, 1, 26), 'type': 'primary',
-                 'display_name': '2011-2012 Session',
-                 '_scraped_name': '2011-2012 Session',
-                 },
-        '2013': {'start_date': datetime.date(2013, 1, 30), 'type': 'primary',
-                 'display_name': '2013-2014 Session',
-                 '_scraped_name': '2013-2014 Session',
-                 },
-        '2015': {'start_date': datetime.date(2015, 1, 30), 'type': 'primary',
-                 'display_name': '2015-2016 Session',
-                 '_scraped_name': '2015-2016 Session',
-                 },
-        '2015E1': {'type': 'special',
-                   'display_name': '2016 Extra Session 1',
-                   '_scraped_name': '2016 Extra Session 1',
-                   },
-        '2015E2': {'type': 'special',
-                   'display_name': '2016 Extra Session 2',
-                   '_scraped_name': '2016 Extra Session 2',
-                   },
-        '2015E3': {'type': 'special',
-                   'display_name': '2016 Extra Session 3',
-                   '_scraped_name': '2016 Extra Session 3',
-                   },
-        '2015E4': {'type': 'special',
-                   'display_name': '2016 Extra Session 4',
-                   '_scraped_name': '2016 Extra Session 4',
-                   },
-        '2015E5': {'type': 'special',
-                   'display_name': '2016 Extra Session 5',
-                   '_scraped_name': '2016 Extra Session 5',
-                   },
-        '2017': {'type': 'primary',
-                 'display_name': '2017-2018 Session',
-                 '_scraped_name': '2017-2018 Session',
-                 },
-        ]
-        ignored_scraped_sessions = [
-        ]
+    You may need to tweak this some, you'll at least need to set the ``url`` property to a valid URL representing the state's government.
 
-A lot of these values come from the old metadata
+
+At this point you should have a fairly complete jurisdiction defined.  Next we'll move on to converting the ``legislators.py`` file.
+
+Legislators
+~~~~~~~~~~~
+
+In a billy scraper, we have a ``legislators.py`` file that contains a scraper
+that derives from ``billy.scrape.legislators.Legislator`` and saves ``Legislator``
+objects.
+
+The convention in pupa is to call this a ``people`` scraper, and as you'll see, all pupa scrapers ``yield`` objects back where a billy scraper would call ``save_legislator``.
+
+Steps:
+
+1) rename the file and change the imports:
+
+    First let's rename the file::
+
+        $ git mv openstates/nc/legislators.py openstates/nc/people.py
+
+    Then we can look at the imports, you'll see something like::
+
+        from billy.scrape.legislators import LegislatorScraper, Legislator
+
+    We instead want::
+
+        from pupa.scrape import Person, Scraper
+
+    (pupa doesn't have different ``Scraper`` subclasses.)
+
+    And you'll want to be sure to update the ``LegislatorScraper`` subclass to
+    just subclass ``Scraper``.
+
+2) Update the ``scrape()`` method's signature.
+
+Here's an example commit that converted NC's legislator scraper
+
+    https://github.com/openstates/openstates/commit/1f96aaaf5d7de49986c84b8d339c7e3f4ab4262e
