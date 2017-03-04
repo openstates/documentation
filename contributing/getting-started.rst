@@ -1,5 +1,5 @@
-Writing Scrapers
-================
+Start Contributing to Open States
+=================================
 
 .. note::
 
@@ -43,8 +43,8 @@ Of course your versions may be newer.
   * Visit https://github.com/openstates/openstates and click the 'Fork' button.
   * Clone your fork using your tool of choice or the command line::
 
-    $ git clone git@github.com:yourname/openstates.git
-    Cloning into 'openstates'...
+        $ git clone git@github.com:yourname/openstates.git
+        Cloning into 'openstates'...
 
 At this point you'll have a local ``openstates`` directory.  Let's go ahead and look at it::
 
@@ -77,7 +77,7 @@ Some will differ a bit, but all will have ``__init__.py``, ``bills.py``, and ``l
 
 **Step 4)** Let's finish setting up our environment by building the docker image::
 
-    $ docker-compose build
+    $ docker-compose build openstates
     $ docker-compose up database
 
 At this point we have two docker images:
@@ -114,8 +114,8 @@ So, ``billy-update`` kicks off a full scrape of NC's current legislators.  You'l
     18:15:23 INFO billy: Save person Chad Barefoot
 
 The first thing is billy's *run plan*, what it is going to try to scrape.
-This is presented as a sanity check, and each of these values can be controlled by
-different command line parameters.  In this case we see we're running scrape,import, and report for nc legislators for 2017-2018.  The scraper chose the most recent available session/term for us.
+This is presented as a sanity check, and each of these values can be controlled by different command line parameters.
+In this case we see we're running scrape,import, and report for nc legislators for 2017-2018.  The scraper chose the most recent available session/term for us.
 
 Depending on the scraper you run, this part takes a while.  Some bill scrapers can take hours to run, but most legislator scrapers are a few minutes.
 
@@ -136,15 +136,12 @@ You can also view the data in the ``data`` directory of the project root.
 
     If that's the case and you think the issue is with the scraper, feel free to get in touch with us or `file an issue <https://github.com/openstates/openstates/issues>`_.
 
-Scraper Overview
-----------------
+Next Steps
+----------
 
-Let's talk a bit more about how scrapers are put together.
+At this point you're ready to run scrapers and contribute fixes.
 
-Open States scrapers are written in Python, and utilize our `billy <http://docs.openstates.org/projects/billy/>`_ framework which is the backbone of our data collection system.
-
-(As of 2017 we're in the process of migrating to a new framework, we'll update this guide to cover that when it is ready, but rest assured most of what we cover here will remain true.)
-
+Right now the most important task in front of us is converting scrapers to pupa, see :doc:`pupa-conversion` and consider helping us out today!
 
 .. _getting-help:
 
