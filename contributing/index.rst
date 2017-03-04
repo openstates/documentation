@@ -9,4 +9,5 @@ The guides below will walk you through how we work, and various ways you can con
     :maxdepth: 1
     :glob:
 
-    *
+    getting-started
+    pupa-conversion
