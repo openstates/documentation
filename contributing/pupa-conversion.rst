@@ -13,7 +13,7 @@ This task will require updates to all of our scrapers, and during the interim pe
 Before You Start
 ----------------
 
-If you haven't already, you may want to check out our :doc:`writing-scrapers` guide before starting converting scrapers.
+If you haven't already, you may want to check out our :doc:`getting-started` guide before starting converting scrapers.
 
 Before you start it is important to check the current status of the pupa-migration for the state you're considering migrating.
 
@@ -235,9 +235,4 @@ The preferred way to do this is to open a work-in-progress PR, naming your PR so
 
 It'd also be a good time (if you hadn't already) to comment on `#1442 <https://github.com/openstates/openstates/issues/1442>`_ so that we can update it so that others beginning this process can be aware of your work and avoid duplicating it.
 
-Someone from the team will review the changes and possibly ask if you can make some minor fixes, but no matter the state your work will be helpful.  If you'd like to continue, we'll have guides for converting other scrapers up soon:
-
-    * bills
-    * votes
-    * committees
-    * events
+Someone from the team will review the changes and possibly ask if you can make some minor fixes, but no matter the state your work will be helpful.  If you'd like to continue, :doc:`pupa-conversion-2` has information on converting the remaining scrapers.
