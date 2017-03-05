@@ -100,3 +100,114 @@ Here are the steps:
         02:42:17 INFO billy: imported 59 committee files
 
     At this point your committee scraper is most likely ready to go.  Be sure to update your PR and let a reviewer know.
+
+
+Converting Bills
+----------------
+
+The bill scraper is one of the more complex scrapers, but fixing it still follows the same basic principles:
+
+1) Update imports and class definition
+
+    ::
+
+        from billy.scrape.bills import BillScraper, Bill
+
+    becomes::
+
+        from pupa.scrape import Scraper, Bill
+
+    and::
+
+        class NCBillScraper(BillScraper):
+            jurisdiction = 'nc'
+
+    becomes::
+
+        class NCBillScraper(Scraper):
+
+2) Just like we've done before, add the new class name to metadata. (see committees if you need an example)
+
+3) Update ``scrape()`` method:
+
+    The billy scrape method looked like: ``scrape(session, chambers)`` and required both parameters.
+
+    We again need it to scrape the latest sessions bills by default, we can change it to look something like::
+
+        def scrape(self, session=None, chamber=None):
+            if not session:
+                session = self.latest_session()
+                self.info('no session specified, using %s', session)
+
+            chambers = [chamber] if chamber else ['upper', 'lower']
+            for chamber in chambers:
+                yield from self.scrape_chamber(chamber, session)
+
+4) Update usage of ``Bill`` and its methods:
+
+    There are a lot of small changes here, it is likely easiest to list the examples:
+
+    the constructor::
+
+        # old
+        Bill(session, chamber, bill_id, title, type=bill_type)
+
+        # new
+        Bill(bill_id, legislative_session=session, chamber=chamber,
+             title=title, classification=bill_type)
+
+
+    Adding versions and documents::
+
+        # old
+        bill.add_version(version_name, version_url, mimetype='text/html')
+
+        # new
+        bill.add_version_link(version_name, version_url, media_type='text/html')
+
+        # documents would be add_document_link
+
+    .. note:: If there is an on_duplicate param, most likely you'll want to replace it with on_duplicate='ignore', but it may be worth discussion on the ticket.
+
+    Adding sponsors::
+
+        # old
+        bill.add_sponsor(spon_type, name, chamber=chamber)
+
+        # new
+        bill.add_sponsorship(name, classification=spon_type, 'person',
+                             primary=is_primary)
+        # if the scraper is aware of committee sponsors you should pass
+        # 'organization' for those
+
+    Adding actions::
+
+        # old
+        bill.add_action(actor, action, act_date, type=atype)
+
+        # new
+        bill.add_action(action, act_date, chamber=actor, classification=atype)
+        # act_date should be formatted YYYY-MM-DD
+
+    .. TODO: add_vote?  add_companion?
+
+5) Fix action categorization:
+
+    If you try to run now you'll get an error that the action types aren't validating.
+
+    The `billy action types <http://docs.openstates.org/en/latest/policies/categorization.html#action-types>`_ have been normalized in Open Civic Data,
+    and the new types are `documented there <http://docs.opencivicdata.org/en/latest/scrape/bills.html>`_.
+
+    To ease this transition, you can run::
+
+        $ ./scripts/convert-actions.sh openstates/nc/bills.py
+
+    And it will do an in-place conversion of the action classifications.
+
+    **Be sure to have your work checked-in prior to running on the file in case it does anything weird.**
+
+    You'll also want to remove any categorization of actions as 'other', simply opting for ``None`` instead.
+
+    At this point your bill scraper should be ready to go.
+
+    **example diff:** `NC bill conversion <https://github.com/openstates/openstates/commit/f8cc29b>`_
