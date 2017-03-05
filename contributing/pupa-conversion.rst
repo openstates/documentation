@@ -21,17 +21,11 @@ The master ticket tracking this is `#1442 <https://github.com/openstates/opensta
 
 If you are going to start work on a state it is a good idea to comment on that ticket and once you have branch with real work on it to open a WIP PR against the repository so others can follow along.
 
-Beginning Work
---------------
+
+Converting Metadata
+-------------------
 
 For example purposes, let's look at what it takes to convert North Carolina.
-
-Let's do our work on a ``pupa-nc`` branch::
-
-    $ git checkout -b pupa-nc
-
-Metadata
-~~~~~~~~
 
 Each state has static metadata found in the ``openstates/{{state}}/__init__.py`` file.  The first step will be in converting this metadata from the billy format to the new pupa format.
 
@@ -69,8 +63,8 @@ For the period during the conversion, we're going to need to make sure we keep t
 
 At this point you should have a fairly complete jurisdiction defined.  Next we'll move on to converting the ``legislators.py`` file.
 
-Legislators
-~~~~~~~~~~~
+Converting Legislators
+-----------------------
 
 We won't truly be able to test our metadata until we write a scraper, so let's proceed for now.
 

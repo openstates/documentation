@@ -16,19 +16,19 @@ Here are the steps:
 
     ::
 
+        # old
         from billy.scrape.committees import CommitteeScraper, Committee
 
-    becomes::
-
+        # new
         from pupa.scrape import Scraper, Organization
 
-    And:: 
+    And::
 
+        # old
         class NCCommitteeScraper(CommitteeScraper):
             jurisdiction = 'nc'
 
-    becomes::
-
+        # new
         class NCCommitteeScraper(Scraper):
 
 2) Add new class name to metadata:
@@ -111,19 +111,19 @@ The bill scraper is one of the more complex scrapers, but fixing it still follow
 
     ::
 
+        # old
         from billy.scrape.bills import BillScraper, Bill
 
-    becomes::
-
+        # new
         from pupa.scrape import Scraper, Bill
 
     and::
 
+        # old
         class NCBillScraper(BillScraper):
             jurisdiction = 'nc'
 
-    becomes::
-
+        # new
         class NCBillScraper(Scraper):
 
 2) Just like we've done before, add the new class name to metadata. (see committees if you need an example)
@@ -189,7 +189,17 @@ The bill scraper is one of the more complex scrapers, but fixing it still follow
         bill.add_action(action, act_date, chamber=actor, classification=atype)
         # act_date should be formatted YYYY-MM-DD
 
-    .. TODO: add_vote?  add_companion?
+    Adding votes::
+
+        # old
+        bill.add_vote(vote)
+
+        # new
+        bill.add_vote_event(vote)
+
+    see :ref:`converting-votes` for details on converting a ``Vote`` into a ``VoteEvent``
+
+    .. TODO: add_companion?
 
 5) Fix action categorization:
 
@@ -211,3 +221,98 @@ The bill scraper is one of the more complex scrapers, but fixing it still follow
     At this point your bill scraper should be ready to go.
 
     **example diff:** `NC bill conversion <https://github.com/openstates/openstates/commit/f8cc29b>`_
+
+
+.. _converting-votes:
+
+Converting Votes
+----------------
+
+Votes are a relatively easy process.  There are two major changes:
+
+* They are now called ``VoteEvent``.
+* Instead of using 'other' for all votes that aren't a 'yes' or 'no', types like 'excused', 'absent' and 'not voting' have been added.
+
+1) Update imports and class definition
+
+
+    ::
+        # old
+        from billy.scrape.bills import VoteScraper, Vote
+
+        # new
+        from pupa.scrape import Scraper, VoteEvent
+
+    and::
+
+        # old
+        class NCVoteScraper(VoteScraper):
+            jurisdiction = 'nc'
+
+        # new
+        class NCVoteScraper(Scraper):
+
+2) Just like we've done before, add the new class name to metadata. (see committees if you need an example)
+
+3) Update ``scrape()`` method:
+
+    The logic here will be almost identical to what you did in the bill scraper.
+
+    We need it to scrape the latest sessions votes by default.
+
+4) Update usage of ``Vote`` to ``VoteEvent``:
+
+    The old ``Vote`` constructor took a ton of parameters::
+
+        Vote(chamber, date, motion, passed,
+             yes_count, no_count, other_count, type='other', **kwargs)
+
+        # often there'd be additional parameters:
+
+        Vote(chamber, date, motion, passed,
+             yes_count, no_count, other_count, type='other',
+             bill_id=bill_id, bill_chamber=bill_chamber, session=session,
+             )
+
+    Be careful since many of the older scrapers pass these in by position alone, it'd be easy to mistake the old order when converting.
+
+    ``VoteEvent`` requires all parameters to be passed by keyword::
+
+        VoteEvent(chamber=chamber,
+                  start_date='2017-03-04',
+                  motion_text=motion,
+                  result='pass' if passed else 'fail',
+                  classification='passage',     # can also be 'other'
+
+                  # required if not being passed to bill.add_vote
+                  legislative_session=session,
+                  bill=bill_id,
+                  bill_chamber=bill_chamber)
+
+    You'll notice that in the instantiation of the class we didn't pass
+    yes_count, no_count, other_count.  Instead we'll set these using ``set_count``::
+
+        vote.set_count('yes', yes_count)
+        vote.set_count('no', no_count)
+
+        # if possible, we'll split other out into the various values given
+        vote.set_count('absent', absent_count)
+        vote.set_count('not voting', not_voting_count)
+
+
+    Individual legislator's votes are added to the ``VoteEvent`` in the same way they were, the only exception being ``.other``::
+
+        # these haven't changed
+        vote.yes(yes_voter_name)
+        vote.no(no_voter_name)
+
+        # old-style
+        vote.other(other_voter_name)
+        # new-style
+        vote.vote('not voting', not_voting_name)
+        vote.vote('absent', absentee_name)
+
+
+    Our example state of NC was a bit more complex to change due to some unusual behavior, but nonetheless here's the **example diff:** `NC vote conversion <https://github.com/openstates/openstates/commit/61aaa4eb>`_
+
+        
