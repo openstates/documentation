@@ -19,7 +19,10 @@ Before you start it is important to check the current status of the pupa-migrati
 
 The master ticket tracking this is `#1442 <https://github.com/openstates/openstates/issues/1442>`_, and contains a table on the current status of each state.  Before beginning work, check to make sure that there isn't already work in progress.  If there is consider picking another state or seeing how you can help out with the existing work.
 
-If you are going to start work on a state it is a good idea to comment on that ticket and once you have branch with real work on it to open a WIP PR against the repository so others can follow along.
+Begin
+-----
+
+If you are going to start work on a state it is a good idea to comment on that ticket. Once you have branch with real work on it, open a WIP PR (Work-in-Progress Pull Request) against the repository so others can follow along.
 
 
 Converting Metadata
