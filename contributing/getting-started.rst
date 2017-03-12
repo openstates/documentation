@@ -85,8 +85,11 @@ Some will differ a bit, but all will have ``__init__.py``, ``bills.py``, and ``l
 
     $ docker-compose build openstates
     $ docker-compose up database
+    
+The output of the '... up database...' command should end with::
+    NETWORK  [thread1] waiting for connections on port 27017    
 
-If these commands fail with an error, check that your copy of docker-compose is a recent vintage, at least v1.9.0.
+If, instead, these commands fail with an error, check that your copy of docker-compose is a recent vintage, at least v1.9.0.
 
 At this point we have two docker images:
 
@@ -99,9 +102,12 @@ And we're ready to go!
 
 Running Our First Scraper
 -------------------------
+**Step 5)** Open a new terminal tab in preparation for the '... run openstates ...' command.
 
-Let's run North Carolina's legislator scraper::
+**Step 6)** Choose a state. 
 
+**Step 7)** Let's run <your state's> legislator scraper::
+(substitute your state for 'nc' below)
     $ docker-compose run openstates nc --legislators --fast
 
 The parameters you pass after ``docker-compose run openstates`` are passed to ``billy-update``.  Here we're saying that we're running NC's scrapers, just want to run the legislators scraper, and that we want to do it in "fast mode."  A full description of ``billy-update`` is available `in the billy docs <http://docs.openstates.org/projects/billy/en/latest/scripts.html#billy-update-state>`_.
@@ -133,14 +139,17 @@ At the end of the scrape you should see a message like::
 
 This means that the data is now in the database.  Congratulations, you just ran your first state scrape!
 
-To access the data you just fetched, you can connect to the database as follows: ::
+**Step 8)** To access the data you just fetched, you can connect to the database as follows: ::
 
     $ docker-compose run --entrypoint mongo database mongodb://database
+    
+This loads the mongodb shell. You may close the mongo connection with::
+    > quit()
 
 You can also view the data in the ``data`` directory of the project root.
 
 .. note::
-    It is of course possible that the scrape fails.  If so there's a good chance that isn't your fault, especially if it starts to run and then errors out.  Scrapers do break, and there's no guarantee North Carolina didn't change their legislator page yesterday, breaking our tutorial here.
+    It is of course possible that the scrape fails.  If so, there's a good chance that isn't your fault, especially if it starts to run and then errors out.  Scrapers do break, and there's no guarantee North Carolina didn't change their legislator page yesterday, breaking our tutorial here.
 
     If that's the case and you think the issue is with the scraper, feel free to get in touch with us or `file an issue <https://github.com/openstates/openstates/issues>`_.
 
