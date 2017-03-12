@@ -175,8 +175,8 @@ The bill scraper is one of the more complex scrapers, but fixing it still follow
         bill.add_sponsor(spon_type, name, chamber=chamber)
 
         # new
-        bill.add_sponsorship(name, classification=spon_type, 'person',
-                             primary=is_primary)
+        bill.add_sponsorship(name, classification=spon_type,
+                             entity_type='person', primary=is_primary)
         # if the scraper is aware of committee sponsors you should pass
         # 'organization' for those
 
