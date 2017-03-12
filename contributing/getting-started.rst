@@ -7,6 +7,12 @@ Start Contributing to Open States
 
 Scrapers are at the core of what Open States does, each state requires several custom scrapers designed to extract bills, legislators, committees, votes, and events from the state website.  All together there are around 200 scrapers, each one essentially independent, which means that there is always more work to do, but plenty of prior work to learn from.
 
+Code of Conduct
+---------------
+
+Open States is a project that can only exist because of the fantastic community that has worked on it over the years.
+In the interest of keeping this community a healthy and welcoming place we have a `Code of Conduct <https://github.com/openstates/meta/blob/master/CODE_OF_CONDUCT.md>`_ and encourage you to familiarize yourself with it.
+
 Prerequisites
 -------------
 
