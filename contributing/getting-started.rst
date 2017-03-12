@@ -11,7 +11,7 @@ Code of Conduct
 ---------------
 
 Open States is a project that can only exist because of the fantastic community that has worked on it over the years.
-In the interest of keeping this community a healthy and welcoming place we have a `Code of Conduct <https://github.com/openstates/meta/blob/master/CODE_OF_CONDUCT.md>`_ and encourage you to familiarize yourself with it.
+In the interest of keeping this community a healthy and welcoming place we have a :doc:`code-of-conduct` and encourage you to familiarize yourself with it.
 
 Prerequisites
 -------------

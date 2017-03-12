@@ -9,6 +9,7 @@ The guides below will walk you through how we work, and various ways you can con
     :maxdepth: 1
     :glob:
 
+    code-of-conduct
     getting-started
     pupa-conversion
     pupa-conversion-2
