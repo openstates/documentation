@@ -37,12 +37,15 @@ First thing you will need to do is get a working development environment on your
 
 **Step 2)** Ensure that Docker (and docker-compose) are installed locally and check their versions::
 
-    $ docker -v
-    Docker version 1.12.5, build 7392c3b
-    $ docker-compose -v
-    docker-compose version 1.9.0, build 2585387
+    $ docker --version
+    Docker version 17.03.0-ce, build 60ccb22
+    $ docker-compose --version
+    docker-compose version 1.11.2, build dfed245
 
-Of course your versions may be newer.
+Of course, your versions may be newer. The minimum required versions for Open States are:
+
+    * 1.9.0 of Docker
+    * 1.10.0 of Docker Compose
 
 **Step 3)** We'll fork and clone the main `Open States scraper repository <https://github.com/openstates/openstates>`_.
 
@@ -81,15 +84,14 @@ Let's look inside one::
 
 Some will differ a bit, but all will have ``__init__.py``, ``bills.py``, and ``legislators.py``.  These are the NC scrapers that collect these objects.
 
-**Step 4)** Let's finish setting up our environment by building the docker image::
+**Step 4)** Let's finish setting up our environment by creating the database::
 
-    $ docker-compose build openstates
     $ docker-compose up database
     
 The output of the '... up database...' command should end with::
     NETWORK  [thread1] waiting for connections on port 27017    
 
-If, instead, these commands fail with an error, check that your copy of docker-compose is a recent vintage, at least v1.9.0.
+If, instead, these commands fail, check that your copy of docker-compose is a recent vintage.
 
 At this point we have two docker images:
 
@@ -108,6 +110,7 @@ Running Our First Scraper
 
 **Step 7)** Let's run <your state's> legislator scraper::
 (substitute your state for 'nc' below)
+
     $ docker-compose run openstates nc --legislators --fast
 
 The parameters you pass after ``docker-compose run openstates`` are passed to ``billy-update``.  Here we're saying that we're running NC's scrapers, just want to run the legislators scraper, and that we want to do it in "fast mode."  A full description of ``billy-update`` is available `in the billy docs <http://docs.openstates.org/projects/billy/en/latest/scripts.html#billy-update-state>`_.
