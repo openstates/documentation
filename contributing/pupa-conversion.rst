@@ -3,92 +3,78 @@ Converting Scrapers to pupa
 
 .. note::
 
-    This document is very much a work-in-progress, feel free to `suggest contributions <http://github.com/openstates/documentation>`_.
+    This document is a work-in-progress; if any part of it is unclear, `suggest changes or improvements <http://github.com/openstates/documentation>`_.
 
-As of early 2017 we've embarked on a process to switch away from our legacy backend (billy) that has been in use since 2009, to a more modern backend based on the `Open Civic Data <https://github.com/opencivicdata>`_ specification and tools (pupa).
+As of early 2017, we've embarked on a process to switch away from our legacy backend (billy) that has been in use since 2009, to a more modern backend (pupa) based on the `Open Civic Data <https://github.com/opencivicdata>`_ specification and tools.
 
-This task will require updates to all of our scrapers, and during the interim period will also require some conversion scripts to exist to sync data between the two systems.  One of the best ways to help us right now is to follow this guide and help us start converting a state.
+This task will require updates to every one of our scrapers. Given that this is such a big task, converting scrapers from billy to pupa is one of the best ways to help out on Open States right now. Follow this guide and start converting a state!
 
 
 Before You Start
 ----------------
 
-If you haven't already, you may want to check out our :doc:`getting-started` guide before starting converting scrapers.
+If you haven't already, you should read our :doc:`getting-started` guide. It's important to know how scrapers are run, before starting to convert them.
 
-Before you start it is important to check the current status of the pupa-migration for the state you're considering migrating.
+It's also important to make sure that the state you've chosen to convert from billy to pupa hasn't already been converted! This is tracked in ticket `#1442 <https://github.com/openstates/openstates/issues/1442>`_. If your state of choice isn't available, consider picking another state, or fixing some `Open States bugs <https://github.com/openstates/openstates/issues>`_.
 
-The master ticket tracking this is `#1442 <https://github.com/openstates/openstates/issues/1442>`_, and contains a table on the current status of each state.  Before beginning work, check to make sure that there isn't already work in progress.  If there is consider picking another state or seeing how you can help out with the existing work.
 
 Begin
 -----
 
-If you are going to start work on a state it is a good idea to comment on that ticket. Once you have branch with real work on it, open a WIP PR (Work-in-Progress Pull Request) against the repository so others can follow along.
+Comment on the aforementioned `tracking ticket <https://github.com/openstates/openstates/issues/1442>`_ so that no one else accidentally works on this state as well, duplicating effort. And once you have a Git branch with some conversion work in it, open a WIP PR (Work-in-Progress Pull Request) against the Open States repository, so that others can follow along.
 
 
 Converting Metadata
 -------------------
 
-For example purposes, let's look at what it takes to convert North Carolina.
+For example purposes, let's look at what it takes to convert North Carolina. Going forward, you can replace ``nc`` with the abbreviation for your selected state.
 
-Each state has static metadata found in the ``openstates/{{state}}/__init__.py`` file.  The first step will be in converting this metadata from the billy format to the new pupa format.
+Each state has static metadata found in ``openstates/{{state}}/__init__.py``. The first step will be to convert this metadata from the billy format to the new pupa format.
 
-For the period during the conversion, we're going to need to make sure we keep the billy-specific metadata around.
-
-1) Start by moving the existing metadata to our new ``billy_metadata/`` directory::
+1) Start by moving the existing metadata to our new ``billy_metadata/`` directory; until all states are in Pupa format, we're going to need to keep the billy-specific metadata around::
 
     $ git mv openstates/nc/__init__.py billy_metadata/nc.py
 
-2) Edit ``billy_metadata/nc.py``
+2) Edit ``billy_metadata/nc.py``:
 
-    All we need to leave is the ``metadata`` dictionary and any imports it requires.
+    Delete everything in the module besides the ``metadata`` dictionary and any imports it requires. You temporarily may want to leave ``session_list`` around as well, as we'll be using it in the next step.
 
-    It is especially important to remove the scraper imports that look like::
-
-        from .bills import NCBillScraper
-        from .legislators import NCLegislatorScraper
-        from .committees import NCCommitteeScraper
-        from .votes import NCVoteScraper
-
-    As those will no longer be available for import.  You temporarily may want to leave ``session_list`` around for now as we'll be using it in the next step.
-
-    **example diff:** `NC billy_metadata <https://github.com/openstates/openstates/commit/29b7bb41405ad5001d783e5d9a5c9cd81fd06fcf?w=1>`_
+    **Example diff:** `NC billy_metadata <https://github.com/openstates/openstates/commit/29b7bb41405ad5001d783e5d9a5c9cd81fd06fcf?w=1>`_
 
 3) Create a new ``openstates/nc/__init__.py``:
 
-    There's a script to help with this, it isn't guaranteed to work perfectly but should at least provide a start::
+    There's a script to help with this step. It isn't guaranteed to work perfectly, but should at least provide a good starting point::
 
         $ ./scripts/convert_metadata.py nc > openstates/nc/__init__.py
 
-    You may need to tweak this some, you'll at least need to set the ``url`` property to a valid URL representing the state's government.
+    Then, set the ``url`` property inside to a valid URL representing the state's government. You may need to modify the file further, such as indicating the number of seats in the upper and lower houses of your state.
 
-    **example diff:** `updated NC metadata <https://github.com/openstates/openstates/commit/3adba1ebe903fc448260b6a75133d6799a5eb27d>`_
+    **Example diff:** `updated NC metadata <https://github.com/openstates/openstates/commit/3adba1ebe903fc448260b6a75133d6799a5eb27d>`_
 
+At this point you should have a fairly complete OCD jurisdiction defined. Next, we'll move on to converting the legislator scraper.
 
-At this point you should have a fairly complete jurisdiction defined.  Next we'll move on to converting the ``legislators.py`` file.
 
 Converting Legislators
 -----------------------
 
-We won't truly be able to test our metadata until we write a scraper, so let's proceed for now.
+We won't be able to test our pupa metadata file until we write a pupa scraper, so let's do that!
 
-In a billy scraper, we have a ``legislators.py`` file that contains a scraper
-that derives from ``billy.scrape.legislators.Legislator`` and saves ``Legislator``
-objects.
+For a state in the billy framework, we have a ``legislators.py`` file that contains a scraper instantiated from ``billy.scrape.legislators.Legislator``. This scraper captures and saves ``Legislator`` objects.
 
-The convention in pupa is to call this a ``people`` scraper, and as you'll see, all pupa scrapers ``yield`` objects back where a billy scraper would call ``save_legislator``.
+In pupa, this scraper is called ``people`` scraper instead. (This is because OCD can easily model individuals who aren't members of a legislature.)
 
-(It might be a good idea to look over the docs for `billy legislator scrapers <https://billy.readthedocs.io/en/latest/scrapers.html#legislators>`_
-and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape/people.html>`_.)
+As you'll see, pupa scrapers ``yield`` scraped objects, whereas a billy scraper would call ``save_legislator``; ``yield`` and ``yield from`` expose Python 3's powerful `generator and subroutine <https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/>`_ capabilities.
 
-Steps:
+Before diving in, it's helpful to look over the docs for `billy legislator scrapers <https://billy.readthedocs.io/en/latest/scrapers.html#legislators>`_
+and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape/people.html>`_.
 
-1) Rename the file and change the imports:
+1) Rename the scraper file::
 
-    First let's rename the file::
+    $ git mv openstates/nc/legislators.py openstates/nc/people.py
 
-        $ git mv openstates/nc/legislators.py openstates/nc/people.py
+2) Update the ``import`` statement:
 
-    Then we can look at the imports, you'll see something like::
+    At the top of the file, you'll see something like::
 
         from billy.scrape.legislators import LegislatorScraper, Legislator
 
@@ -98,19 +84,17 @@ Steps:
 
     (pupa doesn't have different ``Scraper`` subclasses.)
 
-    And you'll want to be sure to update the ``LegislatorScraper`` subclass to
-    just subclass ``Scraper``.
+    Also, make the file's instantiated scraper a subclass of ``Scraper`` rather than ``LegislatorScraper``.
 
-2) Update the ``scrape()`` method's signature:
+3) Update the ``scrape`` method's signature:
 
-    In old scrapers the ``scrape`` method signature was ``scrape(term, chambers)`` and serves as an entrypoint.
+    In billy scrapers, the ``scrape`` method signature is ``scrape(term, chambers)``, and serves as an entrypoint for the scraper class.
 
-    pupa scrapers also use a ``scrape`` method as an entrypoint, but the parameters should all be optional.
+    pupa scrapers also use a ``scrape`` method as an entrypoint, but the parameters are all optional.
 
-    Because most legislator scrapers only scrape the latest term, we'll drop the ``term`` argument, and we'll make the ``chambers`` argument into an
-    optional ``chamber`` argument.  If no arguments are supplied the scraper should scrape all current legislators.
+    Because most legislator scrapers only scrape the current session, we'll drop the ``term`` argument, and the ``chambers`` argument can be made into an optional ``chamber`` argument.
 
-    In our case the NC scraper already had a ``scrape_chamber`` method, so we wind up updating our ``scrape`` method to dispatch like this::
+    The NC scraper already had a ``scrape_chamber`` method that was invoked by the ``scrape`` method. So, we updated our ``scrape`` method to dispatch like this::
 
         def scrape(self, chamber=None):
             if chamber:
@@ -119,41 +103,41 @@ Steps:
                 yield from self.scrape_chamber('upper')
                 yield from self.scrape_chamber('lower')
 
-    The ``scrape`` method is required to ``yield`` objects, so since we're dispatching we have to use the `yield from <https://docs.python.org/3/whatsnew/3.3.html#pep-380-syntax-for-delegating-to-a-subgenerator>`_ construct that yields all objects from a subgenerator.
+    pupa ``scrape`` methods (which are generators) must ``yield`` objects. Since the NC scraper's ``scrape_chamber`` method (also a generator) is collecting and ``yield``ing the People objects initially, the ``scrape`` method must ``yield from`` that generator itself.
 
-3) Update the portion of the code that creates/saves ``Legislator`` objects:
+4) Update the portion of the code that creates and saves ``Legislator`` objects:
 
-    The existing scrapers create ``Legislator`` objects and then call ``self.save_legislator``, we'll need to turn this into ``yield``-ing ``Person`` objects.
+    The billy scrapers create ``Legislator`` objects, and then call ``self.save_legislator``. We'll need to turn ``self.save_legislator`` into ``yield``ing ``Person`` objects.
 
-    It's important to note that this change can typically be pretty minimal, there's a lot of code in the scraper that'll be parsing the relevant data, but 95% of that code shouldn't need to be edited here.
+    This change is typically minimal; there's a lot of code in billy legislator scrapers, but very little of it should need to be edited for the purposes of pupa.
 
-    The main things that need to be changed:
+    Instead of instantiating ``Legislator`` objects, instantiate ``Person`` objects instead. Properties that need to be changed include:
 
+        * ``term`` is no longer a parameter
         * ``chamber`` has become ``primary_org``
         * ``photo_url`` has become ``image``
-        * ``term`` is no longer a parameter
-        * offices used to be added via ``add_office(type, note, address, phone, email)`` and now individual contact details are added via ``add_contact_detail(type, value, note)``
-        * instead of passing ``url`` to the constructor for a legislator's canonical URL, add any links with ``person.add_link``
-        * it used to be possible to add arbitrary parameters to the ``Person`` constructor, these should now be added to the ``person.extras`` dictionary
-        * instead of ``self.save_legislator(person)`` simply ``yield person`` (make sure that any function that yields is invoked with ``yield from`` from ``scrape``)
-
+        * ``full_name`` has become ``name``
+        * under billy, contact information is added via ``add_office(type, note, address, phone, email)``; with pupa, contact information is added via ``add_contact_detail(type, value, note)``, with OCD types and values following `the Popolo standard <http://www.popoloproject.com/specs/contact-detail.html>`_
+        * instead ``url`` as a legislator's canonical URL, add any such links with ``Person.add_link``
+        * billy allowed arbitrary parameters on a ``Legislator`` object; in pupa, these should now be in a ``Person.extras`` dictionary
+        * instead of ``self.save_legislator(Legislator)`` from billy, simply ``yield person`` (make sure that any function that creates ``Person``s outside of ``scrape`` is invoked by ``scrape`` using ``yield from``, as described above)
 
     Again, it might be a good idea to look over the docs for `billy legislator scrapers <https://billy.readthedocs.io/en/latest/scrapers.html#legislators>`_
     and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape/people.html>`_.
 
+    Since you're also switching from Python 2 (billy) to Python 3 (pupa), you may need to make syntax changes to the module. For instance, if ``Dict.iteritems()`` is used anywhere, it would have to be replaced by ``Dict.items()``.
+
     At this point, your person scraper should essentially be converted.
 
-    **example diff:** `converted legislator scraper <https://github.com/openstates/openstates/commit/1f96aaaf5d7de49986c84b8d339c7e3f4ab4262e>`_
+    **Example diff:** `converted legislator scraper <https://github.com/openstates/openstates/commit/1f96aaaf5d7de49986c84b8d339c7e3f4ab4262e>`_
 
 4) Revisiting the metadata:
 
-    We now need to make one small change to the metadata to let pupa know about our person scraper.
-
-    Let's import our new scraper at the top of ``openstates/nc/__init__.py``::
+    We now need to make one small change to the metadata (ie, the ``__init__.py`` file) to let pupa know about our person scraper. Import our new scraper at the top of ``openstates/nc/__init__.py``::
 
         from .people import NCPersonScraper
 
-    And within we update the ``scrapers`` dictionary to look like::
+    And within the Jurisdiction object, update the ``scrapers`` dictionary to look like::
 
         scrapers = {
             'people': NCPersonScraper,
@@ -161,11 +145,11 @@ Steps:
 
 5) Running your first scraper:
 
-    Now let's try giving it a run.
+    Now let's try giving it a run::
 
-    Right now we're running ``pupa`` scrapers and then a second script that back-migrates the scraped data to a billy database.  This is a temporary step to enable us to transition the scrapers first and API, website, etc. once a significant number are done.  The easiest way to run this script is to use ``docker-compose`` like so::
+        $ docker-compose run scrape nc
 
-    $ docker-compose run scrape nc
+    This runs pupa scrapers for the state. A second script is then executed, back-porting the scraped pupa data to billy format; since the API and website currently rely on the billy format, this is necessary during the transition off of billy.
 
 You'll probably see output like::
 
@@ -181,11 +165,13 @@ You'll probably see output like::
     15:35:05 INFO pupa: save post 3 as post_6ecb3976-0122-11e7-91f7-0242ac130003.json
     15:35:05 INFO pupa: save post 4 as post_6ecb3ab6-0122-11e7-91f7-0242ac130003.json
 
-The ``people: {}`` line shows what it is trying to scrape, that it has found your Person scraper and is running without any arguments.
+The ``people: {}`` line describes what type of data pupa is trying to scrape, that it has found your Person scraper, and that it is running without any arguments.
 
-Then you'll see the line ``Not checking sessions...``, which we'll revisit in a second.
+Next, you see the line ``Not checking sessions...``, which we'll revisit later.
 
-If all goes well, the scraper will run for a while, writing objects to the ``_data`` directory as it goes.  You'll see output like::
+If all goes well, the scraper will run for a while, writing JSON objects to the ``_data`` directory as it goes.
+
+Finally, you'll see output like::
 
     nc (scrape)
       people: {}
@@ -201,9 +187,9 @@ If all goes well, the scraper will run for a while, writing objects to the ``_da
         membership: 340
         person: 170
 
-This shows the results of the scrape, the metadata and person objects that were successfully collected.
+This is the result of the scrape, including the metadata and person objects that were successfully collected.
 
-Once that is done you'll see billy take over for the conversion, ultimately ending in some lines like::
+Once that is done you'll see the to-billy conversion begin, ultimately ending in some lines like::
 
     15:43:34 INFO billy: billy-update abbr=nc
         actions=import,report
@@ -215,21 +201,16 @@ Once that is done you'll see billy take over for the conversion, ultimately endi
     15:43:35 INFO billy: imported 0 bill files
     15:43:35 INFO billy: imported 0 committee files
 
-The key line there is the 170 legislator files, matching the number of person objects reported by pupa.
+The import part to check is the ``{{n}} legislator files``, which ought to match the number of person objects reported by pupa.
 
-Once you get to this point you have successfully converted a scraper to pupa!  Congratulations and thank you!
-
-Now let's make sure your work gets integrated.
+Once you get to this point, you have successfully converted a scraper to pupa!  Congratulations, and thank you! Let's make sure your hard work gets integrated.
 
 
 Creating Your Pull Request
 --------------------------
 
-Once you have some real work done it'd be best to go ahead and let us know so that we can avoid duplicating effort.
+Once you have this work done, go ahead and let us know so that we can avoid duplicating effort.
 
-The preferred way to do this is to open a work-in-progress PR, naming your PR something like [WIP] convert $STATE to pupa.
-(A helpful guide to making PRs with GitHub is here: https://help.github.com/articles/creating-a-pull-request/)
+The preferred way to do this is to open a work-in-progress PR, naming your PR something like ``[WIP] Convert {{state}} to pupa``. A helpful guide to making PRs with GitHub is here: https://help.github.com/articles/creating-a-pull-request/
 
-It'd also be a good time (if you hadn't already) to comment on `#1442 <https://github.com/openstates/openstates/issues/1442>`_ so that we can update it so that others beginning this process can be aware of your work and avoid duplicating it.
-
-Someone from the team will review the changes and possibly ask if you can make some minor fixes, but no matter the state your work will be helpful.  If you'd like to continue, :doc:`pupa-conversion-2` has information on converting the remaining scrapers.
+Someone from the team will review the PR and possibly request that you make some minor fixes, but no matter the status your work will be helpful. If you'd like to continue on, :doc:`pupa-conversion-2` has information on converting the remaining types of scrapers.
