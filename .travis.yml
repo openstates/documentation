@@ -1,0 +1,10 @@
+sudo: no
+language: python
+python:
+    - "3.5"
+env:
+install: pip install -r requirements.txt
+script: make html SPHINXOPTS="-W -n"
+notifications:
+    email:
+        - james@openstates.org
