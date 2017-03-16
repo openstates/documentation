@@ -84,7 +84,7 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
 
     (pupa doesn't have different ``Scraper`` subclasses.)
 
-    Also, make the file's instantiated scraper a subclass of ``Scraper`` rather than ``LegislatorScraper``.
+    Also, rename the file's instantiated scraper (so that it refers to ``Person`` rather than ``Legislator``), and make it a subclass of ``Scraper`` rather than ``LegislatorScraper``.
 
 3) Update the ``scrape`` method's signature:
 
@@ -103,11 +103,11 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
                 yield from self.scrape_chamber('upper')
                 yield from self.scrape_chamber('lower')
 
-    pupa ``scrape`` methods (which are generators) must ``yield`` objects. Since the NC scraper's ``scrape_chamber`` method (also a generator) is collecting and ``yield``ing the People objects initially, the ``scrape`` method must ``yield from`` that generator itself.
+    pupa ``scrape`` methods (which are generators) must ``yield`` objects. Since the NC scraper's ``scrape_chamber`` method (also a generator) will collect and ``yield`` the People objects initially, the ``scrape`` method must ``yield from`` that generator itself.
 
 4) Update the portion of the code that creates and saves ``Legislator`` objects:
 
-    The billy scrapers create ``Legislator`` objects, and then call ``self.save_legislator``. We'll need to turn ``self.save_legislator`` into ``yield``ing ``Person`` objects.
+    The billy scrapers create ``Legislator`` objects, and then call ``self.save_legislator``. We'll need to turn ``self.save_legislator`` into a ``yield`` of ``Person`` objects.
 
     This change is typically minimal; there's a lot of code in billy legislator scrapers, but very little of it should need to be edited for the purposes of pupa.
 
@@ -117,10 +117,10 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
         * ``chamber`` has become ``primary_org``
         * ``photo_url`` has become ``image``
         * ``full_name`` has become ``name``
-        * under billy, contact information is added via ``add_office(type, note, address, phone, email)``; with pupa, contact information is added via ``add_contact_detail(type, value, note)``, with OCD types and values following `the Popolo standard <http://www.popoloproject.com/specs/contact-detail.html>`_
+        * under billy, contact information is added via ``add_office(type, note, address, phone, email)``; with pupa, contact information is added via ``add_contact_detail(type, value, note)``, with OCD ``type`` coming from `the Popolo standard <http://www.popoloproject.com/specs/contact-detail.html>`_
         * instead ``url`` as a legislator's canonical URL, add any such links with ``Person.add_link``
         * billy allowed arbitrary parameters on a ``Legislator`` object; in pupa, these should now be in a ``Person.extras`` dictionary
-        * instead of ``self.save_legislator(Legislator)`` from billy, simply ``yield person`` (make sure that any function that creates ``Person``s outside of ``scrape`` is invoked by ``scrape`` using ``yield from``, as described above)
+        * instead of ``self.save_legislator(Legislator)`` from billy, simply ``yield person`` (make sure that any function that creates ``Person`` objectss outside of ``scrape`` is invoked by ``scrape`` using ``yield from``, as described above)
 
     Again, it might be a good idea to look over the docs for `billy legislator scrapers <https://billy.readthedocs.io/en/latest/scrapers.html#legislators>`_
     and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape/people.html>`_.
