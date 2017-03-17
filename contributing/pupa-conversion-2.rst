@@ -3,16 +3,17 @@ Converting Scrapers to pupa (continued)
 
 Picking up where we left off in :doc:`pupa-conversion`, we'll now look at how to convert committee, bill, vote, and event scrapers from billy to pupa.
 
+
 Converting Committees
 ---------------------
 
-There may not be a committee scraper, but good news if there is- it is one of the easier ones to convert.
+There may not be a committee scraper for your selected state. But good news if there is: committee scrapers are straightforward to convert.
 
-In pupa committees are just a type of ``Organization``, which we dealt with before when filling out our metadata.
+In pupa, committees are just a type of ``Organization``. You've already seen ``Organization`` objects briefly, in the ``__init__.py`` pupa metadata file; the legislative branch itself is a pupa ``Organization``, as are its individual chambers.
 
-Here are the steps:
+Here's how to convert the scraper:
 
-1) Update imports and class definition
+1) Update the imports and the class definition:
 
     ::
 
@@ -31,59 +32,56 @@ Here are the steps:
         # new
         class NCCommitteeScraper(Scraper):
 
-2) Add new class name to metadata:
+2) Add the new class name to metadata file:
 
-    In ``openstates/nc/__init__.py`` we add::
+    In ``openstates/nc/__init__.py``, add::
 
         from .committees import NCCommitteeScraper
 
-    And add it to the scrapers config::
+    And add the scraper instance to the ``scrapers`` in that file::
 
         scrapers = {
             'people': NCPersonScraper,
             'committees': NCCommitteeScraper,
         }
 
-3) Update ``scrape()`` method:
+3) Update the ``scrape`` method:
 
-    As we saw with the legislator scraper, it should no longer take ``term``, and ``chambers`` should become optional.
+    As we saw with the people scraper, the ``scrape`` method no longer has required parameters. It should no longer take a ``term`` parameter, and ``chambers`` should become optional.
 
-    You can `check the example diff <https://github.com/openstates/openstates/commit/2b7536bf3aa7ab94d417b24bb27db0a3aaf16bb5#diff-ef744b16368b99cdd23e4c1bd29bd76aR45>`_ for onehow it was done when converting the NC scraper.
+    `**Example diff:** <https://github.com/openstates/openstates/commit/2b7536bf3aa7ab94d417b24bb27db0a3aaf16bb5#diff-ef744b16368b99cdd23e4c1bd29bd76aR45>`_
 
-    Additionally, it should be converted to ``yield`` objects instead of calling ``save_committee``.
+    Additionally, the ``scrape`` method should now ``yield`` objects instead of calling ``save_committee``.
 
-    .. note:: Recall that as before, if this method dispatches to others, it should call them with ``yield from`` and they should be converted to
-         yield as needed.
+    .. note:: Recall that, as before, if the ``scrape`` method dispatches other methods, it should call them with ``yield from``, and they should be converted to ``yield`` objects as needed.
 
 4) Update ``Committee`` references to ``Organization``:
 
-    The old constructor was ``Committee(chamber, committee, subcommittee)``.  Now constructing a committee ``Organization`` looks like::
+    The old constructor was ``Committee(chamber, committee, subcommittee)``.  Under pupa, constructing a committee looks like::
 
         committee = Organization(name, chamber=chamber, classification='committee')
 
-    If you're dealing with a subcommittee you need to pass ``parent_id``.  ``parent_id`` can be:
+    Notably,
 
-        * another ``Organization`` instance
-        * a dictionary like ``{'name': 'Appropriations', 'classification': 'lower'}`` which will find the House Appropriations committee at import time
+        * the ``committee`` attribute is now ``name``
+        * if you were manually accessing ``committee['members']`` for any reason, that information is now in ``_related``; a common use of this is checking whether any members were saved: `like here <https://github.com/openstates/openstates/commit/2b7536bf3aa7ab94d417b24bb27db0a3aaf16bb5#diff-ef744b16368b99cdd23e4c1bd29bd76aL58>`_
+
+    If you're instantiating a subcommittee, you'll need to pass ``parent_id`` as an arbument as well. ``parent_id`` can be:
+
+        * another instance of ``Organization``
+        * a dictionary, like ``{'name': 'Appropriations', 'classification': 'lower'}`` which will find the House Appropriations committee at import-time
 
         .. TODO: ^this is sort of a weird edge case, and could probably be handled a lot better in pupa
 
-    Things to change:
+    **Example diff:** `NC committees conversion <https://github.com/openstates/openstates/commit/2b7536bf3aa7ab94d417b24bb27db0a3aaf16bb5?w=1>`_
 
-        * the ``.committee`` attribute is now ``.name``
-        * if you were manually accessing ``committee['members']`` for any reason that information is now in ``_related``  (A common use case is checking if any members were saved: `like here <https://github.com/openstates/openstates/commit/2b7536bf3aa7ab94d417b24bb27db0a3aaf16bb5#diff-ef744b16368b99cdd23e4c1bd29bd76aL58>`_.
-
-    But for the most part that's it.
-
-    **example diff:** `NC committees conversion <https://github.com/openstates/openstates/commit/2b7536bf3aa7ab94d417b24bb27db0a3aaf16bb5?w=1>`_
-
-5) Running your committee scraper
+5) Running your committee scraper:
 
     Just like before, we should now be able to run our scraper::
 
         $ docker-compose run scrape nc committees
 
-    This will just run our new work, among the output will be::
+    Among the output should be::
 
         nc (scrape)
           committees: {}
@@ -93,13 +91,13 @@ Here are the steps:
             membership: 1114
             organization: 59
 
-    Check that the organization number seems in line with what you expected.
+    Check that this organization count is in line with what you expect from the state.
 
-    And at the end the billy output should match::
+    And at the end the billy output, the number of committees should be the same::
 
         02:42:17 INFO billy: imported 59 committee files
 
-    At this point your committee scraper is most likely ready to go.  Be sure to update your PR and let a reviewer know.
+    At this point, your committee scraper is ready to go. Be sure to commit, and update your PR!
 
 
 Converting Bills
