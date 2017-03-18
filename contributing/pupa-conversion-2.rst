@@ -13,7 +13,7 @@ In pupa, committees are just a type of ``Organization``. You've already seen ``O
 
 Here's how to convert the scraper:
 
-1) Update the imports and the class definition:
+1) Update the imports and class definition:
 
     ::
 
@@ -103,9 +103,9 @@ Here's how to convert the scraper:
 Converting Bills
 ----------------
 
-The bill scraper is one of the more complex scrapers, but fixing it still follows the same basic principles:
+Bill scrapers are more complex, but conversion to pupa still follows the same basic principles.
 
-1) Update imports and class definition
+1) Update the imports and class definition:
 
     ::
 
@@ -124,13 +124,13 @@ The bill scraper is one of the more complex scrapers, but fixing it still follow
         # new
         class NCBillScraper(Scraper):
 
-2) Just like we've done before, add the new class name to metadata. (see committees if you need an example)
+2) Using the same pattern as you did with people and committees, add the bill scraper's class name to the state's metadata file.
 
-3) Update ``scrape()`` method:
+3) Update the ``scrape`` method:
 
-    The billy scrape method looked like: ``scrape(session, chambers)`` and required both parameters.
+    The billy scrape method was ``scrape(session, chambers)``, and required both parameters.
 
-    We again need it to scrape the latest sessions bills by default, we can change it to look something like::
+    We can change it to look something like::
 
         def scrape(self, session=None, chamber=None):
             if not session:
@@ -141,11 +141,11 @@ The bill scraper is one of the more complex scrapers, but fixing it still follow
             for chamber in chambers:
                 yield from self.scrape_chamber(chamber, session)
 
-4) Update usage of ``Bill`` and its methods:
+4) Update the usage of ``Bill`` and its methods:
 
-    There are a lot of small changes here, it is likely easiest to list the examples:
+    There are a lot of small changes from billy to pupa regarding bills; here are examples of the main alterations needed:
 
-    the constructor::
+    Altering the names of the constructor's arguments::
 
         # old
         Bill(session, chamber, bill_id, title, type=bill_type)
@@ -154,37 +154,36 @@ The bill scraper is one of the more complex scrapers, but fixing it still follow
         Bill(bill_id, legislative_session=session, chamber=chamber,
              title=title, classification=bill_type)
 
-
     Adding versions and documents::
 
         # old
-        bill.add_version(version_name, version_url, mimetype='text/html')
+        bill.add_version(name, url, mimetype='text/html')
 
         # new
-        bill.add_version_link(version_name, version_url, media_type='text/html')
+        bill.add_version_link(note, url, media_type='text/html')
 
-        # documents would be add_document_link
+        # And analogous for documents, using `add_document_link()`
 
-    .. note:: If there is an on_duplicate param, most likely you'll want to replace it with on_duplicate='ignore', but it may be worth discussion on the ticket.
+    .. note:: If there is an ``on_duplicate`` parameter, most likely you'll want to replace it with ``on_duplicate='ignore'``, but it may be worth discussion on the Open States Slack or on the pupa GitHub ticket.
 
     Adding sponsors::
 
         # old
-        bill.add_sponsor(spon_type, name, chamber=chamber)
+        bill.add_sponsor(type, name, chamber=chamber)
 
         # new
         bill.add_sponsorship(name, classification=spon_type,
                              entity_type='person', primary=is_primary)
-        # if the scraper is aware of committee sponsors you should pass
-        # 'organization' for those
+        # If the bill is sponsored by a committee, you should set the
+        # `entity_type` to 'organization'
 
     Adding actions::
 
         # old
-        bill.add_action(actor, action, act_date, type=atype)
+        bill.add_action(actor, action, date, type=action_type)
 
         # new
-        bill.add_action(action, act_date, chamber=actor, classification=atype)
+        bill.add_action(description, date, chamber=actor, classification=atype)
         # act_date should be formatted YYYY-MM-DD
 
     Adding votes::
@@ -195,44 +194,40 @@ The bill scraper is one of the more complex scrapers, but fixing it still follow
         # new
         bill.add_vote_event(vote)
 
-    see :ref:`converting-votes` for details on converting a ``Vote`` into a ``VoteEvent``
+    See "Converting Votes" for details on converting a ``Vote`` into a ``VoteEvent``.
 
     .. TODO: add_companion?
 
 5) Fix action categorization:
 
-    If you try to run now you'll get an error that the action types aren't validating.
+    If you try to run the scraper at this point, you'll get an error that the action types fail validation.
 
-    The `billy action types <http://docs.openstates.org/en/latest/policies/categorization.html#action-types>`_ have been normalized in Open Civic Data,
-    and the new types are `documented there <http://docs.opencivicdata.org/en/latest/scrape/bills.html>`_.
+    The `billy action types <http://docs.openstates.org/en/latest/policies/categorization.html#action-types>`_ have been normalized in Open Civic Data, and the new types are `documented there <http://docs.opencivicdata.org/en/latest/scrape/bills.html>`_.
 
-    To ease this transition, you can run::
+    To ease this transition, you can run this utility script to perform an in-place conversion from billy action types to pupa action types.
+
+    **To be on the safe side, commit your code prior to running this script, in case it malfunctions unexpectedly.**
+
+    ::
 
         $ ./scripts/convert-actions.sh openstates/nc/bills.py
 
-    And it will do an in-place conversion of the action classifications.
+    You'll also want to remove any categorization of actions as ``'other'``, simply opting for ``None`` instead.
 
-    **Be sure to have your work checked-in prior to running on the file in case it does anything weird.**
+    At this point, your bill scraper should be ready to go.
 
-    You'll also want to remove any categorization of actions as 'other', simply opting for ``None`` instead.
+    **Example diff:** `NC bill conversion <https://github.com/openstates/openstates/commit/f8cc29b>`_
 
-    At this point your bill scraper should be ready to go.
-
-    **example diff:** `NC bill conversion <https://github.com/openstates/openstates/commit/f8cc29b>`_
-
-
-.. _converting-votes:
 
 Converting Votes
 ----------------
 
-Votes are a relatively easy process.  There are two major changes:
+Votes are a relatively easy process. There are two major changes:
 
-* They are now called ``VoteEvent``.
-* Instead of using 'other' for all votes that aren't a 'yes' or 'no', types like 'excused', 'absent' and 'not voting' have been added.
+* The class is now named ``VoteEvent`` instead of ``Vote``.
+* Instead of using ``'other'`` for all votes that aren't a 'yes' or a 'no', types like ``'excused'``, ``'absent'`` and ``'not voting'`` have been added.
 
-1) Update imports and class definition
-
+1) Update imports and class definition:
 
     ::
         # old
@@ -250,67 +245,65 @@ Votes are a relatively easy process.  There are two major changes:
         # new
         class NCVoteScraper(Scraper):
 
-2) Just like we've done before, add the new class name to metadata. (see committees if you need an example)
+2) Just like we've done before, add the new class instance to metadata.
 
-3) Update ``scrape()`` method:
+3) Update ``scrape`` method:
 
-    The logic here will be almost identical to what you did in the bill scraper.
-
-    We need it to scrape the latest sessions votes by default.
+    The logic here will be almost identical to what you did in the bill scraper. Note that we need it to scrape the latest session's votes by default.
 
 4) Update usage of ``Vote`` to ``VoteEvent``:
 
     The old ``Vote`` constructor took a ton of parameters::
 
+        # old
         Vote(chamber, date, motion, passed,
              yes_count, no_count, other_count, type='other', **kwargs)
 
-        # often there'd be additional parameters:
+    Sometimes there'd be even more parameters stuffed into the ``kwargs``, like::
 
+        # also old
         Vote(chamber, date, motion, passed,
              yes_count, no_count, other_count, type='other',
-             bill_id=bill_id, bill_chamber=bill_chamber, session=session,
+             bill_id=bill_id, bill_chamber=bill_chamber, session=session
              )
 
-    Be careful since many of the older scrapers pass these in by position alone, it'd be easy to mistake the old order when converting.
+    Be careful, too, since many of the older scrapers pass these parameters in by position alone; it's easy to make mistakes in their order when converting.
 
     ``VoteEvent`` requires all parameters to be passed by keyword::
 
+        # new
         VoteEvent(chamber=chamber,
                   start_date='2017-03-04',
                   motion_text=motion,
                   result='pass' if passed else 'fail',
                   classification='passage',     # can also be 'other'
 
-                  # required if not being passed to bill.add_vote
+                  # These parameters are required if
+                  # the VoteEvent isn't being passed to `Bill.add_vote_event()`
                   legislative_session=session,
                   bill=bill_id,
                   bill_chamber=bill_chamber)
 
     You'll notice that in the instantiation of the class we didn't pass
-    yes_count, no_count, other_count.  Instead we'll set these using ``set_count``::
+    ``yes_count``, ``no_count``, ``other_count``.  Instead we'll set these using the ``set_count`` method::
 
         vote.set_count('yes', yes_count)
         vote.set_count('no', no_count)
 
-        # if possible, we'll split other out into the various values given
+        # if possible, we'll split 'other' out into more specific values
         vote.set_count('absent', absent_count)
         vote.set_count('not voting', not_voting_count)
 
+    Individual legislators's votes are added to the ``VoteEvent`` in the same way as in billy, with the only exception being ``.other``::
 
-    Individual legislator's votes are added to the ``VoteEvent`` in the same way they were, the only exception being ``.other``::
-
-        # these haven't changed
+        # these haven't changed between billy and pupa
         vote.yes(yes_voter_name)
         vote.no(no_voter_name)
 
-        # old-style
+        # old
         vote.other(other_voter_name)
-        # new-style
+        # new
         vote.vote('not voting', not_voting_name)
         vote.vote('absent', absentee_name)
 
-
-    Our example state of NC was a bit more complex to change due to some unusual behavior, but nonetheless here's the **example diff:** `NC vote conversion <https://github.com/openstates/openstates/commit/61aaa4eb>`_
-
-        
+    Our example state of NC was a bit more complex to change, but nonetheless here's the **example diff:** `NC vote conversion <https://github.com/openstates/openstates/commit/61aaa4eb>`_
