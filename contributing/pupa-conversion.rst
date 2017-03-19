@@ -118,9 +118,9 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
         * ``photo_url`` has become ``image``
         * ``full_name`` has become ``name``
         * under billy, contact information is added via ``add_office(type, note, address, phone, email)``; with pupa, contact information is added via ``add_contact_detail(type, value, note)``, with OCD ``type`` coming from `the Popolo standard <http://www.popoloproject.com/specs/contact-detail.html>`_
-        * instead ``url`` as a legislator's canonical URL, add any such links with ``Person.add_link``
+        * instead of ``url`` as a legislator's canonical URL, add any such links with ``Person.add_link``
         * billy allowed arbitrary parameters on a ``Legislator`` object; in pupa, these should now be in a ``Person.extras`` dictionary
-        * instead of ``self.save_legislator(Legislator)`` from billy, simply ``yield person`` (make sure that any function that creates ``Person`` objectss outside of ``scrape`` is invoked by ``scrape`` using ``yield from``, as described above)
+        * instead of ``self.save_legislator(Legislator)`` from billy, simply ``yield person`` (make sure that any function that creates ``Person`` objects outside of ``scrape`` is invoked by ``scrape`` using ``yield from``, as described above)
 
     Again, it might be a good idea to look over the docs for `billy legislator scrapers <https://billy.readthedocs.io/en/latest/scrapers.html#legislators>`_
     and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape/people.html>`_.
