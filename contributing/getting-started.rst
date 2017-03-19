@@ -80,9 +80,9 @@ This directory is a python module with 50+ subpackages, one for each state.
 Let's look inside one::
 
     $ ls openstates/nc
-    __init__.py    bills.py       committees.py  legislators.py votes.py
+    __init__.py    bills.py       committees.py  people.py      votes.py
 
-Some will differ a bit, but all will have ``__init__.py``, ``bills.py``, and ``legislators.py``.  These are the NC scrapers that collect these objects.
+Some will differ a bit, but all will have ``__init__.py``, ``bills.py``, and either ``legislators.py`` or ``people.py``.  These are the NC scrapers that collect these objects.
 
 **Step 4)** Let's finish setting up our environment by creating the database::
 
