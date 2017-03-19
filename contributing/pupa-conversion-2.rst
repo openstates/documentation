@@ -59,14 +59,18 @@ Here's how to convert the scraper:
 
     The old constructor was ``Committee(chamber, committee, subcommittee)``.  Under pupa, constructing a committee looks like::
 
-        committee = Organization(name, chamber=chamber, classification='committee')
+        committee = Organization(
+            name,
+            chamber=chamber,  # 'upper' or 'lower'
+            classification='committee'
+        )
 
     Notably,
 
         * the ``committee`` attribute is now ``name``
         * if you were manually accessing ``committee['members']`` for any reason, that information is now in ``_related``; a common use of this is checking whether any members were saved: `like here <https://github.com/openstates/openstates/commit/2b7536bf3aa7ab94d417b24bb27db0a3aaf16bb5#diff-ef744b16368b99cdd23e4c1bd29bd76aL58>`_
 
-    If you're instantiating a subcommittee, you'll need to pass ``parent_id`` as an arbument as well. ``parent_id`` can be:
+    If you're instantiating a subcommittee, you'll need to pass ``parent_id`` as an argument as well. ``parent_id`` can be:
 
         * another instance of ``Organization``
         * a dictionary, like ``{'name': 'Appropriations', 'classification': 'lower'}`` which will find the House Appropriations committee at import-time
@@ -151,8 +155,13 @@ Bill scrapers are more complex, but conversion to pupa still follows the same ba
         Bill(session, chamber, bill_id, title, type=bill_type)
 
         # new
-        Bill(bill_id, legislative_session=session, chamber=chamber,
-             title=title, classification=bill_type)
+        Bill(
+            bill_id,
+            legislative_session=session,  # A session name from the metadata's `legislative_sessions`
+            chamber=chamber,  # 'upper' or 'lower'
+            title=title,
+            classification=bill_type  # eg, 'bill', 'resolution', 'joint resolution', etc.
+        )
 
     Adding versions and documents::
 
@@ -160,7 +169,11 @@ Bill scrapers are more complex, but conversion to pupa still follows the same ba
         bill.add_version(name, url, mimetype='text/html')
 
         # new
-        bill.add_version_link(note, url, media_type='text/html')
+        bill.add_version_link(
+            note,  # Description of the version from the state; eg, 'As introduced', 'Amended', etc.
+            url,
+            media_type='text/html'  # Still a MIME type
+        )
 
         # And analogous for documents, using `add_document_link()`
 
@@ -172,10 +185,12 @@ Bill scrapers are more complex, but conversion to pupa still follows the same ba
         bill.add_sponsor(type, name, chamber=chamber)
 
         # new
-        bill.add_sponsorship(name, classification=spon_type,
-                             entity_type='person', primary=is_primary)
-        # If the bill is sponsored by a committee, you should set the
-        # `entity_type` to 'organization'
+        bill.add_sponsorship(
+            name,  # Sponsor's name
+            classification=spon_type,  # The state's classification; eg, 'co-sponsor', 'co-author', 'primary'
+            entity_type='person',  # If the bill is sponsored by a committee, this should be 'organization' instead
+            primary=is_primary  # Boolean value
+        )
 
     Adding actions::
 
@@ -183,8 +198,12 @@ Bill scrapers are more complex, but conversion to pupa still follows the same ba
         bill.add_action(actor, action, date, type=action_type)
 
         # new
-        bill.add_action(description, date, chamber=actor, classification=atype)
-        # act_date should be formatted YYYY-MM-DD
+        bill.add_action(
+            description,  # Action description, from the state
+            date,  # `YYYY-MM-DD` format
+            chamber=actor,  # 'upper' or 'lower'
+            classification=action_type  # Options explained in the next section
+        )
 
     Adding votes::
 
@@ -272,17 +291,16 @@ Votes are a relatively easy process. There are two major changes:
     ``VoteEvent`` requires all parameters to be passed by keyword::
 
         # new
-        VoteEvent(chamber=chamber,
-                  start_date='2017-03-04',
-                  motion_text=motion,
-                  result='pass' if passed else 'fail',
-                  classification='passage',     # can also be 'other'
-
-                  # These parameters are required if
-                  # the VoteEvent isn't being passed to `Bill.add_vote_event()`
-                  legislative_session=session,
-                  bill=bill_id,
-                  bill_chamber=bill_chamber)
+        VoteEvent(
+            chamber=chamber,  # 'upper' or 'lower'
+            start_date='2017-03-04', # 'YYYY-MM-DD' format
+            motion_text=motion,
+            result=passed, # Boolean value
+            classification='passage',  # Can also be 'other'
+            legislative_session=bill_session,
+            bill=bill_id,
+            bill_chamber=bill_chamber
+        )
 
     You'll notice that in the instantiation of the class we didn't pass
     ``yes_count``, ``no_count``, ``other_count``.  Instead we'll set these using the ``set_count`` method::
