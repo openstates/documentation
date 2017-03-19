@@ -154,7 +154,7 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
 
     **Example diff:** `converted legislator scraper <https://github.com/openstates/openstates/commit/1f96aaaf5d7de49986c84b8d339c7e3f4ab4262e>`_ (there may be significant differences between the North Carolina example and your state)
 
-4) Revisiting the metadata:
+5) Revisiting the metadata:
 
     We now need to make one small change to the metadata (ie, the ``__init__.py`` file) to let pupa know about our person scraper. Import our new scraper at the top of ``openstates/nc/__init__.py``::
 
@@ -166,7 +166,7 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
             'people': NCPersonScraper,
         }
 
-5) Running your first scraper:
+6) Running your first scraper:
 
     Now let's try giving it a run::
 
