@@ -66,7 +66,7 @@ Here's how to convert the scraper:
         * the ``committee`` attribute is now ``name``
         * if you were manually accessing ``committee['members']`` for any reason, that information is now in ``_related``; a common use of this is checking whether any members were saved: `like here <https://github.com/openstates/openstates/commit/2b7536bf3aa7ab94d417b24bb27db0a3aaf16bb5#diff-ef744b16368b99cdd23e4c1bd29bd76aL58>`_
 
-    If you're instantiating a subcommittee, you'll need to pass ``parent_id`` as an arbument as well. ``parent_id`` can be:
+    If you're instantiating a subcommittee, you'll need to pass ``parent_id`` as an argument as well. ``parent_id`` can be:
 
         * another instance of ``Organization``
         * a dictionary, like ``{'name': 'Appropriations', 'classification': 'lower'}`` which will find the House Appropriations committee at import-time
