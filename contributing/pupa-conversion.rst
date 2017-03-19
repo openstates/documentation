@@ -91,6 +91,8 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
     to this::
     
         class NCPersonScraper(Scraper):
+    
+    Note that if your class also subclasses from something else like ``LXMLMixin``, do not remove that. For example, if you had ``class NCLegislatorScraper(LegislatorScraper, LXMLMixin):``, then you would change it to ``class NCPersonScraper(Scraper, LXMLMixin):``.
 
 3) Update the ``scrape`` method's signature:
 
