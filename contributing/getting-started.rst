@@ -108,8 +108,7 @@ Running Our First Scraper
 
 **Step 6)** Choose a state. 
 
-**Step 7)** Let's run <your state's> legislator scraper::
-(substitute your state for 'nc' below)
+**Step 7)** Let's run <your state's> legislator scraper (substitute your state for 'nc' below) ::
 
     $ docker-compose run openstates nc --legislators --fast
 
