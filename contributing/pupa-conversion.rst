@@ -148,7 +148,7 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
     Again, it might be a good idea to look over the docs for `billy legislator scrapers <https://billy.readthedocs.io/en/latest/scrapers.html#legislators>`_
     and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape/people.html>`_.
 
-    Since you're also switching from Python 2 (billy) to Python 3 (pupa), you may need to make syntax changes to the module. For instance, if ``Dict.iteritems()`` is used anywhere, it would have to be replaced by ``Dict.items()``.
+    Since you're also switching from Python 2 (billy) to Python 3 (pupa), you may need to make syntax changes to the module. For instance, if ``Dict.iteritems()`` is used anywhere, it would have to be replaced by ``Dict.items()``. Also, ``xrange`` will need to be replaced by ``range``.
 
     At this point, your person scraper should essentially be converted.
 
