@@ -72,7 +72,7 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
 
     $ git mv openstates/nc/legislators.py openstates/nc/people.py
 
-2) Update the ``import`` statement:
+2) Open ``people.py`` and update the ``import`` statement:
 
     At the top of the file, you'll see something like::
 
@@ -84,7 +84,13 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
 
     (pupa doesn't have different ``Scraper`` subclasses.)
 
-    Also, rename the file's instantiated scraper (so that it refers to ``Person`` rather than ``Legislator``), and make it a subclass of ``Scraper`` rather than ``LegislatorScraper``.
+    Also, rename the file's instantiated scraper (so that it refers to ``Person`` rather than ``Legislator``), and make it a subclass of ``Scraper`` rather than ``LegislatorScraper``. Using the North Carolina example, you would convert this::
+    
+        class NCLegislatorScraper(LegislatorScraper):
+    
+    to this::
+    
+        class NCPersonScraper(Scraper):
 
 3) Update the ``scrape`` method's signature:
 
