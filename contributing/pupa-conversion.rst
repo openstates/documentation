@@ -5,9 +5,12 @@ Converting Scrapers to pupa
 
     This document is a work-in-progress; if any part of it is unclear, `suggest changes or improvements <http://github.com/openstates/documentation>`_.
 
-As of early 2017, we've embarked on a process to switch away from our legacy backend (billy) that has been in use since 2009, to a more modern backend (pupa) based on the `Open Civic Data <https://github.com/opencivicdata>`_ specification and tools.
+As of early 2017, we've embarked on a process to switch away from our legacy backend (billy) that has been in use since 2009, to a more modern backend (pupa) based on the `Open Civic Data <https://github.com/opencivicdata>`_ specification and tools. We've written in a few places why this change is important and worth our time:
 
-This task will require updates to every one of our scrapers. Given that this is such a big task, converting scrapers from billy to pupa is one of the best ways to help out on Open States right now. Follow this guide and start converting a state!
+* https://github.com/openstates/meta/wiki/2017-Roadmap#pupa-ization
+* https://blog.openstates.org/post/whats-next-2017/
+
+This task will require updates to every single one of our scrapers. Given that this is such a big task, and will enable many more converting scrapers from billy to pupa is one of the best ways to help out on Open States right now. Follow this guide and start converting a state!
 
 
 Before You Start
@@ -111,16 +114,28 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
 
     This change is typically minimal; there's a lot of code in billy legislator scrapers, but very little of it should need to be edited for the purposes of pupa.
 
-    Instead of instantiating ``Legislator`` objects, instantiate ``Person`` objects instead. Properties that need to be changed include:
+    Instead of instantiating ``Legislator`` objects, instantiate ``Person`` objects instead. Unlike ``Legislator`` constructors in billy, ``Person`` constructors in pupa require all arguments to be named. And several properties need to be changed:
 
         * ``term`` is no longer a parameter
         * ``chamber`` has become ``primary_org``
         * ``photo_url`` has become ``image``
         * ``full_name`` has become ``name``
-        * under billy, contact information is added via ``add_office(type, note, address, phone, email)``; with pupa, contact information is added via ``add_contact_detail(type, value, note)``, with OCD ``type`` coming from `the Popolo standard <http://www.popoloproject.com/specs/contact-detail.html>`_
-        * instead ``url`` as a legislator's canonical URL, add any such links with ``Person.add_link``
+        * instead of ``url`` as a legislator's canonical URL, add any such links with the ``Person.add_link`` method
         * billy allowed arbitrary parameters on a ``Legislator`` object; in pupa, these should now be in a ``Person.extras`` dictionary
-        * instead of ``self.save_legislator(Legislator)`` from billy, simply ``yield person`` (make sure that any function that creates ``Person`` objectss outside of ``scrape`` is invoked by ``scrape`` using ``yield from``, as described above)
+
+    Update the ``add_office`` method to ``add_contact_detail``::
+
+        # old
+        add_office(type, note, address, phone, email)
+
+        # new
+        add_contact_detail(
+            type,  # One of the vCard RDF standards, see [this list](http://www.popoloproject.com/specs/contact-detail.html)
+            value,
+            note  # Eg, 'District Office', 'Capitol Office'
+        )
+
+    Instead of ``self.save_legislator(Legislator)`` from billy, simply ``yield person`` (make sure that any function that creates ``Person`` objectss outside of ``scrape`` is invoked by ``scrape`` using ``yield from``, as described above).
 
     Again, it might be a good idea to look over the docs for `billy legislator scrapers <https://billy.readthedocs.io/en/latest/scrapers.html#legislators>`_
     and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape/people.html>`_.
