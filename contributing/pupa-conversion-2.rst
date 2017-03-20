@@ -210,8 +210,8 @@ Bill scrapers are more complex, but conversion to pupa still follows the same ba
         # old
         bill.add_vote(vote)
 
-        # new
-        bill.add_vote_event(vote)
+        # new - yield vote from scrape
+        yield vote
 
     See "Converting Votes" for details on converting a ``Vote`` into a ``VoteEvent``.
 
@@ -297,10 +297,17 @@ Votes are a relatively easy process. There are two major changes:
             motion_text=motion,
             result=passed, # Boolean value
             classification='passage',  # Can also be 'other'
+
+            # Provide a Bill instance to link with the VoteEvent...
+            bill=bill_instance,
+            # or pass in bill informaion if a Bill instance isn't available.
             legislative_session=bill_session,
             bill=bill_id,
             bill_chamber=bill_chamber
         )
+
+    Instead of linking a ``Bill`` to a ``VoteEvent`` by calling ``bill.add_vote(vote)``, a ``Bill`` instance or identifying bill information
+    is passed directly to the ``VoteEvent`` constructor.
 
     You'll notice that in the instantiation of the class we didn't pass
     ``yes_count``, ``no_count``, ``other_count``.  Instead we'll set these using the ``set_count`` method::
