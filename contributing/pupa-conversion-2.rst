@@ -295,7 +295,7 @@ Votes are a relatively easy process. There are two major changes:
             chamber=chamber,  # 'upper' or 'lower'
             start_date='2017-03-04', # 'YYYY-MM-DD' format
             motion_text=motion,
-            result=passed, # Boolean value
+            result=passed, # String value, 'pass' or 'fail'
             classification='passage',  # Can also be 'other'
 
             # Provide a Bill instance to link with the VoteEvent...
