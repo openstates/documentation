@@ -52,6 +52,8 @@ Each state has static metadata found in ``openstates/{{state}}/__init__.py``. Th
 
     Then, set the ``url`` property inside to a valid URL representing the state's government. You may need to modify the file further, such as indicating the number of seats in the upper and lower houses of your state.
 
+    Delete the `session_list` function from `billy_metadata/nc.py` add it to the jurisdiction subclass in the newly created `openstates/nc/__init__.py` file, renamed to `get_session_list`.
+
     **Example diff:** `updated NC metadata <https://github.com/openstates/openstates/commit/3adba1ebe903fc448260b6a75133d6799a5eb27d>`_
 
 At this point you should have a fairly complete OCD jurisdiction defined. Next, we'll move on to converting the legislator scraper.
