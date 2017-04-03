@@ -332,3 +332,9 @@ Votes are a relatively easy process. There are two major changes:
         vote.vote('absent', absentee_name)
 
     Our example state of NC was a bit more complex to change, but nonetheless here's the **example diff:** `NC vote conversion <https://github.com/openstates/openstates/commit/61aaa4eb>`_
+
+
+Ensuring code quality
+---------------------
+
+Along with the conversion from billy to pupa, we're also using the `flake8 <http://flake8.pycqa.org>`_ utility to ensure code quality. To check for code quality warnings, add your state directory to the `flake8.sh` script. Then run `./flake8.sh` and fix any warnings it reports.
