@@ -334,6 +334,81 @@ Votes are a relatively easy process. There are two major changes:
     Our example state of NC was a bit more complex to change, but nonetheless here's the **example diff:** `NC vote conversion <https://github.com/openstates/openstates/commit/61aaa4eb>`_
 
 
+Converting Events
+-----------------
+
+Events are also relatively easy as well as short. :
+
+* The class name is unchanged ``Event``.
+* We need to localize the time for that we can add a new property _tz to the EventScraper class.
+(I will take the example of mi events for clarity, in the meantime it is recommended to have a look at this:https://github.com/openstates/openstates/pull/1494/commits/0f6541f496aba30f49eb47492ab7bd0b429fb6c9)
+
+1) Update imports and class definition::
+
+        # old
+        from billy.scrape.events import Event, EventScraper
+
+        # new
+        from pupa.scrape import Scraper, Event
+
+    and::
+
+        # old
+        class MIEventScraper(EventScraper, LXMLMixin):
+            jurisdiction = 'mi'
+        # new
+        class MIEventScraper(Scraper):
+            _tz = pytz.timezone('US/Eastern') # 'US/Eastern' is timezone for mi, you have to google the timezone for the state you are working on, available timezones in pytz can be seen with ``pytz.all_timezones`` 
+
+2) Just like we've done before, add the new class instance to metadata.
+
+3) Update ``scrape`` method:
+
+    The logic here will be almost identical to what you did in the bill,vote scraper. Note that we need it to scrape the latest session's votes by default. ``yield event`` instead of using ``self.save_event(event)``.
+
+4) Update usage of ``Event``:
+
+    The old ``Event`` constructor took a ton of parameters::
+
+        # old
+        Event(session, datetime, 'committee:meeting', title, location=where)
+
+    Be careful, too, since many of the older scrapers pass these parameters in by position alone; it's easy to make mistakes in their order when converting.
+
+    The new ``Event`` requires all parameters to be passed by keyword::
+
+        # new
+        event = Event(
+                name=title,
+                start_time=self._tz.localize(datetime),
+                timezone=self._tz.zone,
+                location_name=where,
+                )
+    ``add_source`` will not change for the new ``Event``.
+
+    Adding participants have not changed much::
+        
+        # old
+        event.add_participant('chair', chair_name, 'legislator', chamber=chamber)
+
+        # new
+        event.add_participant(chair_name, type='legislator', note='chair') # Here type can be anything legislator/committee etc, note can also be chair/host etc.
+        
+    
+    Adding related Bill to the event::
+    
+        # old
+        event.add_related_bill(
+                bill_id=related_bill,
+                type='consideration',
+                description=relation
+        )
+            
+        # new
+        item = event.add_agenda_item(relation)
+        item.add_bill(related_bill)
+        
+
 Ensuring code quality
 ---------------------
 
