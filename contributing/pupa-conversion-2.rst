@@ -342,7 +342,8 @@ Events are also relatively easy as well as short. :
 * The class name is unchanged ``Event``.
 * We need to localize the time for that we can add a new property _tz to the EventScraper class.
 
-(I will take the example of mi events for clarity, in the meantime it is recommended to have a look at this:https://github.com/openstates/openstates/pull/1494/commits/0f6541f496aba30f49eb47492ab7bd0b429fb6c9)
+(I will take the example of mi events for clarity, in the meantime it is recommended to have a look at this:  
+`MI events diff <https://github.com/openstates/openstates/pull/1494/commits/0f6541f496aba30f49eb47492ab7bd0b429fb6c9>`_   )
 
 1) Update imports and class definition::
 
@@ -385,6 +386,7 @@ Events are also relatively easy as well as short. :
                 timezone=self._tz.zone,
                 location_name=where,
                 )
+    
     ``add_source`` will not change for the new ``Event``.
 
     Adding participants have not changed much::
@@ -395,7 +397,6 @@ Events are also relatively easy as well as short. :
         # new
         event.add_participant(chair_name, type='legislator', note='chair') # Here type can be anything legislator/committee etc, note can also be chair/host etc.
         
-    
     Adding related Bill to the event::
     
         # old
