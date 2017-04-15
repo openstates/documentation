@@ -5,9 +5,12 @@ Converting Scrapers to pupa
 
     This document is a work-in-progress; if any part of it is unclear, `suggest changes or improvements <http://github.com/openstates/documentation>`_.
 
-As of early 2017, we've embarked on a process to switch away from our legacy backend (billy) that has been in use since 2009, to a more modern backend (pupa) based on the `Open Civic Data <https://github.com/opencivicdata>`_ specification and tools.
+As of early 2017, we've embarked on a process to switch away from our legacy backend (billy) that has been in use since 2009, to a more modern backend (pupa) based on the `Open Civic Data <https://github.com/opencivicdata>`_ specification and tools. We've written in a few places why this change is important and worth our time:
 
-This task will require updates to every one of our scrapers. Given that this is such a big task, converting scrapers from billy to pupa is one of the best ways to help out on Open States right now. Follow this guide and start converting a state!
+* https://github.com/openstates/meta/wiki/2017-Roadmap#pupa-ization
+* https://blog.openstates.org/post/whats-next-2017/
+
+This task will require updates to every single one of our scrapers. Given that this is such a big task, and will enable many more converting scrapers from billy to pupa is one of the best ways to help out on Open States right now. Follow this guide and start converting a state!
 
 
 Before You Start
@@ -48,6 +51,8 @@ Each state has static metadata found in ``openstates/{{state}}/__init__.py``. Th
         $ ./scripts/convert_metadata.py nc > openstates/nc/__init__.py
 
     Then, set the ``url`` property inside to a valid URL representing the state's government. You may need to modify the file further, such as indicating the number of seats in the upper and lower houses of your state.
+
+    Delete the `session_list` function from `billy_metadata/nc.py` add it to the jurisdiction subclass in the newly created `openstates/nc/__init__.py` file, renamed to `get_session_list`.
 
     **Example diff:** `updated NC metadata <https://github.com/openstates/openstates/commit/3adba1ebe903fc448260b6a75133d6799a5eb27d>`_
 
