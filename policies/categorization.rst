@@ -58,9 +58,10 @@ for various actions almost never match up.  To make analysis and the building of
 Vote Types
 ----------
 
-Similarly to actions, we make an effort to categorize the motion being voted upon.  You'll find these values in the `type` field of vote objects.
+Similarly to actions, we make an effort to categorize the motion being voted upon.  You'll find these values in the `type` field of vote objects in billy or the `categorization` field in pupa.
 
 Possible values:
+
 * **passage** - This is a vote to pass (either out of committee or a chamber)
 * **amendment** -  Vote on amending a bill
 * **veto_override** - Vote to override an executive veto

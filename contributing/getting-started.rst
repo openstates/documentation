@@ -110,9 +110,9 @@ Running Our First Scraper
 
 **Step 7)** Let's run <your state's> legislator scraper (substitute your state for 'nc' below) ::
 
-    $ docker-compose run openstates nc --legislators --fast
+    $ docker-compose run --rm openstates nc --legislators --fast
 
-The parameters you pass after ``docker-compose run openstates`` are passed to ``billy-update``.  Here we're saying that we're running NC's scrapers, just want to run the legislators scraper, and that we want to do it in "fast mode."  A full description of ``billy-update`` is available `in the billy docs <http://docs.openstates.org/projects/billy/en/latest/scripts.html#billy-update-state>`_.
+The parameters you pass after ``docker-compose run --rm openstates`` are passed to ``billy-update``.  Here we're saying that we're running NC's scrapers, just want to run the legislators scraper, and that we want to do it in "fast mode."  A full description of ``billy-update`` is available `in the billy docs <http://docs.openstates.org/projects/billy/en/latest/scripts.html#billy-update-state>`_.
 
 So, ``billy-update`` kicks off a full scrape of NC's current legislators.  You'll start seeing things like::
 

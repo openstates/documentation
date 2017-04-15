@@ -59,14 +59,18 @@ Here's how to convert the scraper:
 
     The old constructor was ``Committee(chamber, committee, subcommittee)``.  Under pupa, constructing a committee looks like::
 
-        committee = Organization(name, chamber=chamber, classification='committee')
+        committee = Organization(
+            name,
+            chamber=chamber,  # 'upper' or 'lower'
+            classification='committee'
+        )
 
     Notably,
 
         * the ``committee`` attribute is now ``name``
         * if you were manually accessing ``committee['members']`` for any reason, that information is now in ``_related``; a common use of this is checking whether any members were saved: `like here <https://github.com/openstates/openstates/commit/2b7536bf3aa7ab94d417b24bb27db0a3aaf16bb5#diff-ef744b16368b99cdd23e4c1bd29bd76aL58>`_
 
-    If you're instantiating a subcommittee, you'll need to pass ``parent_id`` as an arbument as well. ``parent_id`` can be:
+    If you're instantiating a subcommittee, you'll need to pass ``parent_id`` as an argument as well. ``parent_id`` can be:
 
         * another instance of ``Organization``
         * a dictionary, like ``{'name': 'Appropriations', 'classification': 'lower'}`` which will find the House Appropriations committee at import-time
@@ -151,8 +155,13 @@ Bill scrapers are more complex, but conversion to pupa still follows the same ba
         Bill(session, chamber, bill_id, title, type=bill_type)
 
         # new
-        Bill(bill_id, legislative_session=session, chamber=chamber,
-             title=title, classification=bill_type)
+        Bill(
+            bill_id,
+            legislative_session=session,  # A session name from the metadata's `legislative_sessions`
+            chamber=chamber,  # 'upper' or 'lower'
+            title=title,
+            classification=bill_type  # eg, 'bill', 'resolution', 'joint resolution', etc.
+        )
 
     Adding versions and documents::
 
@@ -160,7 +169,11 @@ Bill scrapers are more complex, but conversion to pupa still follows the same ba
         bill.add_version(name, url, mimetype='text/html')
 
         # new
-        bill.add_version_link(note, url, media_type='text/html')
+        bill.add_version_link(
+            note,  # Description of the version from the state; eg, 'As introduced', 'Amended', etc.
+            url,
+            media_type='text/html'  # Still a MIME type
+        )
 
         # And analogous for documents, using `add_document_link()`
 
@@ -172,10 +185,12 @@ Bill scrapers are more complex, but conversion to pupa still follows the same ba
         bill.add_sponsor(type, name, chamber=chamber)
 
         # new
-        bill.add_sponsorship(name, classification=spon_type,
-                             entity_type='person', primary=is_primary)
-        # If the bill is sponsored by a committee, you should set the
-        # `entity_type` to 'organization'
+        bill.add_sponsorship(
+            name,  # Sponsor's name
+            classification=spon_type,  # The state's classification; eg, 'co-sponsor', 'co-author', 'primary'
+            entity_type='person',  # If the bill is sponsored by a committee, this should be 'organization' instead
+            primary=is_primary  # Boolean value
+        )
 
     Adding actions::
 
@@ -183,16 +198,20 @@ Bill scrapers are more complex, but conversion to pupa still follows the same ba
         bill.add_action(actor, action, date, type=action_type)
 
         # new
-        bill.add_action(description, date, chamber=actor, classification=atype)
-        # act_date should be formatted YYYY-MM-DD
+        bill.add_action(
+            description,  # Action description, from the state
+            date,  # `YYYY-MM-DD` format
+            chamber=actor,  # 'upper' or 'lower'
+            classification=action_type  # Options explained in the next section
+        )
 
     Adding votes::
 
         # old
         bill.add_vote(vote)
 
-        # new
-        bill.add_vote_event(vote)
+        # new - yield vote from scrape
+        yield vote
 
     See "Converting Votes" for details on converting a ``Vote`` into a ``VoteEvent``.
 
@@ -272,17 +291,23 @@ Votes are a relatively easy process. There are two major changes:
     ``VoteEvent`` requires all parameters to be passed by keyword::
 
         # new
-        VoteEvent(chamber=chamber,
-                  start_date='2017-03-04',
-                  motion_text=motion,
-                  result='pass' if passed else 'fail',
-                  classification='passage',     # can also be 'other'
+        VoteEvent(
+            chamber=chamber,  # 'upper' or 'lower'
+            start_date='2017-03-04', # 'YYYY-MM-DD' format
+            motion_text=motion,
+            result=passed, # String value, 'pass' or 'fail'
+            classification='passage',  # Can also be 'other'
 
-                  # These parameters are required if
-                  # the VoteEvent isn't being passed to `Bill.add_vote_event()`
-                  legislative_session=session,
-                  bill=bill_id,
-                  bill_chamber=bill_chamber)
+            # Provide a Bill instance to link with the VoteEvent...
+            bill=bill_instance,
+            # or pass in bill informaion if a Bill instance isn't available.
+            legislative_session=bill_session,
+            bill=bill_id,
+            bill_chamber=bill_chamber
+        )
+
+    Instead of linking a ``Bill`` to a ``VoteEvent`` by calling ``bill.add_vote(vote)``, a ``Bill`` instance or identifying bill information
+    is passed directly to the ``VoteEvent`` constructor.
 
     You'll notice that in the instantiation of the class we didn't pass
     ``yes_count``, ``no_count``, ``other_count``.  Instead we'll set these using the ``set_count`` method::
@@ -307,3 +332,86 @@ Votes are a relatively easy process. There are two major changes:
         vote.vote('absent', absentee_name)
 
     Our example state of NC was a bit more complex to change, but nonetheless here's the **example diff:** `NC vote conversion <https://github.com/openstates/openstates/commit/61aaa4eb>`_
+
+
+Converting Events
+-----------------
+
+Events are also relatively easy as well as short. :
+
+* The class name is unchanged ``Event``.
+* We need to localize the time for that we can add a new property _tz to the EventScraper class.
+
+(I will take the example of mi events for clarity, in the meantime it is recommended to have a look at this:  
+`MI events diff <https://github.com/openstates/openstates/pull/1494/commits/0f6541f496aba30f49eb47492ab7bd0b429fb6c9>`_   )
+
+1) Update imports and class definition::
+
+        # old
+        from billy.scrape.events import Event, EventScraper
+
+        # new
+        from pupa.scrape import Scraper, Event
+
+    and::
+
+        # old
+        class MIEventScraper(EventScraper, LXMLMixin):
+            jurisdiction = 'mi'
+        # new
+        class MIEventScraper(Scraper):
+            _tz = pytz.timezone('US/Eastern') # 'US/Eastern' is timezone for mi, you have to google the timezone for the state you are working on, available timezones in pytz can be seen with ``pytz.all_timezones`` 
+
+2) Just like we've done before, add the new class instance to metadata.
+
+3) Update ``scrape`` method:
+
+    The logic here will be almost identical to what you did in the bill,vote scraper. Note that we need it to scrape the latest session's votes by default. ``yield event`` instead of using ``self.save_event(event)``.
+
+4) Update usage of ``Event``:
+
+    The old ``Event`` constructor took a ton of parameters::
+
+        # old
+        Event(session, datetime, 'committee:meeting', title, location=where)
+
+    Be careful, too, since many of the older scrapers pass these parameters in by position alone; it's easy to make mistakes in their order when converting.
+
+    The new ``Event`` requires all parameters to be passed by keyword::
+
+        # new
+        event = Event(
+                name=title,
+                start_time=self._tz.localize(datetime),
+                timezone=self._tz.zone,
+                location_name=where,
+                )
+    
+    ``add_source`` will not change for the new ``Event``.
+
+    Adding participants have not changed much::
+        
+        # old
+        event.add_participant('chair', chair_name, 'legislator', chamber=chamber)
+
+        # new
+        event.add_participant(chair_name, type='legislator', note='chair') # Here type can be anything legislator/committee etc, note can also be chair/host etc.
+        
+    Adding related Bill to the event::
+    
+        # old
+        event.add_related_bill(
+                bill_id=related_bill,
+                type='consideration',
+                description=relation
+        )
+            
+        # new
+        item = event.add_agenda_item(relation)
+        item.add_bill(related_bill)
+        
+
+Ensuring code quality
+---------------------
+
+Along with the conversion from billy to pupa, we're also using the `flake8 <http://flake8.pycqa.org>`_ utility to ensure code quality. To check for code quality warnings, add your state directory to the `flake8.sh` script. Then run `./flake8.sh` and fix any warnings it reports.
