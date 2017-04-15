@@ -80,9 +80,9 @@ This directory is a python module with 50+ subpackages, one for each state.
 Let's look inside one::
 
     $ ls openstates/nc
-    __init__.py    bills.py       committees.py  legislators.py votes.py
+    __init__.py    bills.py       committees.py  people.py      votes.py
 
-Some will differ a bit, but all will have ``__init__.py``, ``bills.py``, and ``legislators.py``.  These are the NC scrapers that collect these objects.
+Some will differ a bit, but all will have ``__init__.py``, ``bills.py``, and either ``legislators.py`` or ``people.py``.  These are the NC scrapers that collect these objects.
 
 **Step 4)** Let's finish setting up our environment by creating the database::
 
@@ -131,7 +131,7 @@ So, ``billy-update`` kicks off a full scrape of NC's current legislators.  You'l
 
 The first thing is billy's *run plan*, what it is going to try to scrape.
 This is presented as a sanity check, and each of these values can be controlled by different command line parameters.
-In this case we see we're running scrape,import, and report for nc legislators for 2017-2018.  The scraper chose the most recent available session/term for us.
+In this case we see we're running the *scrape*, *import*, and *report* actions for nc legislators for 2017-2018.  The scraper chose the most recent available session/term for us.
 
 Depending on the scraper you run, this part takes a while.  Some bill scrapers can take hours to run, but most legislator scrapers are a few minutes.
 

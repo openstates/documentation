@@ -77,7 +77,7 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
 
     $ git mv openstates/nc/legislators.py openstates/nc/people.py
 
-2) Update the ``import`` statement:
+2) Open ``people.py`` and update the ``import`` statement:
 
     At the top of the file, you'll see something like::
 
@@ -89,7 +89,15 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
 
     (pupa doesn't have different ``Scraper`` subclasses.)
 
-    Also, rename the file's instantiated scraper (so that it refers to ``Person`` rather than ``Legislator``), and make it a subclass of ``Scraper`` rather than ``LegislatorScraper``.
+    Also, rename the file's instantiated scraper (so that it refers to ``Person`` rather than ``Legislator``), and make it a subclass of ``Scraper`` rather than ``LegislatorScraper``. Using the North Carolina example, you would convert this::
+    
+        class NCLegislatorScraper(LegislatorScraper):
+    
+    to this::
+    
+        class NCPersonScraper(Scraper):
+    
+    Note that if your class also subclasses from something else like ``LXMLMixin``, do not remove that. For example, if you had ``class NCLegislatorScraper(LegislatorScraper, LXMLMixin):``, then you would change it to ``class NCPersonScraper(Scraper, LXMLMixin):``.
 
 3) Update the ``scrape`` method's signature:
 
@@ -116,40 +124,42 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
 
     This change is typically minimal; there's a lot of code in billy legislator scrapers, but very little of it should need to be edited for the purposes of pupa.
 
-    Instead of instantiating ``Legislator`` objects, instantiate ``Person`` objects instead. Unlike ``Legislator`` constructors in billy, ``Person`` constructors in pupa require all arguments to be named. And several properties need to be changed:
-
-        * ``term`` is no longer a parameter
-        * ``chamber`` has become ``primary_org``
-        * ``photo_url`` has become ``image``
-        * ``full_name`` has become ``name``
-        * under billy, contact information is added via ``add_office(type, note, address, phone, email)``; with pupa, contact information is added via ``add_contact_detail(type, value, note)``, with OCD ``type`` coming from `the Popolo standard <http://www.popoloproject.com/specs/contact-detail.html>`_ Possible types include: ['address', 'email', 'url', 'fax', 'text', 'voice', 'video', 'pager', 'textphone']
-        * instead of ``url`` as a legislator's canonical URL, add any such links with the ``Person.add_link`` method
-        * billy allowed arbitrary parameters on a ``Legislator`` object; in pupa, these should now be in a ``Person.extras`` dictionary
-
-    Update the ``add_office`` method to ``add_contact_detail``::
-
-        # old
-        add_office(type, note, address, phone, email)
-
-        # new
-        add_contact_detail(
-            type,  # One of the vCard RDF standards, see [this list](http://www.popoloproject.com/specs/contact-detail.html)
-            value,
-            note  # Eg, 'District Office', 'Capitol Office'
-        )
-
-    Instead of ``self.save_legislator(Legislator)`` from billy, simply ``yield person`` (make sure that any function that creates ``Person`` objectss outside of ``scrape`` is invoked by ``scrape`` using ``yield from``, as described above).
+    Instead of instantiating ``Legislator`` objects, instantiate ``Person`` objects. You should also name the variable that will hold your ``Person`` as ``person``, whereas your ``Legislator`` was probably assigned to ``leg`` or ``legislator``. Then, in all remaining code, replace ``leg``/``legislator`` with ``person``.
+    
+    All arguments passed to ``Person`` need to be named; some states' old scrapers do not assign names to all arguments, so you will need to add argument names in those cases. Also, some named arguments have changed names. Your ``Person`` should only take these five arguments:
+    
+        * ``primary_org`` (may have been ``chamber``)
+        * ``district``
+        * ``name`` (may have been ``full_name``)
+        * ``party``
+        * ``image`` (may have been ``photo_url``)
+    
+    Using the ``chamber`` to ``primary_org`` change as an example, your instantiation of the ``Legislator`` will probably say either ``chamber=chamber`` or just ``chamber``, but in either case should be changed to ``primary_org=chamber`` when instantiating the ``Person``. Note that there is no need to change the variable name earlier in the code.
+    
+    Instead of passing ``url`` as an argument, add any such links with ``Person.add_link``.
+    
+    ``term`` should no longer be given as an argument. Any extra arguments that were given to ``Legislator`` (besides the five listed above) can be placed in ``Person``'s ``extras`` dictionary. For example, if ``Legislator`` was given a ``town_represented``, you would instead do something like this::
+    
+        person.extras['town_represented'] = town_represented
+    
+    For contact information, instead of using ``add_office``, you'll use ``Person``'s ``add_contact_detail`` method. For example, adding a district office's phone number might look something like this::
+    
+        person.add_contact_detail(type='voice', value=contact_info['phone'], note='District Office')
+    
+    Note that ``contact_info['phone']`` above should be replaced with wherever that phone number was stored earlier in the code. The ``type`` comes from `the Popolo standard <http://www.popoloproject.com/specs/contact-detail.html>`_.
+    
+    Instead of ``self.save_legislator(Legislator)`` from billy, end with ``yield person``. (Make sure that any function that creates ``Person`` objects outside of ``scrape`` is invoked by ``scrape`` using ``yield from``, as described above.)
 
     Again, it might be a good idea to look over the docs for `billy legislator scrapers <https://billy.readthedocs.io/en/latest/scrapers.html#legislators>`_
     and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape/people.html>`_.
 
-    Since you're also switching from Python 2 (billy) to Python 3 (pupa), you may need to make syntax changes to the module. For instance, if ``Dict.iteritems()`` is used anywhere, it would have to be replaced by ``Dict.items()``.
+    Since you're also switching from Python 2 (billy) to Python 3 (pupa), you may need to make syntax changes to the module. For instance, if ``Dict.iteritems()`` is used anywhere, it would have to be replaced by ``Dict.items()``. Also, ``xrange`` will need to be replaced by ``range``.
 
     At this point, your person scraper should essentially be converted.
 
-    **Example diff:** `converted legislator scraper <https://github.com/openstates/openstates/commit/1f96aaaf5d7de49986c84b8d339c7e3f4ab4262e>`_
+    **Example diff:** `converted legislator scraper <https://github.com/openstates/openstates/commit/1f96aaaf5d7de49986c84b8d339c7e3f4ab4262e>`_ (there may be significant differences between the North Carolina example and your state)
 
-4) Revisiting the metadata:
+5) Revisiting the metadata:
 
     We now need to make one small change to the metadata (ie, the ``__init__.py`` file) to let pupa know about our person scraper. Import our new scraper at the top of ``openstates/nc/__init__.py``::
 
@@ -161,7 +171,7 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
             'people': NCPersonScraper,
         }
 
-5) Running your first scraper:
+6) Running your first scraper:
 
     Now let's try giving it a run::
 
