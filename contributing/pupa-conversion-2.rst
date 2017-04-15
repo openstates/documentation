@@ -341,6 +341,7 @@ Events are also relatively easy as well as short. :
 
 * The class name is unchanged ``Event``.
 * We need to localize the time for that we can add a new property _tz to the EventScraper class.
+
 (I will take the example of mi events for clarity, in the meantime it is recommended to have a look at this:https://github.com/openstates/openstates/pull/1494/commits/0f6541f496aba30f49eb47492ab7bd0b429fb6c9)
 
 1) Update imports and class definition::
