@@ -122,6 +122,7 @@ and `pupa person scrapers <https://opencivicdata.readthedocs.io/en/latest/scrape
         * ``chamber`` has become ``primary_org``
         * ``photo_url`` has become ``image``
         * ``full_name`` has become ``name``
+        * under billy, contact information is added via ``add_office(type, note, address, phone, email)``; with pupa, contact information is added via ``add_contact_detail(type, value, note)``, with OCD ``type`` coming from `the Popolo standard <http://www.popoloproject.com/specs/contact-detail.html>`_ Possible types include: ['address', 'email', 'url', 'fax', 'text', 'voice', 'video', 'pager', 'textphone']
         * instead of ``url`` as a legislator's canonical URL, add any such links with the ``Person.add_link`` method
         * billy allowed arbitrary parameters on a ``Legislator`` object; in pupa, these should now be in a ``Person.extras`` dictionary
 
