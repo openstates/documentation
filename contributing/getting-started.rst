@@ -93,6 +93,17 @@ The output of the '... up database...' command should end with::
 
 If, instead, these commands fail, check that your copy of docker-compose is a recent vintage.
 
+.. note::
+
+    If you encounter an error like::
+
+        database_1        | chown: changing ownership of '/dev/stdout': Permission denied
+        database_1        | chown: changing ownership of '/dev/stderr': Permission denied
+
+    It is likely related to `Docker Issue #31243 <https://github.com/docker/docker/issues/31243>`_
+    which you can work around by adding ``tty: true`` in your docker-compose's ``database``
+    entry.
+
 At this point we have two docker images:
 
 database
