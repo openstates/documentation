@@ -19,5 +19,9 @@ Currently only two states require API keys:
 * Indiana - http://docs.api.iga.in.gov/api.html
 
   * API Key Request Process: Email Bob Amos (bob.amos@iga.in.gov or bamos@iga.in.gov), and include your name, address, phone, email address and company. Also indicate that you have read the terms of service at the link above.
+  
+* Oregon - https://www.oregonlegislature.gov/citizen_engagement/Pages/data.aspx
+
+  * API Credentials Request Process: Email help.leg@oregonlegislature.gov and include your name, e-mail address, company or organization name, and contact phone number. Also please read over the API agreement and let them know you agree to the terms in the email.
 
 If you're in need of an API key and unable to via these channels please contact a member of the core team to discuss getting access to the development key.
