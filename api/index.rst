@@ -8,16 +8,14 @@ Basics
 ------
 
 -  All API calls are URLs in the form ``https://openstates.org/api/v1/METHOD/``
--  Responses are `JSON <http://json.org>`__ unless otherwise specified.
+-  Responses are `JSON <http://json.org>`_ unless otherwise specified.
 -  If an error occurs the response will be a plain text error message
    with an appropriate HTTP error code (404 if object is not found, 401
    if authentication fails, etc.).
--  At the moment API keys are not required, if you have a Sunlight API key
-   that will continue to work, if not please consider passing your email
-   address as the ``apikey`` parameter so we can contact you when we
-   require API keys again.
+-  To use the API you must `register for an API key <https://openstates.org/api/register/>`_.
+-  Once activated, pass your API key via the ``apikey`` query paramter or the ``X-API-KEY`` header.
 -  All changes to the API will be announced on the `Open States Google
-   Group <https://groups.google.com/group/fifty-state-project/>`__. It is
+   Group <https://groups.google.com/group/fifty-state-project/>`_. It is
    recommended you subscribe if you're using the API.
 -  For Python users, there's an official
    `pyopenstates <http://docs.openstates.org/projects/pyopenstates/en/latest/>`__ package
