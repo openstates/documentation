@@ -410,6 +410,12 @@ Events are also relatively easy as well as short. :
         item = event.add_agenda_item(relation)
         item.add_bill(related_bill)
         
+    Adding agenda to the event, previously were passing ``agenda`` as a parameter directly to event at definition time::
+        
+        # old 
+        Event(..,agenda=agenda,..)
+        # new
+        event.add_agenda_item(agenda)
 
 Ensuring code quality
 ---------------------
