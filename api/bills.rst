@@ -80,6 +80,7 @@ The following fields are available on bill objects:
    -  ``motion`` Name of motion being voted upon (e.g. 'Passage')
    -  ``chamber`` Chamber vote took place in ('upper', 'lower', 'joint')
    -  ``date`` Date of vote.
+   -  ``passed`` Boolean; true if *vote* (not bill) succeeded.
    -  ``id`` Open States-assigned unique identifier for vote.
    -  ``state`` State abbreviation.
    -  ``session`` Session key (see :ref:`metadata` for details).
