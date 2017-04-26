@@ -353,14 +353,14 @@ Events are also relatively easy as well as short. :
         # new
         from pupa.scrape import Scraper, Event
 
-    and::
+        and 
 
         # old
         class MIEventScraper(EventScraper, LXMLMixin):
             jurisdiction = 'mi'
         # new
         class MIEventScraper(Scraper):
-            _tz = pytz.timezone('US/Eastern') # 'US/Eastern' is timezone for mi, you have to google the timezone for the state you are working on, available timezones in pytz can be seen with ``pytz.all_timezones`` 
+            _tz = pytz.timezone('US/Eastern') # 'US/Eastern' is timezone for mi, you have to google the timezone for the state you are working on, available timezones in pytz can be seen with "pytz.all_timezones". 
 
 2) Just like we've done before, add the new class instance to metadata.
 
@@ -395,7 +395,7 @@ Events are also relatively easy as well as short. :
         event.add_participant('chair', chair_name, 'legislator', chamber=chamber)
 
         # new
-        event.add_participant(chair_name, type='legislator', note='chair') # Here type can be anything legislator/committee etc, note can also be chair/host etc.
+        event.add_participant(chair_name, type='legislator', note='chair') # Here type can be anything "legislator"/"committee" etc, note can also be "chair"/"host" etc.
         
     Adding related Bill to the event::
     
@@ -410,6 +410,12 @@ Events are also relatively easy as well as short. :
         item = event.add_agenda_item(relation)
         item.add_bill(related_bill)
         
+    Adding agenda to the event, previously were passing ``agenda`` as a parameter directly to event at definition time::
+        
+        # old 
+        Event(..,agenda=agenda,..)
+        # new
+        event.add_agenda_item(agenda)
 
 Ensuring code quality
 ---------------------
