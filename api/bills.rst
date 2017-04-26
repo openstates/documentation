@@ -18,9 +18,9 @@ The following fields are available on bill objects:
 -  ``session`` Session key (see :ref:`metadata` for details).
 -  ``bill_id`` The official id of the bill (e.g. 'SB 27', 'A 2111')
 -  ``title`` The official title of the bill.
-  Bill titles vary widely in size and content by state.
-  Some are over 10KB long, while others are a few non-specific words,
-  e.g. "Regarding taxes".
+   Bill titles vary widely in size and content by state.
+   Some are over 10KB long, while others are a few non-specific words,
+   e.g. "Regarding taxes".
 -  ``alternate_titles`` List of alternate titles that the bill has had.
    (Often empty.)
 -  ``action_dates`` Dictionary of notable action dates (useful for
