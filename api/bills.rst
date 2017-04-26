@@ -81,9 +81,9 @@ The following fields are available on bill objects:
    following keys:
 
    -  ``motion`` Name of motion being voted upon (e.g. 'Passage').
-   The nature of these varies widely by state.
-   Some states have a concise vocabulary, some a sloppy vocabulary.
-   Other states include a vote ID in the motion, rendering every motion unique.
+      The nature of these varies widely by state.
+      Some states have a concise vocabulary, some a sloppy vocabulary.
+      Other states include a vote ID in the motion, rendering every motion unique.
    -  ``chamber`` Chamber vote took place in ('upper', 'lower', 'joint')
    -  ``date`` Date of vote.
    -  ``passed`` Boolean; true if *vote* (not bill) succeeded.
