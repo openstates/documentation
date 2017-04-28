@@ -18,6 +18,9 @@ The following fields are available on bill objects:
 -  ``session`` Session key (see :ref:`metadata` for details).
 -  ``bill_id`` The official id of the bill (e.g. 'SB 27', 'A 2111')
 -  ``title`` The official title of the bill.
+   Bill titles vary widely in size and content by state.
+   Some are over 10KB long, while others are a few non-specific words,
+   e.g. "Regarding taxes".
 -  ``alternate_titles`` List of alternate titles that the bill has had.
    (Often empty.)
 -  ``action_dates`` Dictionary of notable action dates (useful for
@@ -77,9 +80,13 @@ The following fields are available on bill objects:
 -  ``votes`` List of vote objects. A vote object consists of the
    following keys:
 
-   -  ``motion`` Name of motion being voted upon (e.g. 'Passage')
+   -  ``motion`` Name of motion being voted upon (e.g. 'Passage').
+      The nature of these varies widely by state.
+      Some states have a concise vocabulary, some a sloppy vocabulary.
+      Other states include a vote ID in the motion, rendering every motion unique.
    -  ``chamber`` Chamber vote took place in ('upper', 'lower', 'joint')
    -  ``date`` Date of vote.
+   -  ``passed`` Boolean; true if *vote* (not bill) succeeded.
    -  ``id`` Open States-assigned unique identifier for vote.
    -  ``state`` State abbreviation.
    -  ``session`` Session key (see :ref:`metadata` for details).
