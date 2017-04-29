@@ -10,7 +10,7 @@ Our policy:
 * We will maintain (when possible) two copies of credentials, one for development and one for production.  (Thus minimizing the chance that a mistake made w/ a development key will jeopardize our ability to scrape.)
 * We encourage developers to get an API key of their own, but if necessary we can share our testing key in limited circumstances.
 
-Currently only two states require API keys:
+Currently only a few states require API keys:
 
 * New York - http://legislation.nysenate.gov/static/docs/html/index.html
 
