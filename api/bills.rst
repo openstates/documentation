@@ -77,8 +77,9 @@ The following fields are available on bill objects:
    -  ``doc_id`` An Open States-assigned id uniquely identifying this
       document.
 
--  ``votes`` List of vote objects. A vote object consists of the
-   following keys:
+-  ``votes`` List of vote objects.  Votes may be in the past or future;
+      a future vote does not have vote-outcome fields like ``passed``.
+      A vote object consists of the following fields:
 
    -  ``motion`` Name of motion being voted upon (e.g. 'Passage').
       The nature of these varies widely by state.
