@@ -165,7 +165,7 @@ Additional Parameters
 See the above ``action_dates``, ``created_at``, and ``updated_at``
 documentation for the meaning of these dates.
 
-The API will not return exceedingly large responses, so it may be
+``page`` and ``per_page`` The API will not return exceedingly large responses, so it may be
 necessary to use ``page`` and ``per_page`` to control the number of
 results returned:
 
