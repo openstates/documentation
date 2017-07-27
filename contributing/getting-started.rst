@@ -59,9 +59,11 @@ At this point you'll have a local ``openstates`` directory.  Let's go ahead and 
 
     $ cd openstates
     $ ls
-    AUTHORS            README.rst         experimental       requirements.txt
-    Dockerfile         billy_settings.py  manual_data        scripts
-    LICENSE            docker-compose.yml openstates         setup.py
+    AUTHORS.md          README.rst          openstates/         setup.cfg
+    CODE_OF_CONDUCT.md  billy_metadata/     pupa-scrape.sh*     setup.py
+    Dockerfile          billy_settings.py   pupa2billy/
+    Dockerfile-alpine   docker-compose.yml  requirements.txt
+    LICENSE             manual_data/        scripts/
 
 There are a few top level text files, some docker files, which we'll come back to shortly, and some directories.  The directory we care about is the one called ``openstates``.::
 
@@ -82,84 +84,69 @@ Let's look inside one::
     $ ls openstates/nc
     __init__.py    bills.py       committees.py  people.py      votes.py
 
-Some will differ a bit, but all will have ``__init__.py``, ``bills.py``, and either ``legislators.py`` or ``people.py``.  These are the NC scrapers that collect these objects.
-
-**Step 4)** Let's finish setting up our environment by creating the database::
-
-    $ docker-compose up database
-    
-The output of the '... up database...' command should end with::
-    NETWORK  [thread1] waiting for connections on port 27017    
-
-If, instead, these commands fail, check that your copy of docker-compose is a recent vintage.
-
-.. note::
-
-    If you encounter an error like::
-
-        database_1        | chown: changing ownership of '/dev/stdout': Permission denied
-        database_1        | chown: changing ownership of '/dev/stderr': Permission denied
-
-    It is likely related to `Docker Issue #31243 <https://github.com/docker/docker/issues/31243>`_
-    which you can work around by adding ``tty: true`` in your docker-compose's ``database``
-    entry.
-
-At this point we have two docker images:
-
-database
-    A MongoDB database that we're going to use to store our scraped data.
-openstates
-    The image that will run our scrapers.
-
-And we're ready to go!
+Some states' directories will differ a bit, but all will have ``__init__.py``, ``bills.py``, and ``people.py``.  These are the NC scrapers that collect these objects.
 
 Running Our First Scraper
 -------------------------
-**Step 5)** Open a new terminal tab in preparation for the '... run openstates ...' command.
+**Step 4)** Choose a state; we'll be using NC for this tutorial.
 
-**Step 6)** Choose a state. 
+**Step 5)** Let's run <your state's> legislator scraper (substitute your state for 'nc' below) ::
 
-**Step 7)** Let's run <your state's> legislator scraper (substitute your state for 'nc' below) ::
+    $ docker-compose run --rm scrape nc --fastmode
 
-    $ docker-compose run --rm openstates nc --legislators --fast
+The parameters you pass after ``docker-compose run --rm scrape`` are passed to ``pupa update``.  Here we're saying that we're running NC's scrapers, and that we want to do it in "fast mode."
 
-The parameters you pass after ``docker-compose run --rm openstates`` are passed to ``billy-update``.  Here we're saying that we're running NC's scrapers, just want to run the legislators scraper, and that we want to do it in "fast mode."  A full description of ``billy-update`` is available `in the billy docs <http://docs.openstates.org/projects/billy/en/latest/scripts.html#billy-update-state>`_.
+You'll see the database start up, which is a separate Docker container, coordinated by the same docker-compose file::
 
-So, ``billy-update`` kicks off a full scrape of NC's current legislators.  You'll start seeing things like::
+    Starting openstates_database_1 ... done
 
-    18:15:16 INFO billy: billy-update abbr=nc
-        actions=scrape,import,report
-        types=legislators
-        sessions=2017
-        terms=2017-2018
-    18:15:18 INFO scrapelib: GET - http://www.ncga.state.nc.us/gascripts/members/memberListNoPic.pl?sChamber=Senate
-    18:15:19 INFO scrapelib: GET - http://www.ncga.state.nc.us/gascripts/members/viewMember.pl?sChamber=Senate&nUserID=392
-    18:15:20 INFO billy: Save person John M. Alexander, Jr.
-    18:15:21 INFO scrapelib: GET - http://www.ncga.state.nc.us/gascripts/members/viewMember.pl?sChamber=Senate&nUserID=396
-    18:15:22 INFO billy: Save person Deanna Ballard
-    18:15:22 INFO scrapelib: GET - http://www.ncga.state.nc.us/gascripts/members/viewMember.pl?sChamber=Senate&nUserID=369
-    18:15:23 INFO billy: Save person Chad Barefoot
+And the *run plan*, which is what ``pupa`` aims to capture; in this case we're scraping the state website's data into JSON files, and then importing those JSON files into the database::
 
-The first thing is billy's *run plan*, what it is going to try to scrape.
-This is presented as a sanity check, and each of these values can be controlled by different command line parameters.
-In this case we see we're running the *scrape*, *import*, and *report* actions for nc legislators for 2017-2018.  The scraper chose the most recent available session/term for us.
+    no pupa_settings on path, using defaults
+    nc (scrape, import)
+      bills: {}
+      people: {}
+      committees: {}
+      votes: {}
 
-Depending on the scraper you run, this part takes a while.  Some bill scrapers can take hours to run, but most legislator scrapers are a few minutes.
+Then legislative posts and organizations get created, which is mostly boilerplate::
 
-At the end of the scrape you should see a message like::
+    08:46:35 INFO pupa: save jurisdiction North Carolina as jurisdiction_ocd-jurisdiction-country:us-state:nc-government.json
+    08:46:35 INFO pupa: save organization North Carolina General Assembly as organization_01d6327c-72d2-11e7-8df8-0242ac130003.json
+    08:46:35 INFO pupa: save organization Executive Office of the Governor as organization_01d63560-72d2-11e7-8df8-0242ac130003.json
+    08:46:35 INFO pupa: save organization Senate as organization_01d636e6-72d2-11e7-8df8-0242ac130003.json
+    08:46:35 INFO pupa: save post 1 as post_01d63a06-72d2-11e7-8df8-0242ac130003.json
+    08:46:35 INFO pupa: save post 2 as post_01d63b96-72d2-11e7-8df8-0242ac130003.json
+    08:46:35 INFO pupa: save post 3 as post_01d63cea-72d2-11e7-8df8-0242ac130003.json
+    08:46:35 INFO pupa: save post 4 as post_01d63e34-72d2-11e7-8df8-0242ac130003.json
+    08:46:35 INFO pupa: save post 5 as post_01d63f74-72d2-11e7-8df8-0242ac130003.json
 
-    18:19:18 INFO billy: Finished importing 169 legislator files.
+And then the actual data scraping begins, defaulting to the most recent legislative session::
 
-This means that the data is now in the database.  Congratulations, you just ran your first state scrape!
+    08:46:36 INFO pupa: no session specified, using 2017
+    08:46:36 INFO scrapelib: GET - http://www.ncga.state.nc.us/gascripts/SimpleBillInquiry/displaybills.pl?Session=2017&tab=Chamber&Chamber=Senate
+    08:46:38 INFO scrapelib: GET - http://www.ncga.state.nc.us/gascripts/BillLookUp/BillLookUp.pl?Session=2017&BillID=S1
+    08:46:39 INFO pupa: save bill SR 1 in 2017 as bill_03c7edb4-72d2-11e7-8df8-0242ac130003.json
+    08:46:39 INFO scrapelib: GET - http://www.ncga.state.nc.us/gascripts/BillLookUp/BillLookUp.pl?Session=2017&BillID=S2
+    08:46:39 INFO pupa: save bill SJR 2 in 2017 as bill_044a5fc4-72d2-11e7-8df8-0242ac130003.json
+    08:46:39 INFO scrapelib: GET - http://www.ncga.state.nc.us/gascripts/BillLookUp/BillLookUp.pl?Session=2017&BillID=S3
+    08:46:40 INFO pupa: save bill SB 3 in 2017 as bill_04e8c66e-72d2-11e7-8df8-0242ac130003.json
+    08:46:40 INFO scrapelib: GET - http://www.ncga.state.nc.us/gascripts/BillLookUp/BillLookUp.pl?Session=2017&BillID=S4
+    08:46:41 INFO pupa: save bill SB 4 in 2017 as bill_05781f08-72d2-11e7-8df8-0242ac130003.json
+    08:46:41 INFO scrapelib: GET - http://www.ncga.state.nc.us/gascripts/BillLookUp/BillLookUp.pl?Session=2017&BillID=S5
 
-**Step 8)** To access the data you just fetched, you can connect to the database as follows: ::
+Depending on the scraper you run, this part takes a while.  Some scrapers can take hours to run, but most people scrapers take only a few minutes.
+
+At the end of the scrape, you should see a conversion of the scraped data from Pupa to Billy; right now our website is still on our old Billy framework, so our production database has to use that database schema. This means that the data is now in the database. Congratulations, you just ran your first state scrape!
+
+**Step 6)** To review the data you just fetched, you can connect to the database as follows: ::
 
     $ docker-compose run --entrypoint mongo database mongodb://database
     
-This loads the mongodb shell. You may close the mongo connection with::
+This loads the mongodb shell to the Billy database. You may close the mongo connection with::
     > quit()
 
-You can also view the data in the ``data`` directory of the project root.
+You can also view the data as JSON files in the ``_data`` directory of your local repository.
 
 .. note::
     It is of course possible that the scrape fails.  If so, there's a good chance that isn't your fault, especially if it starts to run and then errors out.  Scrapers do break, and there's no guarantee North Carolina didn't change their legislator page yesterday, breaking our tutorial here.
@@ -169,9 +156,7 @@ You can also view the data in the ``data`` directory of the project root.
 Next Steps
 ----------
 
-At this point you're ready to run scrapers and contribute fixes.
-
-Right now the most important task in front of us is converting scrapers to pupa, see :doc:`pupa-conversion` and consider helping us out today!
+At this point you're ready to run scrapers and contribute fixes. Hop onto `our GitHub ticket queue<https://github.com/openstates/openstates/issues>`_, pick an Issue to solve, and then submit a Pull Request!
 
 .. _getting-help:
 
