@@ -137,7 +137,7 @@ And then the actual data scraping begins, defaulting to the most recent legislat
 
 Depending on the scraper you run, this part takes a while.  Some scrapers can take hours to run, but most people scrapers take only a few minutes.
 
-At the end of the scrape, you should see a conversion of the scraped data from Pupa to Billy; right now our website is still on our old Billy framework, so our production database has to use that database schema. This means that the data is now in the database. Congratulations, you just ran your first state scrape!
+At the end of the scrape, you should see a conversion of the scraped data `from Pupa to Billy <https://github.com/openstates/meta/wiki/2017-Roadmap#pupa-ization>`_; right now our website is still on our old Billy framework, so our production database has to use that database schema. This means that the data is now in the database. Congratulations, you just ran your first state scrape!
 
 **Step 6)** To review the data you just fetched, you can connect to the database as follows: ::
 
@@ -156,7 +156,7 @@ You can also view the data as JSON files in the ``_data`` directory of your loca
 Next Steps
 ----------
 
-At this point you're ready to run scrapers and contribute fixes. Hop onto `our GitHub ticket queue<https://github.com/openstates/openstates/issues>`_, pick an Issue to solve, and then submit a Pull Request!
+At this point you're ready to run scrapers and contribute fixes. Hop onto `our GitHub ticket queue <https://github.com/openstates/openstates/issues>`_, pick an Issue to solve, and then submit a Pull Request!
 
 .. _getting-help:
 
