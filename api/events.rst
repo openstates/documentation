@@ -71,7 +71,7 @@ This method also allows specifying an alternate output format, by
 specifying ``format=rss`` or ``format=ics``.
 
 **Example:**
-:ref:`openstates.org/api/v1/events/?state=ca <event-search-example>`
+:ref:`openstates.org/api/v1/events/?state=tx <event-search-example>`
 
 .. _event-detail:
 
