@@ -15,9 +15,9 @@ Basics
 
 This is a `GraphQL <http://graphql.org/>`_ API, and some of the concepts may seem unfamiliar at first.
 
-There is in essence, only one endpoint: https://v2-experiment.openstates.org/graphql.
+There is in essence, only one endpoint: http://alpha.openstates.org/graphql.
 
-This endpoint, when accessed over HTTP, will provide an interface that allows you to experiment with queries in the browser, it features autocomplete and a way to browse the full graph.
+This endpoint, when accessed in a browser, will provide an interface that allows you to experiment with queries in the browser, it features autocomplete and a way to browse the full graph (click the 'Docs' link in the upper right corner).
 
 A GraphQL query mirrors the structure of the data that you'd like to obtain.  For example, to obtain a list of legislators you'd pass something like::
 
@@ -31,6 +31,12 @@ A GraphQL query mirrors the structure of the data that you'd like to obtain.  Fo
         }
     }
 
+
+.. note::
+
+    If you are using the API programatically it is recommended you send the data as part of the POST body, e.g.::
+
+        curl -X POST http://alpha.openstates.org/graphql -d "query={people{edges{node{name}}}}"
 
 Of course, if you try this you'll see it doesn't work since there are some basic limits on how much data you can request at once.  We paginate with the ``first``, ``last``, ``before`` and ``after`` parameters to a root node.  So let's try that again::
 
