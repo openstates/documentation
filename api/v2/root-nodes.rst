@@ -1,5 +1,5 @@
-Root Endpoints
-==============
+Root Nodes
+==========
 
 As seen in the introduction, when constructing a query you will start your query
 at one (or more) root nodes.  The following root nodes are available:
@@ -49,6 +49,9 @@ Parameters:
     Limit to people that are currently representing the district(s) containing the point specified by the provided coordinates.
 
     Must be specified together.
+
+
+.. _bills-root:
 
 bills
 -----

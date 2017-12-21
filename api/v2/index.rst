@@ -1,12 +1,12 @@
 Open States GraphQL API
 =======================
 
-**This is an experimental API, please keep in mind:**
+**This is still an experimental API, please keep in mind:**
 
 - Backwards compatibility is not at all guaranteed yet, we are working to refine the graph structure before locking it in.
-- If you are using the API please `visit our Slack <https://openstates-slack.herokuapp.com/>`_ and make use of `our issue tracker <https://github.com/openstates/meta/issues?q=is%3Aissue+is%3Aopen+label%3Aapi-v2>`_ to file comments/issues.
+- If you are using the API please `visit our Slack <https://openstates-slack.herokuapp.com/>`_ and make use of `our issue tracker <https://github.com/openstates/new-openstates.org/issues>`_ to file comments/issues.
 - API keys are not yet required, but will be in coming weeks.  Please go ahead and `register for an API key <https://openstates.org/api/register/>`_.
-- Once activated, you'll pass your API key via the ``X-API-KEY`` header.  (No harm in doing this now.)
+- Once activated, you'll pass your API key via the ``X-API-KEY`` header.  (No harm in doing this now if you're setting up to use the API programatically.)
 - You can also check out our `introductory blog post <TKTK>`_ for more details.
 
 
@@ -386,9 +386,8 @@ Further Details
 .. toctree::
    :maxdepth: 2
 
-   root-endpoints
+   root-nodes
    types
    other
-   graphql
    examples
    changelog

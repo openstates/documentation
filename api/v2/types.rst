@@ -1,7 +1,9 @@
 Data Types
 ==========
 
-Starting at the base nodes, data in the API is represented as interconnected nodes of various types.  This page provides an overview of the nodes.  Another good way to get aquainted with the layout is to use the `GraphiQL browser <http://alpha.openstates.org/graphql>`_ (click Docs in the upper right corner).
+Starting at the base nodes, data in the API is represented as interconnected nodes of various types.  This page provides an overview of the nodes.  
+
+Another good way to get acquainted with the layout is to use the `GraphiQL browser <http://alpha.openstates.org/graphql>`_ (click Docs in the upper right corner).
 
 Jurisdictions & Sessions
 ------------------------
@@ -216,52 +218,182 @@ Each node has the following attributes and nodes available:
 BillAbstractNode
 ~~~~~~~~~~~~~~~~
 
+Represents an official abstract for a bill, each BillAbstractNode has the following attributes:
+
+* ``abstract`` - the abstract itself
+* ``note`` - optional note about origin/purpose of abstract
+* ``date`` - optional date associated with abstract
+
 BillTitleNode
 ~~~~~~~~~~~~~
+
+Represents an alternate title for a bill, each BillTitleNode has the following attributes:
+
+* ``title`` - the alternate title
+* ``note`` - optional note about origin/purpose of this title
 
 BillIdentifierNode
 ~~~~~~~~~~~~~~~~~~
 
+Represents an alternate identifier for a bill, each BillIdentifierNode has the following attributes:
+
+* ``identifier`` - the alternate identifier
+* ``scheme`` - a name for the identifier scheme
+* ``note`` - optional note about origin/purpose of this identifier
+
 BillActionNode
 ~~~~~~~~~~~~~~
+
+Represents an action taken on a bill, each BillActionNode has the following attributes and nodes:
+
+* ``organization`` - `OrganizationNode`_ where this action originated, will typically be either upper or lower chamber, or perhaps legislature as a whole.
+* ``description`` - text describing the action as provided by the jurisdiction.
+* ``date`` - date action took place (see :ref:`date-format`)
+* ``classification`` - list of zero or more normalized action types (see :ref:`action-categorization`)
+* ``order`` - integer by which actions can be sorted, not intended for display purposes
+* ``extras`` - JSON string providing extra information about this action 
+* ``vote`` - if there is a known associated vote, pointer to the relevant `VoteEventNode`_
+* ``relatedEntities`` - a list of `RelatedEntityNode`_ with known entities referenced in this action
 
 RelatedEntityNode
 ~~~~~~~~~~~~~~~~~
 
+Represents an entity that is related to a `BillActionNode`_. 
+
+* ``name`` - raw (source-provided) name of entity
+* ``entityType`` - either organization or person
+* ``organization`` - if ``entityType`` is 'organization', the resolved `OrganizationNode`_
+* ``person`` - if ``entityType`` is 'person',  the resolved `PersonNode`_
+
+See :ref:`name-matching` for details on how ``name`` relates to ``organiation`` and ``person``.
+
+.. _BillSponsorshipNode:
+
 BillSponsorshipNode
 ~~~~~~~~~~~~~~~~~~~
+
+Represents a sponsor of a bill.
+
+* ``name`` - raw (source-provided) name of sponsoring person or organization
+* ``entityType`` - either organization or person
+* ``organization`` - if ``entityType`` is 'organization', the resolved `OrganizationNode`_
+* ``person`` - if ``entityType`` is 'person',  the resolved `PersonNode`_
+* ``primary`` - boolean, true if sponsorship is considered by the jurisdiction to be "primary" (note: in many states multiple primary sponsors may exist)
+* ``classification`` - jurisdiction-provided type of sponsorship, such as "author" or "cosponsor".  These meanings typically vary across states, which is why we provide ``primary`` as a sort of indicator of the degree of sponsorship indicated.
+
+See :ref:`name-matching` for details on how ``name`` relates to ``organiation`` and ``person``.
 
 RelatedBillNode
 ~~~~~~~~~~~~~~~
 
+Represents relationships between bills.
+
+* ``identifier`` - identifier of related bill (e.g. SB 401)
+* ``legislativeSession`` - identifier of related session (in same jurisdiction)
+* ``relationType`` - type of relationship such as "companion", "prior-session", "replaced-by", or "replaces"
+* ``relatedBill`` - if the related bill is found to exist in our data, link to the `BillNode`_
+
 BillDocumentNode
 ~~~~~~~~~~~~~~~~
+
+Representation of ``documents`` and ``versions`` on bills.  A given document can have multiple links representing
+different manifestations (e.g. HTML, PDF, DOC) of the same content.
+
+* ``note`` - note describing the purpose of the document or version (e.g. Final Printing)
+* ``date`` - optional date associated with the document
+* ``links`` - list of one or more ``MimetypeLinkNode`` with actual URLs to bills.
+
 
 MimetypeLinkNode
 ~~~~~~~~~~~~~~~~
 
+Represents a single manifestation of a particular document.
+
+* ``mediaType`` - media type (aka MIME type) such as application/pdf or text/html
+* ``url`` - URL to official copy of the bill
+* ``text`` - text describing this particular manifestation (e.g. PDF)
+
+
 VoteEventNode
 ~~~~~~~~~~~~~
+
+Represents a vote taken on a bill.
+
+* ``id`` - Internal ocd-vote identifier for this bill.
+* ``identifier`` - Identifier used by jurisdiction to uniquely identify the vote.
+* ``motionText`` - Text of the motion being voted upon, such as "motion to pass the bill as amended."
+* ``motionClassification`` - List with zero or more classifications for this motion, such as "passage" or "veto-override"
+* ``startDate`` - Date on which the vote took place.  (see :ref:`date-format`)
+* ``result`` - Outcome of the vote, 'pass' or 'fail'.
+* ``organization`` - Related `OrganizationNode`_ where vote took place.
+* ``billAction`` - Optional linked `BillActionNode`_.
+* ``votes`` - List of `PersonVoteNode`_ for each individual's recorded vote.  (May not be present depending on jurisdiction.)
+* ``counts`` - List of `VoteCountNode`_ with sums of each outcome (e.g. yea/nay/abstain).
+* ``sources`` - URLs which were used in compiling Open States' information on this subject, `LinkNode`
+* ``createdAt`` - date at which this object was created in our system
+* ``updatedAt`` - date at which this object was last updated in our system
+* ``extras`` - JSON string with optional additional information about the object
+
+
+See also: `Open Civic Data vote format <http://docs.opencivicdata.org/en/latest/data/vote.html>`_.
+
 
 PersonVoteNode
 ~~~~~~~~~~~~~~
 
+Represents an individual person's vote (e.g. yea or nay) on a given bill.
+
+* ``option`` - Option chosen by this individual.  (yea, nay, abstain, other, etc.)
+* ``voterName`` - Raw name of voter as provided by jurisdiction.
+* ``voter`` - Resolved `PersonNode`_ representing voter. (See :ref:`name-matching`)
+* ``note`` - Note attached to this vote, sometimes used for explaining an "other" vote.
+
 VoteCountNode
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+
+Represents the sum of votes for a given ``option``.
+
+* ``option`` - Option in question.  (yea, nay, abstain, other, etc.)
+* ``value`` - Number of individuals voting this way.
 
 
-Assorted Nodes
---------------
+Other Nodes
+-----------
 
 IdentifierNode
 ~~~~~~~~~~~~~~
 
+Represents an alternate identifier, each with the following attributes:
+
+* ``identifier`` - the alternate identifier
+* ``scheme`` - a name for the identifier scheme
+
 NameNode
 ~~~~~~~~
+
+Represents an alterante name, each with the following attributes:
+
+* ``name`` - the alternate name
+* ``note`` - note about usage/origin of this alternate name
+* ``startDate`` - date at which this name began being valid (blank if unknown)
+* ``endDate`` - date at which this name stopped being valid (blank if unknown or still active)
 
 LinkNode
 ~~~~~~~~
 
+Represents a single link associated with a person or used as a source.
+
+* ``url`` - URL
+* ``text`` - text describing the use of this particular URL
+
+.. _ContactDetailNode:
+
 ContactDetailNode
 ~~~~~~~~~~~~~~~~~
 
+Used to represent a contact method for a given person.
+
+* ``type`` - type of contact detail (e.g. voice, email, address, etc.)
+* ``value`` - actual phone number, email address, etc.
+* ``note`` - used to group contact data by location (e.g. Home Address, Office Address)
+* ``label`` - human-readable label for this contact detail
