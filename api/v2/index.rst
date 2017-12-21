@@ -388,6 +388,7 @@ Further Details
 
    root-endpoints
    types
+   other
    graphql
    examples
    changelog

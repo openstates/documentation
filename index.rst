@@ -8,6 +8,7 @@ Documentation for Open States, its API, and how to contribute.
    :caption: Contents:
 
    api/index
+   api/v2/index
    contributing/index
    infrastructure/index
    policies/index
