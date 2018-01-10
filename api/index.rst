@@ -1,5 +1,7 @@
-Open States API
-===============
+Open States API v1
+==================
+
+.. note:: An alpha of API v2 is now available, please check out `API v2 <http://docs.openstates.org/en/latest/api/v2/>`_.
 
 Open States provides a JSON API for accessing state legislative
 information.
@@ -34,10 +36,10 @@ Open States provides data about six core data types.
     Details on legislators, including contact details.
 :ref:`committees`
     Details on committees as they currently stand.
-:ref:`events`
-    Details on upcoming events such as committee meetings and hearings.
 :ref:`districts`
     Details on districts and their boundaries.
+events 
+    Events endpoints have been deprecated and will no longer return current data as of 2018.
 
 .. toctree::
    :maxdepth: 2
@@ -47,7 +49,6 @@ Open States provides data about six core data types.
    bills
    legislators
    committees
-   events
    districts
 
 Methods
@@ -65,8 +66,6 @@ Method                               URL pattern                                
 :ref:`legislator-geo`                /legislators/geo/?lat=latitude&long=longitude       Lookup all legislators that serve districts containing a given point.
 :ref:`committee-search`              /committees/                                        Search committees by any of their attributes.
 :ref:`committee-detail`              /committees/`committee_id`/                         Get full detail for committee, including all members.
-:ref:`event-search`                  /events/                                            Search events by state and type.
-:ref:`event-detail`                  /event/`event_id`/                                  Get full detail for event.
 :ref:`district-search`               /districts/`state`/[`chamber`/]                     List districts for state (and optionally filtered by chamber).
 :ref:`district-detail`               /districts/boundary/`boundary_id`/                  Get geographic boundary for a district.
 =================================   ==================================================  =====================================================================================

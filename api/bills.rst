@@ -3,6 +3,9 @@
 Bills
 =====
 
+.. note:: An alpha of API v2 is now available, please check out `API v2 <http://docs.openstates.org/en/latest/api/v2/>`_.
+
+
 :ref:`bill-search`
     Search bills by (almost) any of their attributes, or full text.
 :ref:`bill-detail`

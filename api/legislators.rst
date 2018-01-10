@@ -3,6 +3,8 @@
 Legislators
 ===========
 
+.. note:: An alpha of API v2 is now available, please check out `API v2 <http://docs.openstates.org/en/latest/api/v2/>`_.
+
 :ref:`legislator-search`
     Search legislators by their attributes.
 :ref:`legislator-detail`
