@@ -33,10 +33,11 @@ First thing you will need to do is get a working development environment on your
   **(a)** Installing Docker:
     * On OSX: `Docker for Mac <https://docs.docker.com/docker-for-mac/>`_ is perhaps the easiest way.
     * On Windows: `Docker for Windows <https://docs.docker.com/docker-for-windows/>`_
-    * On Linux: Use your package manager of choice or `follow Docker's instructions <https://docs.docker.com/engine/installation/linux/>`_.
-        
-    (Note - Docker Compose is probably already installed by step 1(a) if not, proceed to step 1(b))    
-  **(b)**(Optional) Installing docker-compose:
+    * On Linux: Use your package manager of choice or `follow Docker's instructions <https://docs.docker.com/engine/installation/linux/>`_.        
+  
+  (Note - Docker Compose is probably already installed by step 1(a) if not, proceed to step 1(b))    
+  
+  **(b)** Installing docker-compose:
     * For easy installation on `macOS, Windows, and 64-bit Linux. <https://docs.docker.com/compose/install/#prerequisites>`_
     
 **Step 2)** Ensure that Docker and docker-compose are installed locally and check their versions::
