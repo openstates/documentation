@@ -28,14 +28,19 @@ Getting Started
 
 First thing you will need to do is get a working development environment on your local machine.  We'll do this using Docker.  No worries if you aren't familiar with Docker, you'll barely have to touch it.
 
-**Step 1)** Install Docker (and docker-compose) if not already installed on your local system.
+**Step 1)** Install Docker and docker-compose (if not already installed on your local system):
 
+  **(a)** Installing Docker:
     * On OSX: `Docker for Mac <https://docs.docker.com/docker-for-mac/>`_ is perhaps the easiest way.
     * On Windows: `Docker for Windows <https://docs.docker.com/docker-for-windows/>`_
-    * On Linux: Use your package manager of choice or `follow Docker's instructions <https://docs.docker.com/engine/installation/linux/>`_.
-    * `Generic instructions from Docker <https://docs.docker.com/compose/install/>`_.
-
-**Step 2)** Ensure that Docker (and docker-compose) are installed locally and check their versions::
+    * On Linux: Use your package manager of choice or `follow Docker's instructions <https://docs.docker.com/engine/installation/linux/>`_.        
+  
+  (Note - Docker Compose is probably already installed by step 1(a) if not, proceed to step 1(b))    
+  
+  **(b)** Installing docker-compose:
+    * For easy installation on `macOS, Windows, and 64-bit Linux. <https://docs.docker.com/compose/install/#prerequisites>`_
+    
+**Step 2)** Ensure that Docker and docker-compose are installed locally and check their versions::
 
     $ docker --version
     Docker version 17.03.0-ce, build 60ccb22
@@ -47,7 +52,7 @@ Of course, your versions may be newer. The minimum required versions for Open St
     * 1.9.0 of Docker
     * 1.10.0 of Docker Compose
 
-**Step 3)** We'll fork and clone the main `Open States scraper repository <https://github.com/openstates/openstates>`_.
+**Step 3)** We'll fork and clone the main `Open States scraper repository <https://github.com/openstates/openstates>`_:
 
   * Visit https://github.com/openstates/openstates and click the 'Fork' button.
   * Clone your fork using your tool of choice or the command line::
