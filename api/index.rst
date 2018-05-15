@@ -16,9 +16,8 @@ Basics
    if authentication fails, etc.).
 -  To use the API you must `register for an API key <https://openstates.org/api/register/>`_.
 -  Once activated, pass your API key via the ``apikey`` query paramter or the ``X-API-KEY`` header.
--  All changes to the API will be announced on the `Open States Google
-   Group <https://groups.google.com/group/fifty-state-project/>`_. It is
-   recommended you subscribe if you're using the API.
+-  All changes to the API will be announced on the `Open States Discourse
+   <https://discourse.openstates.org>`_. It is recommended you subscribe if you're using the API.
 -  For Python users, there's an official
    `pyopenstates <http://docs.openstates.org/projects/pyopenstates/en/latest/>`__ package
    available.

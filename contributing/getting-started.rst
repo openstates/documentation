@@ -163,4 +163,4 @@ At this point you're ready to run scrapers and contribute fixes. Hop onto `our G
 Getting Help
 ------------
 
-Right now the best way to get help is to `join our Slack <https://openstates-slack.herokuapp.com/>`_, plenty of the core team and other contributors are around to answer any questions you may have.
+Right now the best way to get help is to `join our Discourse <https://discourse.openstates.org/>`_, plenty of the core team and other contributors are around to answer any questions you may have.

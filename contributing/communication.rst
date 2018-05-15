@@ -10,7 +10,7 @@ Recommendations
 
 **Want to ask a general question, have a conversation, or listen in to the community?**
 
-    The best place is our `Slack Channel <https://openstates-slack.herokuapp.com/>`_. This is the main place for Open States discussion. The core team and many other contributors are present there, and we're usually able to answer questions in a timely fashion.
+    The best place is our `Discourse Forum <https://discourse.openstates.org/>`_. This is the main place for Open States discussion. The core team and many other contributors are present there, and we're usually able to answer questions in a timely fashion.
 
 **Have a private or financial question, or a security concern?**
 
@@ -39,14 +39,8 @@ Discouraged Methods of Communication
 
 **Personal email addresses of Open States developers**
 
-    Please refrain from contacting any of the developers directly outside of Slack, unless we ask you to do so.
+    Please respect our boundaries & refrain from contacting any of the developers directly, unless we ask you to do so.
 
 **Twitter (or any other social media)**
 
     We mainly use the `@openstates twitter account <https://twitter.com/openstates>`_ to make announcements, and don't have the resources to provide technical support or other feedback on Twitter.
-
-**The old Google Group**
-
-    Because of spam, every post to the group has to be moderated, which makes it a much slower and less effective way to get in touch.
-
-    We're considering deprecation of the group sometime in 2017.
