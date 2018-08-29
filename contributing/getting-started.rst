@@ -97,9 +97,9 @@ Running Our First Scraper
 
 **Step 5)** Let's run <your state's> legislator scraper (substitute your state for 'nc' below) ::
 
-    $ docker-compose run --rm scrape nc --fastmode
+    $ docker-compose run --rm scrape nc --fastmode --scrape
 
-The parameters you pass after ``docker-compose run --rm scrape`` are passed to ``pupa update``.  Here we're saying that we're running NC's scrapers, and that we want to do it in "fast mode."
+The parameters you pass after ``docker-compose run --rm scrape`` are passed to ``pupa update``.  Here we're saying that we're running NC's scrapers, and that we want to do it in "fast mode".  By default, ``pupa update`` imports results into a postgres database; the ``--scrape`` flag skips that step.
 
 You'll see the database start up, which is a separate Docker container, coordinated by the same docker-compose file::
 
