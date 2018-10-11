@@ -34,7 +34,7 @@ Open States provides data about six core data types.
 :ref:`legislators`
     Details on legislators, including contact details.
 :ref:`committees`
-    Details on committees as they currently stand.
+    Committees endpoints have been deprecated and will no longer return current data as of October 2018.
 :ref:`districts`
     Details on districts and their boundaries.
 events 
