@@ -33,10 +33,10 @@ Open States provides data about six core data types.
     Details on bills & resolutions, including actions & votes.
 :ref:`legislators`
     Details on legislators, including contact details.
-:ref:`committees`
-    Committees endpoints have been deprecated and will no longer return current data as of October 2018.
 :ref:`districts`
     Details on districts and their boundaries.
+committees
+    Committees endpoints have been deprecated and will no longer return current data as of October 2018.
 events 
     Events endpoints have been deprecated and will no longer return current data as of 2018.
 
@@ -47,7 +47,6 @@ events
    metadata
    bills
    legislators
-   committees
    districts
 
 Methods
@@ -63,8 +62,6 @@ Method                               URL pattern                                
 :ref:`legislator-search`             /legislators/                                       Search legislators by their attributes.
 :ref:`legislator-detail`             /legislators/`leg_id`/                              Get full detail for a legislator, including all roles.
 :ref:`legislator-geo`                /legislators/geo/?lat=latitude&long=longitude       Lookup all legislators that serve districts containing a given point.
-:ref:`committee-search`              /committees/                                        Search committees by any of their attributes.
-:ref:`committee-detail`              /committees/`committee_id`/                         Get full detail for committee, including all members.
 :ref:`district-search`               /districts/`state`/[`chamber`/]                     List districts for state (and optionally filtered by chamber).
 :ref:`district-detail`               /districts/boundary/`boundary_id`/                  Get geographic boundary for a district.
 =================================   ==================================================  =====================================================================================
