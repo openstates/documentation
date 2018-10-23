@@ -1,7 +1,7 @@
 Open States API v1
 ==================
 
-.. note:: An alpha of API v2 is now available, please check out `API v2 <http://docs.openstates.org/en/latest/api/v2/>`_.
+.. note:: A beta of API v2 is now available, please check out `API v2 <http://docs.openstates.org/en/latest/api/v2/>`_.
 
 Open States provides a JSON API for accessing state legislative
 information.
