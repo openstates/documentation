@@ -3,8 +3,7 @@ Open States API v1
 
 .. note:: A beta of API v2 is now available, please check out `API v2 <http://docs.openstates.org/en/latest/api/v2/>`_.
 
-Open States provides a JSON API for accessing state legislative
-information.
+Open States provides a JSON API for accessing state legislative information.
 
 Basics
 ------
@@ -22,6 +21,34 @@ Basics
    `pyopenstates <http://docs.openstates.org/projects/pyopenstates/en/latest/>`__ package
    available.
 
+Deprecation
+-----------
+
+As of November 2018 we are beginning the process of removing lesser-used portions of this API.  New applications should use API v2.
+
+None of these were used by more than 1% of API users, and their removal will help us hopefully extend the life of the existing API.
+
+**The Event & Committee endpoints are no longer supported.**  Committees are available in API v2, and events are not currently collected part of Open States.
+
+Additionally, the following parameters are no longer supported:
+
+Bill Search:
+    * sponsor_id
+    * subject
+    * type
+    * bill_id__in
+
+Legislator Search:
+    * first_name
+    * last_name
+    * active=false
+    * party
+    * term
+
+If you were using the fields= parameter to control which data was returned you'll find that it is not always respected.  To ease caching we have altered the behavior, this was designed to be done in a backwards-compatible way: we now return more fields than we used to by default, and only in select cases is it necessary to add fields= to a request to obtain fields that would otherwise be omitted.
+
+Additionally, the extra fields prefixed with + are scheduled to be removed.  They were never guaranteed, and we presume this won't affect any users.
+
 Data Types
 ----------
 
@@ -35,10 +62,6 @@ Open States provides data about six core data types.
     Details on legislators, including contact details.
 :ref:`districts`
     Details on districts and their boundaries.
-committees
-    Committees endpoints have been deprecated and will no longer return current data as of October 2018.
-events 
-    Events endpoints have been deprecated and will no longer return current data as of 2018.
 
 .. toctree::
    :maxdepth: 2
@@ -65,55 +88,3 @@ Method                               URL pattern                                
 :ref:`district-search`               /districts/`state`/[`chamber`/]                     List districts for state (and optionally filtered by chamber).
 :ref:`district-detail`               /districts/boundary/`boundary_id`/                  Get geographic boundary for a district.
 =================================   ==================================================  =====================================================================================
-
-
-Requesting A Custom Fieldset
-----------------------------
-
-On essentially every method in the API it is possible to specify a
-custom subset of fields on an object by specifying a ``fields``
-parameter.
-
-There are two use cases that this functionality aims to serve:
-
-First, if you are writing an application that loads a lot of data but
-only uses some of it, specifying a limited subset of fields can reduce
-response time and bandwidth. We've seen this approach be particuarly
-useful for mobile applications where bandwidth is at a premium.
-
-An example would be a legislator search with
-``fields=first_name,last_name,leg_id`` specified. All legislator objects
-returned will only have the three fields that you requested.
-
-Second, you can actually specify a set of fields that includes fields
-excluded in the default response.
-
-For instance, if you are conducting a bill search, it typically does not
-include sponsors, though many sites may wish to use sponsor information
-without making a request for the full bill (which is typically much
-larger as it includes versions, votes, actions, etc.).
-
-A bill search that specifies ``fields=bill_id,sponsors,title,chamber``
-will include the full sponsor listing in addition to the standard
-bill\_id, title and chamber fields.
-
-Extra Fields
-------------
-
-You may notice that the fields documented are sometimes a subset of the
-fields actually included in a response.
-
-Many times as part of our scraping process we take in data that is
-available for a given state and is either not available or does not have
-an analog in other states. Instead of artificially limiting the data we
-provide to the smallest common subset we make this extra data available.
-
-To make it clear which fields can be relied upon and which are perhaps
-specific to a state or subset of states we prefix non-standard fields
-with a ``+``.
-
-If you are using the API to get data for multiple states, it is best to
-restrict your usage to the fields documented here. If you are only
-interested in data for a small subset of our available states it might
-make sense to take a more in depth look at the API responses for the
-state in question to see what extra data we are able to provide.

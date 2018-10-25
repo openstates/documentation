@@ -108,16 +108,9 @@ Parameters
 ^^^^^^^^^^
 
 -  ``state`` Filter by state.
--  ``first_name`` Filter by first name.
--  ``last_name`` Filter by last name.
 -  ``chamber`` Only legislators with a role in the specified chamber.
--  ``active`` 'true' (default) to only include current legislators,
-   'false' will include all legislators
--  ``term`` Only legislators that have a role in a certain term.
 -  ``district`` Only legislators that have represented the specified
    district.
--  ``party`` Only legislators that have been associated with a specified
-   party.
 
 **Example:**
 :ref:`openstates.org/api/v1/legislators/?state=dc&chamber=upper <example-legislator-search>`

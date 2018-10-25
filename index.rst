@@ -7,8 +7,8 @@ Documentation for Open States, its API, and how to contribute.
    :maxdepth: 2
    :caption: Contents:
 
-   api/index
    api/v2/index
+   api/index
    contributing/index
    usage
    infrastructure/index

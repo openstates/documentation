@@ -129,7 +129,6 @@ must be provided.
 -  ``chamber`` Only return bills matching the provided chamber ('upper'
    or 'lower')
 -  ``bill_id`` Only return bills with a given bill\_id.
--  ``bill_id__in`` Accepts a pipe (\|) delimited list of bill ids.
 -  ``q`` Only return bills matching the provided full text query.
 -  ``search_window`` By default all bills are searched, but if a time
    window is desired the following options can be passed to
@@ -146,11 +145,6 @@ must be provided.
 
 -  ``updated_since`` Only bills updated since a provided date (provided
    in YYYY-MM-DD format)
--  ``sponsor_id`` Only bills sponsored by a given legislator id (e.g.
-   'ILL000555')
--  ``subject`` Only bills categorized by Open States as belonging to
-   this subject.
--  ``type`` Only bills of a given type (e.g. 'bill', 'resolution', etc.)
 
 Additional Parameters
 ^^^^^^^^^^^^^^^^^^^^^
