@@ -10,6 +10,7 @@ Documentation for Open States, its API, and how to contribute.
    api/index
    api/v2/index
    contributing/index
+   usage
    infrastructure/index
    policies/index
 
