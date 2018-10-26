@@ -37,6 +37,7 @@ Bill Search:
     * subject
     * type
     * bill_id__in
+    * sort=signed, sort=passed_upper, sort=passed_lower
 
 Legislator Search:
     * first_name
@@ -44,6 +45,7 @@ Legislator Search:
     * active=false
     * party
     * term
+
 
 If you were using the fields= parameter to control which data was returned you'll find that it is not always respected.  To ease caching we have altered the behavior, this was designed to be done in a backwards-compatible way: we now return more fields than we used to by default, and only in select cases is it necessary to add fields= to a request to obtain fields that would otherwise be omitted.
 

@@ -140,8 +140,6 @@ must be provided.
    -  ``search_window=session`` Only bills from the current session.
    -  ``search_window=session:2009`` Only bills from the session named
       2009.
-   -  ``search_window=term:2009-2011`` Only bills from the sessions in
-      the 2009-2011 session.
 
 -  ``updated_since`` Only bills updated since a provided date (provided
    in YYYY-MM-DD format)
@@ -153,9 +151,6 @@ Additional Parameters
 
 -  first
 -  last
--  signed
--  passed\_lower
--  passed\_upper
 -  updated\_at
 -  created\_at
 
