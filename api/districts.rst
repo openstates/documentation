@@ -8,8 +8,6 @@ Districts
 
 :ref:`district-search`
     List districts for state (and optionally filtered by chamber).
-:ref:`district-detail`
-    Get geographic boundary for a district.
 
 
 Methods
@@ -42,40 +40,6 @@ The method returns a list of district objects with the following fields:
 
 .. _district-detail:
 
-District Boundary Lookup
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-This method returns an full district object, including the boundary
-given a ``boundary id``.
-
-The returned object has the following fields:
-
--  ``abbr`` State abbreviation.
--  ``bbox`` A bounding box composed of a list of two (long, lat) points.
-   The first point is the upper left corner, and the second point is the
-   lower right.
--  ``boundary_id`` boundary\_id for this boundary.
--  ``chamber`` Whether this district belongs to the upper or lower
-   chamber.
--  ``id`` A unique ID for this district (separate from boundary\_id).
--  ``name`` Name of the district (e.g. '14', '33A', 'Fifth Suffolk')
--  ``num_seats`` Number of legislators that are elected to this seat.
-   Generally one, but will be 2 or more if the seat is a multi-member
-   district.
--  ``region`` A dictionary of the following values:
-
-   -  ``center_lat`` Center latitude of the bounding box.
-   -  ``center_lon`` Center longitude of the bounding box.
-   -  ``lat_delta`` Equivalent to
-      max(\ ``latitude``)-min(\ ``latitude``)
-   -  ``lon_delta`` Equivalent to
-      max(\ ``longitude``)-min(\ ``longitude``)
-
--  ``shape`` List of polygons, each of which is a GeoJSON-like list of
-   coordinates describing a single polygon.
-
-**Example:**
-:ref:`openstates.org/api/v1/districts/boundary/sldl/nc-120/ <district-lookup-example>`
 
 Examples
 --------
@@ -137,57 +101,3 @@ District Search
       "num_seats": 1 },
      ... truncated ...
     ]
-
-
-.. _district-lookup-example:
-
-District Boundary Lookup
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-``openstates.org/api/v1/districts/boundary/sldl/nc-120/``
-
-.. code:: json
-
-    {
-     "abbr": "nc",
-     "bbox": [
-      [ 34.986592, -84.321869 ],
-      [ 35.466558, -83.108571 ]
-     ],
-     "boundary_id": "sldl/nc-120",
-     "chamber": "lower",
-     "id": "nc-lower-120",
-     "name": "120",
-     "num_seats": 1,
-     "region": {
-      "center_lat": 35.226575,
-      "center_lon": -83.71522,
-      "lat_delta": 0.47996599999999745,
-      "lon_delta": 1.2132980000000089
-     },
-     "shape": [
-      [
-       [
-        [ -84.321797, 34.988965 ],
-        [ -84.308201, 35.092843 ],
-        [ -84.30696, 35.106162 ],
-        [ -84.297721, 35.169478 ],
-        [ -84.294723, 35.185594 ],
-        [ -84.29024, 35.225572 ],
-        [ -84.289921, 35.225585 ],
-        [ -84.290061, 35.225257 ],
-        [ -84.289621, 35.224677 ],
-        [ -84.288516, 35.224391 ],
-        [ -84.28712, 35.224877 ],
-        [ -84.28512, 35.226577 ],
-        [ -84.28322, 35.226577 ],
-        [ -84.28152, 35.229277 ],
-        [ -84.27792, 35.231477 ],
-        [ -84.27702, 35.233177 ],
-        [ -84.27662, 35.233277 ],
-        ... truncated ..
-       ],
-       ... truncated ...
-      ]
-     ]
-    }
