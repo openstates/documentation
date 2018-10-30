@@ -3,7 +3,7 @@ Communication
 
 When joining a new community, it can be tough to figure out *where* to ask questions, provide feedback, or help out. Don't worry! As long as you're respectful and follow our :ref:`code-of-conduct`, we're happy to have you!
 
-Here are some `guidelines <https://youtu.be/b6kgS_AwuH0?t=11s>`_ regarding the best way to get in touch or contribute. Do note that Open States is a volunteer-powered project, and all of the core developers have day jobs; we're excited to talk to you, but will be most communicative outside of East Coast business hours.
+Here are some guidelines regarding the best way to get in touch or contribute. Do note that Open States is a volunteer-powered project, and all of the core developers have day jobs; we're excited to talk to you, but will be most communicative outside of East Coast business hours.
 
 Recommendations
 -----------------
@@ -26,10 +26,6 @@ Recommendations
 
         * openstates.org: https://github.com/openstates/openstates.org/issues/
         * our documentation: https://github.com/openstates/documentation/issues/
-
-**Have a feature request, or something else that doesn't fit here?**
-
-    We use the `openstates/meta <https://github.com/openstates/meta/issues/>`_ repository to track feature requests and big-picture questions.  If in doubt, it is OK to post to this repo.  We may move your ticket to the appropriate place.
 
 
 Discouraged Methods of Communication
