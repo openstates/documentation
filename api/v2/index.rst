@@ -1,12 +1,11 @@
 Open States GraphQL API
 =======================
 
-**This is still an experimental API, please keep in mind:**
+**This is still a beta API, please keep in mind:**
 
-- Backwards compatibility is not at all guaranteed yet, we are working to refine the graph structure before locking it in.
+- Backwards compatibility is not yet fully guaranteed, we are working to refine the graph structure before locking it in but we'll keep breaking changes to an absolute minimum.
 - If you are using the API please `visit our Discourse <https://discourse.openstates.org/>`_ and make use of `our issue tracker <https://github.com/openstates/new-openstates.org/issues>`_ to file comments/issues.
-- API keys are not yet required, but will be in coming weeks.  Please go ahead and `register for an API key <https://openstates.org/api/register/>`_.
-- Once activated, you'll pass your API key via the ``X-API-KEY`` header.  (No harm in doing this now if you're setting up to use the API programatically.)
+- API keys are required.  You can `register for an API key <https://openstates.org/api/register/>`_ and once activated, you'll pass your API key via the ``X-API-KEY`` header.
 - You can also check out our `introductory blog post <https://blog.openstates.org/introducing-the-upcoming-open-states-graphql-api-838f9d023868>`_ for more details.
 
 

@@ -30,7 +30,9 @@ None of these were used by more than 1% of API users, and their removal will hel
 
 **The Event & Committee endpoints are no longer supported.**  Committees are available in API v2, and events are not currently collected part of Open States.
 
-Additionally, the following parameters are no longer supported:
+Additionally, **the boundary endpoint will no longer be something we provide**. This data changes rarely and is best served from a static resource instead of an HTTP query.  We are exploring options to provide a suitable resource for this in the future.
+
+Additionally, the following rarely-used parameters are no longer supported in v1, similar functionality is available in v2:
 
 Bill Search:
     * sponsor_id
@@ -47,7 +49,7 @@ Legislator Search:
     * term
 
 
-If you were using the fields= parameter to control which data was returned you'll find that it is not always respected.  To ease caching we have altered the behavior, this was designed to be done in a backwards-compatible way: we now return more fields than we used to by default, and only in select cases is it necessary to add fields= to a request to obtain fields that would otherwise be omitted.
+If you were using the fields= parameter to control which data was returned you'll find that it is no longer always respected.  To ease caching we have altered the behavior, this was designed to be done in a backwards-compatible way: we now return more fields than we used to by default, and only in select cases is it necessary to add fields= to a request to obtain fields that would otherwise be omitted.
 
 Additionally, the extra fields prefixed with + are scheduled to be removed.  They were never guaranteed, and we presume this won't affect any users.
 
@@ -88,5 +90,4 @@ Method                               URL pattern                                
 :ref:`legislator-detail`             /legislators/`leg_id`/                              Get full detail for a legislator, including all roles.
 :ref:`legislator-geo`                /legislators/geo/?lat=latitude&long=longitude       Lookup all legislators that serve districts containing a given point.
 :ref:`district-search`               /districts/`state`/[`chamber`/]                     List districts for state (and optionally filtered by chamber).
-:ref:`district-detail`               /districts/boundary/`boundary_id`/                  Get geographic boundary for a district.
 =================================   ==================================================  =====================================================================================
