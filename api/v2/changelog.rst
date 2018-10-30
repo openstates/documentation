@@ -3,11 +3,13 @@ Changelog
 
 Changelog for Open States GraphQL API:
 
-Preview Release 2 (Coming Soon)
+Preview Release 2 (November 2018)
 -------------------------------
 
+* **API Keys are now required**
 * consider classification when using current_memberships
 * fix geo filtering
+* add openstatesUrl to Bill node for ease of linkage to OpenStates.org
 
 
 Preview Release 1 (May 2018)
