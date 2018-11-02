@@ -10,6 +10,10 @@ Preview Release 2 (November 2018)
 * consider classification when using current_memberships
 * fix geo filtering
 * add openstatesUrl to Bill node for ease of linkage to OpenStates.org
+* add Person.oldMemberships as analog to currentMemberships 
+* add actionSince filter to bills node
+* fix 500 errors/optimization when using GraphQL fragments
+* addition of basic protection for excessive queries
 
 
 Preview Release 1 (May 2018)
