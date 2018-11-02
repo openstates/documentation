@@ -82,6 +82,8 @@ Note that most fields are optional beyond name as often we don't have a reliable
 * ``contactDetails`` - ways to contact this person (via email, phone, etc.), `contactdetailnode`_
 * ``currentMemberships`` - currently active memberships `MembershipNode`_
     * can be filtered with the ``classification`` parameter to only get memberships to certain types of `OrganizationNode`_
+* ``oldMemberships`` - inactive memberships `MembershipNode`_
+    * can be filtered with the ``classification`` parameter to only get memberships to certain types of `OrganizationNode`_
 * ``sources`` - URLs which were used in compiling Open States' information on this subject, `LinkNode`
 * ``createdAt`` - date at which this object was created in our system
 * ``updatedAt`` - date at which this object was last updated in our system
@@ -210,6 +212,7 @@ Each node has the following attributes and nodes available:
 * ``documents`` - list of related documents (e.g. legal analysis, fiscal notes, etc.) as provided by the state, `BillDocumentNode`_
 * ``votes`` - paginated list of `VoteEventNode`_ related to the bill
 * ``sources`` - URLs which were used in compiling Open States' information on this subject, `linknode`_
+* ``openstatesUrl`` - URL to bill page on OpenStates.org
 * ``createdAt`` - date at which this object was created in our system
 * ``updatedAt`` - date at which this object was last updated in our system
 * ``extras`` - JSON string with optional additional information about the object

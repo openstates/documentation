@@ -85,6 +85,11 @@ Parameters:
 
     Time should be in the format YYYY-MM-DD[THH:MM:SS].
 
+``actionsSince``
+    Limit to bills that have had actions since a given time.
+
+    Time should be in the format YYYY-MM-DD.
+
 
 jurisdiction
 ------------
