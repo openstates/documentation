@@ -43,6 +43,8 @@ Each LegislativeSessionNode has the following attributes and nodes available:
 * ``startDate`` - start date of session if known
 * ``endDate`` - end date of session if known
 
+.. _divisionnode:
+
 DivisionNode
 ~~~~~~~~~~~~
 
@@ -158,6 +160,7 @@ See also:
 * `Popolo's membership <http://popoloproject.com/specs/membership.html>`_
 * `Open Civic Data OCDEP 5 <http://docs.opencivicdata.org/en/latest/proposals/0005.html>`_
 
+.. _postnode:
 
 PostNode
 ~~~~~~~~
