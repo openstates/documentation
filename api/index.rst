@@ -77,6 +77,7 @@ Open States provides data about six core data types.
    bills
    legislators
    districts
+   categorization
 
 Methods
 -------
