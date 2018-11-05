@@ -3,7 +3,7 @@ Changelog
 
 Changelog for Open States GraphQL API:
 
-Preview Release 2 (November 2018)
+Beta Release (November 2018)
 -------------------------------
 
 * **API Keys are now required**
@@ -14,6 +14,8 @@ Preview Release 2 (November 2018)
 * add actionSince filter to bills node
 * fix 500 errors/optimization when using GraphQL fragments
 * addition of basic protection for excessive queries
+* add totalCount to assist in pagination
+* add Organization.currentMemberships
 
 
 Preview Release 1 (May 2018)

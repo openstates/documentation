@@ -61,10 +61,11 @@ Let's take a look at everything that pagination makes available::
           endCursor
           startCursor
         }
+        totalCount
       }
     }
 
-You'll see that the connection node has two nodes: ``edges`` and ``pageInfo``
+You'll see that the connection node has three nodes: ``edges``, ``pageInfo``, and ``totalCount``
 
 * ``edges`` - a list of objects that each have a ``node`` and ``cursor`` attribute:
     * ``node`` - the underlying node type, in our case ``BillNode``
@@ -74,6 +75,7 @@ You'll see that the connection node has two nodes: ``edges`` and ``pageInfo``
     * ``hasPreviousPage`` - boolean that is true if there is a page before this
     * ``endCursor`` - last cursor in the set of edges, can be used with ``after`` to paginate forward
     * ``startCursor`` - first cursor in the set of edges, can be used with ``before`` to paginate backwards
+* ``totalCount`` - total number of objects available from this connection
 
 In Practice
 ~~~~~~~~~~~
@@ -229,5 +231,4 @@ for a link to the appropriate :ref:`OrganizationNode` or :ref:`PersonNode`.
 Because of the way we collect the data from states, we always collect the raw data and later make an attempt to (via a mix of automated matching and manual fixes) 
 connect the reference with data we've already collected.
 
-During the experimental period we haven't done a ton yet to improve upon the automated methods, so in many cases these linkages will not be provided, but we have built 
-some great tools to help us improve this matching and think we'll be able to dramatically improve the number of matched entities in the near future.
+In many cases these linkages will not be provided, but with some upcoming new tools to help us improve this matching we'll be able to dramatically improve the number of matched entities in the near future.

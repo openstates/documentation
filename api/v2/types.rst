@@ -23,6 +23,7 @@ Each JurisdictionNode has the following attributes & nodes available:
 * ``featureFlags`` - reserved for future use
 * ``legislativeSessions`` - Paginated list (see :ref:`pagination`) of `LegislativeSessionNode`_ belonging to this jurisdiction's legislature.
 * ``organizations`` - Paginated list of `OrganizationNode`_ belonging to this jurisdiction.
+    * it is also possible to filter the list of children using the ``classification`` parameter
 
 See also: `Open Civic Data Jurisdiction reference <http://docs.opencivicdata.org/en/latest/data/jurisdiction.html>`_
     
@@ -115,6 +116,7 @@ Each Organization is comprised of the following attributes and nodes:
 * ``parent`` - parent OrganizationNode if one exists
 * ``children`` - paginated list of child OrganizationNode objects
     * it is also possible to filter the list of children using the ``classification`` parameter
+* ``currentMemberships`` - list of all current members of this Organization
 * ``identifiers`` - list of other known identifiers for this organization, `IdentifierNode`_
 * ``otherNames`` - list of other known names for this organization, `NameNode`_
 * ``links`` - official URLs relating to this person, `LinkNode`_
