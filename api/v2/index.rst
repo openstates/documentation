@@ -1,5 +1,5 @@
 Open States v2 GraphQL API
-=======================
+==========================
 
 **This is still a beta API, please keep in mind:**
 
