@@ -29,7 +29,7 @@ We may also find time to tackle:
 OpenStates.org Version 2
     The existing OpenStates.org still relies on our old database & outdated processes, we're planning a complete visual refresh as part of the overhaul to move off the old system.  This will likely be a focus in 2019.
 API v2 
-    See `API v2 <http://docs.openstates.org/en/latest/api/v2/>`_.
+    See `API v2 <https://docs.openstates.org/en/latest/api/v2/>`_.
 New Admin / Data Quality Tools
     We spent a good part of 2017 & 2018 working on new data quality tools to reflect the reality of not having paid staff working on these issues.  This was the focus of our Google Summer of Code projects, but eventually we had to go in another direction. We changed course, and rolled out the new https://github.com/openstates/people repo and will be adding a public-facing dashboard soon.
 redo geo server

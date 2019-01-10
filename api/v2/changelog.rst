@@ -3,6 +3,13 @@ Changelog
 
 Changelog for Open States GraphQL API:
 
+v2.0 (January 2019)
+-------------------
+
+* bugfix for maximum_memberships type
+* bugfix for versions field
+* improve tests
+
 Beta Release (November 2018)
 -------------------------------
 

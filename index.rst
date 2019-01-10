@@ -19,7 +19,7 @@ Documentation for Open States, its API, and how to contribute.
 Related Projects
 ----------------
 
-`billy <http://docs.openstates.org/projects/billy/en/latest/>`_
+`billy <https://docs.openstates.org/projects/billy/en/latest/>`_
     Python backend for Open States' scrapers and website.
-`pyopenstates <http://docs.openstates.org/projects/pyopenstates/en/latest/>`_
+`pyopenstates <https://docs.openstates.org/projects/pyopenstates/en/latest/>`_
     Python client library for Open States API.

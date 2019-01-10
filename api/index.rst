@@ -3,7 +3,7 @@
 Open States API v1
 ==================
 
-.. note:: A beta of API v2 is now available, please check out `API v2 <http://docs.openstates.org/en/latest/api/v2/>`_.
+.. note:: API v2 is now available, please check out `API v2 <https://docs.openstates.org/en/latest/api/v2/>`_.
 
 Open States provides a JSON API for accessing state legislative information.
 
@@ -20,7 +20,7 @@ Basics
 -  All changes to the API will be announced on the `Open States Discourse
    <https://discourse.openstates.org>`_. It is recommended you subscribe if you're using the API.
 -  For Python users, there's an official
-   `pyopenstates <http://docs.openstates.org/projects/pyopenstates/en/latest/>`__ package
+   `pyopenstates <https://docs.openstates.org/projects/pyopenstates/en/latest/>`__ package
    available.
 
 Deprecation

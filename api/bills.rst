@@ -3,7 +3,7 @@
 Bills
 =====
 
-.. note:: A beta of API v2 is now available, please check out `API v2 <http://docs.openstates.org/en/latest/api/v2/>`_.
+.. note:: API v2 is now available, please check out `API v2 <https://docs.openstates.org/en/latest/api/v2/>`_.
 
 
 :ref:`bill-search`

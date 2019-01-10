@@ -3,7 +3,7 @@ Start Contributing to Open States
 
 .. note::
 
-    This document is very much a work-in-progress, feel free to `suggest contributions <http://github.com/openstates/documentation>`_.
+    This document is very much a work-in-progress, feel free to `suggest contributions <https://github.com/openstates/documentation>`_.
 
 Scrapers are at the core of what Open States does, each state requires several custom scrapers designed to extract bills, legislators, committees, votes, and events from the state website.  All together there are around 200 scrapers, each one essentially independent, which means that there is always more work to do, but plenty of prior work to learn from.
 

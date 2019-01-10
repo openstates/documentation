@@ -6,7 +6,7 @@ Open States has grown to be a rather complex project over the years.  The purpos
 Overview
 --------
 
-A great deal of Open States' infrastructure falls within the `billy <http://docs.openstates.org/projects/billy/>`_ project.  Here's roughly how it works:
+A great deal of Open States' infrastructure falls within the `billy <https://docs.openstates.org/projects/billy/>`_ project.  Here's roughly how it works:
 
 * A scraper is written that utilizes ``billy.scrape``'s Python helpers.
 * When invoked via ``billy-update``, this scraper writes JSON files to disk.

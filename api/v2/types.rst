@@ -3,7 +3,7 @@ Data Types
 
 Starting at the base nodes, data in the API is represented as interconnected nodes of various types.  This page provides an overview of the nodes.  
 
-Another good way to get acquainted with the layout is to use the `GraphiQL browser <http://beta.openstates.org/graphql>`_ (click Docs in the upper right corner).
+Another good way to get acquainted with the layout is to use the `GraphiQL browser <https://openstates.org/graphql>`_ (click Docs in the upper right corner).
 
 Jurisdictions & Sessions
 ------------------------

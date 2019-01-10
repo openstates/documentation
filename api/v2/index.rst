@@ -1,10 +1,7 @@
 Open States GraphQL API
 =======================
 
-**This is still a beta API, please keep in mind:**
-
-- Backwards compatibility is not yet fully guaranteed, we are working to refine the graph structure before locking it in but we'll keep breaking changes to an absolute minimum.
-- If you are using the API please `visit our Discourse <https://discourse.openstates.org/>`_ and make use of `our issue tracker <https://github.com/openstates/new-openstates.org/issues>`_ to file comments/issues.
+- If you are using the API please `visit our Discourse <https://discourse.openstates.org/>`_ and make use of `our issue tracker <https://github.com/openstates/openstates.org/issues>`_ to file comments/issues.
 - API keys are required.  You can `register for an API key <https://openstates.org/api/register/>`_ and once activated, you'll pass your API key via the ``X-API-KEY`` header.
 - You can also check out our `introductory blog post <https://blog.openstates.org/introducing-the-upcoming-open-states-graphql-api-838f9d023868>`_ for more details.
 
@@ -12,9 +9,9 @@ Open States GraphQL API
 Basics
 ------
 
-This is a `GraphQL <http://graphql.org/>`_ API, and some of the concepts may seem unfamiliar at first.
+This is a `GraphQL <https://graphql.org/>`_ API, and some of the concepts may seem unfamiliar at first.
 
-There is in essence, only one endpoint: http://beta.openstates.org/graphql.
+There is in essence, only one endpoint: https://openstates.org/graphql.
 
 This endpoint, when accessed in a browser, will provide an interface that allows you to experiment with queries in the browser, it features autocomplete and a way to browse the full graph (click the 'Docs' link in the upper right corner).
 
@@ -35,7 +32,7 @@ A GraphQL query mirrors the structure of the data that you'd like to obtain.  Fo
 
     If you are using the API programatically it is recommended you send the data as part of the POST body, e.g.::
 
-        curl -X POST http://beta.openstates.org/graphql -d "query={people{edges{node{name}}}}"
+        curl -X POST https://openstates.org/graphql -d "query={people{edges{node{name}}}}"
 
 Of course, if you try this you'll see it doesn't work since there are some basic limits on how much data you can request at once.  We paginate with the ``first``, ``last``, ``before`` and ``after`` parameters to a root node.  So let's try that again::
 

@@ -4,7 +4,7 @@
 State Metadata
 ==============
 
-.. note:: A beta of API v2 is now available, please check out `API v2 <http://docs.openstates.org/en/latest/api/v2/>`_.
+.. note:: API v2 is now available, please check out `API v2 <https://docs.openstates.org/en/latest/api/v2/>`_.
 
 :ref:`metadata-overview`
     Get list of all states with data available and basic metadata about their status.
