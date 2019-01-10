@@ -48,7 +48,7 @@ These repositories are mostly inactive, and are only kept around for historical 
 .. _openstates.org: https://github.com/openstates/openstates.org
 .. _openstates-district-maps: https://github.com/openstates/openstates-district-maps
 .. _openstates-ios: https://github.com/openstates/legacy-openstates-ios
-.. _openstates.org: https://github.com/openstates/openstates.org
+.. _legacy-openstates.org: https://github.com/openstates/legacy-openstates.org
 .. _openstates: https://github.com/openstates/openstates
 .. _people: https://github.com/openstates/people
 .. _pyopenstates: https://github.com/openstates/pyopenstates
