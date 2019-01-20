@@ -55,6 +55,13 @@ If you were using the fields= parameter to control which data was returned you'l
 
 Additionally, the extra fields prefixed with + are scheduled to be removed.  They were never guaranteed, and we presume this won't affect any users.
 
+
+Deprecation of Identifiers
+--------------------------
+
+Old Open States IDs (resembling AKL000001 or NYB00012345) will continue to work for entities created before 2019, but going forward will not be available.  In most cases this shouldn't be an issue, since the bill detail endpoint supports the <state>/<session>/<identifier> format.  Right now we have no plans to bring v1 IDs back.
+
+
 Data Types
 ----------
 
