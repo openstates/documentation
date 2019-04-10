@@ -110,7 +110,7 @@ Metadata Overview
 
 ``openstates.org/api/v1/metadata/``
 
-.. code:: json
+.. code::
 
     [
      { "name": "Alabama",
