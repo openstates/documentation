@@ -51,7 +51,7 @@ District Search
 
 ``openstates.org/api/v1/districts/nc/lower/``
 
-.. code:: json
+.. code::
 
     [
      { "abbr": "nc",
