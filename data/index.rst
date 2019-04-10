@@ -7,5 +7,6 @@ We have several types of static data files available:
    :maxdepth: 2
 
    boundaries
+   people
    legacy-json
    legacy-csv
