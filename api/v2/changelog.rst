@@ -3,6 +3,25 @@ Changelog
 
 Changelog for Open States GraphQL API:
 
+v2.3 (August 2019)
+------------------
+
+* add experimental full text search via searchQuery parameter to bills node
+
+v2.2 (June 2019)
+-----------------
+
+* add openstatesUrl to bills query
+* speed improvments
+
+v2.1 (Feb 2019)
+------------------
+
+* fix lat-lon behavior to limit to active memberships
+* improve handling of retired legislators
+* fix type of maximum_memberships
+* bill version ordering is now consistent
+
 v2.0 (January 2019)
 -------------------
 

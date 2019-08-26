@@ -80,6 +80,9 @@ Parameters:
 ``subject``
     Limit to bills with a given subject (e.g. "Agriculture")
 
+``searchQuery``
+    Limit to bills that contain a given term.  (Experimental until 2020!)
+
 ``updatedSince``
     Limit to bills that have had data updated since a given time.
 
@@ -137,7 +140,7 @@ Parameters:
 bill
 ----
 
-Look up a single bill by ID or (jurisdiction, session, identifier) combo.
+Look up a single bill by ID, URL, or (jurisdiction, session, identifier) combo.
 
 This will return a single :ref:`BillNode` object with the specified bill.
 
@@ -146,6 +149,8 @@ Parameters:
 
 ``id``
     The ocd-bill ID of the desired bill, such as 'ocd-jurisdiction/country:us/state:nh'.
+``openstatesUrl``
+    The URL of the desired bill, such as 'https://openstates.org/nc/bills/2019/HB760/'.
 ``jurisdiction``, ``session``, ``identifier``
     Must be specified together to fully identify a bill.
 
