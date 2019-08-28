@@ -60,7 +60,7 @@ Of course, your versions may be newer. The minimum required versions for Open St
         $ git clone git@github.com:yourname/openstates.git
         Cloning into 'openstates'...
 
-Note:  Before cloning on a Windows computer, you will need to disable line-ending conversion.  ``git config --global core.autocrlf false``
+Note:  Before cloning on a Windows computer, you will need to disable line-ending conversion.  ``git config --global core.autocrlf false``  After cloning and entering the repo, you'll likely want to set global line-ending conversion back to `true`, and set local conversion to `false`.
 
 At this point you'll have a local ``openstates`` directory.  Let's go ahead and look at it::
 
