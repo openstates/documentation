@@ -1,10 +1,11 @@
-sudo: no
 language: python
 python:
-    - "3.5"
+    - "3.6"
 env:
-install: pip install -r requirements.txt
-script: make html SPHINXOPTS="-W -n"
+install: 
+    - pip install poetry
+    - poetry install
+script: poetry run make html SPHINXOPTS="-W -n"
 notifications:
     email:
         - james@openstates.org
