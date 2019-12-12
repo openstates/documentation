@@ -33,6 +33,10 @@ The repository consists of a few key components:
 * ``scripts`` Various scripts used to maintain the data.
 * ``scrape/`` Experimental new people scrapers, work-in-progress.
 
+To run a script using ``docker-compose`` you can run a command like::
+
+  docker-compose run --rm people ./scripts/lint_yaml.py
+
 Common tasks
 -------------
 
