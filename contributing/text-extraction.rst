@@ -130,3 +130,23 @@ Tips & Tricks
 
 * Functions already exist for common configurations of PDF, HTML, Word Doc, and even OCR.  Rarely will you need to write a custom function, always look at the options first.
 * When dealing with PDFs, most are either handled by ``extract_line_numbered_pdf`` or ``extract_sometimes_numbered_pdf``, the difference is that "sometimes numbered PDF" accounts for cases where 90% or so of bills are numbered, but a few (often resolutions) are not numbered.
+
+Formatting Guidelines
+---------------------
+
+**How far do we go? Should we strip punctuation? Newlines? Whitespace? Section headings?**
+
+- Try not to be too aggressive with punctuation stripping, search indices/etc. can easily strip it later, but it can be handy if someone decides they want to search for things like "§ 143C-4-8.b"
+- Ideally leave newlines as-is since it makes looking at changes a lot nicer for humans and stripping newlines out for final products (search/text comparison/etc.) is trivial.
+- Collapsing spaces/etc. is recommended, but not required.
+- Removal of section headers/etc. is fine, but if the only reason you're writing a new function instead of using a common one is to do this, reconsider.
+
+When in doubt, **ask**, you may have encountered something we haven't considered yet and we can discuss the best practice and add it here.
+
+**Should we include bill digests?**
+
+There isn't a need to, but it doesn't hurt if separating the two is difficult.
+
+**What about additions & deletions?**
+
+See `text-extraction issue #6 <https://github.com/openstates/text-extraction/issues/6>`_.
