@@ -6,10 +6,10 @@ Working On openstates.org
 
 openstates.org is the public-facing result of all the scraping we do.  The site is built in Django and includes the web frontend and API.
 
-Checking Out
+Checking out
 ------------
 
-Fork and clone the main `openstates.org repository <https://github.com/openstates/openstates.org>`_:
+Fork and clone the openstates.org repository:
 
   * Visit https://github.com/openstates/openstates.org and click the 'Fork' button.
   * Clone your fork using your tool of choice or the command line::
@@ -41,6 +41,11 @@ There's a one line command that will download a recent copy of the Open States d
 You'll see this command download a file from S3, which can take a while depending upon your internet connection.  It will then go silent for a while as it works to restore the database.  This takes 5-10 minutes on a late-2018 Macbook Pro, but your experience may vary.  So long as it isn't spitting out errors, things should be fine.
 
 If you're working on scrapers you'll now find that this database is available to your scrape processes! 
+
+Repository overview
+-------------------
+
+TODO
 
 Running openstates.org
 ----------------------

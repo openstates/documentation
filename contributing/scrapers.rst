@@ -5,10 +5,10 @@ Contributing to Scrapers
 
 Scrapers are at the core of what Open States does, each state requires several custom scrapers designed to extract bills, legislators, committees, and votes from the state website.  All together there are around 200 scrapers, each one essentially independent, which means that there is always more work to do, but fortunately plenty of prior work to learn from.
 
-Checking Out
+Checking out
 ------------
 
-Fork and clone the main `Open States scraper repository <https://github.com/openstates/openstates>`_:
+Fork and clone the main scraper repository:
 
   * Visit https://github.com/openstates/openstates and click the 'Fork' button.
   * Clone your fork using your tool of choice or the command line::
@@ -24,8 +24,8 @@ Fork and clone the main `Open States scraper repository <https://github.com/open
 .. warning::  
   Before cloning on a Windows computer, you will need to disable line-ending conversion.  ``git config --global core.autocrlf false``  After cloning and entering the repo, you'll likely want to set global line-ending conversion back to `true`, and set local conversion to `false`.
 
-The Repository
---------------
+Repository overview
+-------------------
 
 At this point you'll have a local ``openstates`` directory.  Within it, you'll find a directory called ``openstates`` lets take a look at it::
 
