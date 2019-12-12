@@ -3,7 +3,7 @@ Communication
 
 When joining a new community, it can be tough to figure out *where* to ask questions, provide feedback, or help out. Don't worry! As long as you're respectful and follow our :ref:`code-of-conduct`, we're happy to have you!
 
-Here are some guidelines regarding the best way to get in touch or contribute. Do note that Open States is a volunteer-powered project, and all of the core developers have day jobs; we're excited to talk to you, but will be most communicative outside of East Coast business hours.
+Here are some guidelines regarding the best way to get in touch or contribute. Do note that Open States is a volunteer-powered project, and all of the core developers have day jobs; we're excited to talk to you, but it may sometimes take a bit of time to get back to you.
 
 Recommendations
 -----------------
@@ -15,6 +15,11 @@ Recommendations
 **Have a private or financial question, or a security concern?**
 
     Email `contact@openstates.org <mailto:contact@openstates.org>`_; only the administrative team can see these.
+
+**Want to contribute to the project?**
+
+    We have a private Slack that we can invite you to.  If you're interested in an invite, introduce yourself in an email to `contact@openstates.org <mailto:contact@openstates.org>`_.
+
 
 **Have you found an error or issue in the Open States data?**
 
@@ -31,7 +36,7 @@ Recommendations
 Discouraged Methods of Communication
 ------------------------------------
 
-*Avoid* using these channels to get in touch with us:
+Please *avoid* using these channels to get in touch with us:
 
 **Personal email addresses of Open States developers**
 
