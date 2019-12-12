@@ -1,6 +1,9 @@
 Open States Infrastructure
 ==========================
 
+.. warning::
+  This section is out of date and will be rewritten soon.
+
 Open States has grown to be a rather complex project over the years.  The purpose of this documentation is to help explain how Open States works end-to-end to better help contributors and project members grasp the entirety of the system.
 
 Overview

@@ -1,3 +1,5 @@
+.. _communication:
+
 Communication
 =============
 
@@ -8,18 +10,15 @@ Here are some guidelines regarding the best way to get in touch or contribute. D
 Recommendations
 -----------------
 
-**Want to ask a general question, have a conversation, or listen in to the community?**
+.. _getting-help:
+
+**Want to ask a general question, have a conversation, or keep up with the community?**
 
     The best place is our `Discourse Forum <https://discourse.openstates.org/>`_. This is the main place for Open States discussion. The core team and many other contributors are present there, and we're usually able to answer questions in a timely fashion.
 
 **Have a private or financial question, or a security concern?**
 
     Email `contact@openstates.org <mailto:contact@openstates.org>`_; only the administrative team can see these.
-
-**Want to contribute to the project?**
-
-    We have a private Slack that we can invite you to.  If you're interested in an invite, introduce yourself in an email to `contact@openstates.org <mailto:contact@openstates.org>`_.
-
 
 **Have you found an error or issue in the Open States data?**
 
@@ -31,6 +30,11 @@ Recommendations
 
         * openstates.org: https://github.com/openstates/openstates.org/issues/
         * our documentation: https://github.com/openstates/documentation/issues/
+
+**Want to contribute to the project more regularly?**
+
+    We also have a private Slack that we can invite you to.  If you're interested in an invite, introduce yourself in an email to `contact@openstates.org <mailto:contact@openstates.org>`_.
+
 
 
 Discouraged Methods of Communication
