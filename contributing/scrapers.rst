@@ -107,9 +107,41 @@ To review the data you just fetched, you can browse the _data/nc/ directory and 
 
 At this point you're ready to run scrapers and contribute fixes. Hop onto `our GitHub ticket queue <https://github.com/openstates/openstates/issues>`_, pick an issue to solve, and then submit a Pull Request!
 
-Next Steps
-----------
+Importing Data
+--------------
 
-If you'd like to see how your scraped data imports into the database, perhaps to diagnose an issue that is happening after the scrape, continue to :ref:`getting a working database <working-database>` to see how to get a local database that you can import data into.
+Optionally, if you'd like to see how your scraped data imports into the database, perhaps to diagnose an issue that is happening after the scrape, pop over to :ref:`getting a working database <working-database>` to see how to get a local database that you can import data into.
 
-If you want to run imports, you can drop the ``--scrape`` portion of the command you've been running.  At that point you should see data being imported into your database.
+Once that's done, make sure that the db image from openstates.org is running::
+
+  $ docker ps
+  CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                    NAMES
+  27fe691ad7c5        mdillon/postgis:11-alpine   "docker-entrypoint.s…"   3 hours ago         Up 3 hours          0.0.0.0:5405->5432/tcp   openstatesorg_db_1
+
+Your output will vary, but if you don't see something named openstatesorg_db running you should run this command (from the openstates.org directory, not your scraper directory)::
+
+  $ docker-compose up -d db
+
+Now, when you want to run imports, you can drop the ``--scrape`` portion of the command you've been running.  Or if you just want to test the import of already scraped data you can replace it with ``--import``.
+
+An import looks something like this::
+
+  $ docker-compose run --rm scrape fl bills --fast
+  ... (truncated) ...
+  23:03:34 ERROR pupa: cannot resolve pseudo id to Person: ~{“name”: “Grant, M.“}
+  23:03:36 ERROR pupa: cannot resolve pseudo id to Person: ~{“name”: “Rodrigues, R.“}
+  fl (import)
+    bills: {}
+  import:
+    bill: 0 new 0 updated 2620 noop
+    jurisdiction: 0 new 0 updated 1 noop
+    vote_event: 21 new 12 updated 533 noop
+
+The errors about unresolved psuedo-ids can safely be ignored, as long as you
+see the final run report the data you scraped is available in your database.
+
+The number of objects of each type that were created & updated are available
+for spot checking, as well as the total number of items that were seen that
+already exactly matched what was in the database.  These can be useful stats
+as you try to see if your local changes to a scraper have the impact you 
+expect.
