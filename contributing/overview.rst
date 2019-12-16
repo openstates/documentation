@@ -32,17 +32,17 @@ These repositories are other pieces of our infrastructure, but are generally not
 
 Our current priorities:
 
-Data Quality
-~~~~~~~~~~~~
-
-- Improve data quality and timeliness.  (Ongoing)
-- Provide publicly accessible data quality dashboard.  (Q2)
-
 Power User Features
 ~~~~~~~~~~~~~~~~~~~
 
 - Add user logins & profiles.   (Q1)
 - Introduce bill & issue tracking.  (Q1)
+
+Data Quality
+~~~~~~~~~~~~
+
+- Improve data quality and timeliness.  (Ongoing)
+- Provide publicly accessible data quality dashboard.  (Q2)
 
 API
 ~~~
@@ -58,6 +58,12 @@ Bulk Data
 - Add custom data-export creation page. (TBD)
 - Provide bulk geographic data ahead of 2021 redistricting. (TBD)
 
+Community
+~~~~~~~~~
+
+- Documentation updates (Q1)
+- New Contributor Support (Q1-Q2)
+- API User Dashboard (Q2-Q3)
 
 Recent Major Work
 -----------------
