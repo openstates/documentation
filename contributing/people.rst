@@ -126,20 +126,15 @@ merge.py
     File merge mode merges two legislator files.
 
   Options:
-    --incoming TEXT  Operate in incoming mode, argument should be state abbr to
-                     scan.
-    --old TEXT       Operate in merge mode, this is the older of two files &
-                     will be kept.
-    --new TEXT       In merge mode, this is the newer file that will be removed
-                     after merge.
-    --keep TEXT      When operating in merge mode, select which data to keep.
-                     Values:
-                     old
-                         Keep data in old file if there's conflict.
-                     new
-                         Keep data in new file if there's conflict.
-
-                     When omitted, conflicts will raise error.
+    --incoming TEXT    Operate in incoming mode, argument should be state abbr
+                       to scan.
+    --retirement TEXT  Set retirement date for all people marked retired (in
+                       incoming mode).
+    --old TEXT         Operate in merge mode, this is the older of two files &
+                       will be kept.
+    --new TEXT         In merge mode, this is the newer file that will be
+                       removed after merge.
+    --help             Show this message and exit.
 
 new_person.py
 ~~~~~~~~~~~~~
