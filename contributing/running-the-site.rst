@@ -33,7 +33,7 @@ If you haven't set up docker yet, see :ref:`prerequisites`.
 
 There's a one line command that will download a recent copy of the Open States database and restore it::
 
-  docker-compose run --rm --entrypoint ./docker/download-db.sh django
+  docker-compose run --rm --entrypoint ./docker/init-db.sh django
 
 .. warning::
   This command takes several GB of disk space.  The pgdump file that is downloaded is ~2GB as of December 2019 and the restored database is around 7GB.  If you don't have room for this but want to contribute let us know so we can prioritize more compact options.
