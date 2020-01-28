@@ -42,14 +42,43 @@ You'll see this command download a file from S3, which can take a while dependin
 
 If you're working on scrapers you'll now find that this database is available to your scrape processes! 
 
+Running Tests
+-------------
+
+You can run the tests for the project via::
+
+  docker-compose run --rm --entrypoint ./docker/run-tests.sh django
+
+You can also append standard pytest arguments such as `-x` to bail on first failure.
+
+Example of running just the v1 tests, bailing on error::
+
+  docker-compose run --rm --entrypoint ./docker/run-tests.sh django v1 -x
+
 Repository overview
 -------------------
 
-TODO
+The project is rather large, with quite a few django apps, here's a quick guide:
+
+Django Apps:
+
+  * bulk/       - handles bulk downloads on the website
+  * geo/        - geography services for legislator lookup
+  * graphapi/   - powers GraphQL API
+  * profiles/   - user and subscription management
+  * public/     - public-facing pages (bulk of the site)
+  * utils/      - utilities shared by the other applications
+  * v1/         - backwards-compatibility shim implementing much of the old v1 API 
+
+Other Stuff:
+
+  * ansible/ - the files used to deploy OpenStates.org are here
+  * docker/  - special scripts for running tests, etc. within docker
+  * openstates/ - core Django settings files
+  * templates/  - Django templates
+
 
 Running openstates.org
 ----------------------
 
 Simply running ``docker-compose up`` should start django & the database, then browse to http://localhost:8000 and you'll be looking at your own local copy of openstates.org
-
-More coming soon!
