@@ -16,6 +16,7 @@ These repositories make up the core of the project, if you're looking to contrib
 - `people`_ - Open States People data, maintained as editable YAML files
 - `text-extraction`_ - Text extraction powering full text search.
 - `openstates.org`_ - Powers https://openstates.org/ website & API.
+- `metadata`_ - Data on states and their districts, etc. that changes rarely.
 - `documentation`_ - https://docs.openstates.org/ (you're reading it now)
 
 These repositories are other pieces of our infrastructure, but are generally not interesting to the average person.
@@ -35,13 +36,13 @@ Our current priorities:
 Power User Features
 ~~~~~~~~~~~~~~~~~~~
 
-- Add user logins & profiles.   (Q1)
-- Introduce bill & issue tracking.  (Q1)
+- Add user logins & profiles.   (**completed January 2020**)
+- Introduce bill & issue tracking.  (**in beta February 2020**)
 
 Data Quality
 ~~~~~~~~~~~~
 
-- Improve data quality and timeliness.  (Ongoing)
+- Improve data quality and timeliness.  (**in progress**)
 - Provide publicly accessible data quality dashboard.  (Q2)
 
 API
@@ -54,14 +55,14 @@ API
 Bulk Data
 ~~~~~~~~~
 
-- Add new per-state CSV data exports.  (Q1)
+- Add new per-state CSV data exports.  (**in beta February 2020**)
 - Add custom data-export creation page. (TBD)
 - Provide bulk geographic data ahead of 2021 redistricting. (TBD)
 
 Community
 ~~~~~~~~~
 
-- Documentation updates (Q1)
+- Documentation updates (**in progress**)
 - New Contributor Support (Q1-Q2)
 - API User Dashboard (Q2-Q3)
 
@@ -87,5 +88,6 @@ To give a sense of recent priorities, here are major milestones from the past fe
 .. _openstates-district-maps: https://github.com/openstates/openstates-district-maps
 .. _openstates: https://github.com/openstates/openstates
 .. _people: https://github.com/openstates/people
+.. _metadata: https://github.com/openstates/metadata
 .. _task-definitions: https://github.com/openstates/task-definitions
 
