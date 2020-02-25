@@ -1,7 +1,9 @@
 Static Data 
 ===========
 
-We have several types of static data files available:
+An overview of all of our bulk data now exists here: https://openstates.org/data/
+
+More Details:
 
 .. toctree::
    :maxdepth: 2
