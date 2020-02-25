@@ -14,6 +14,7 @@ The guides below will walk you through how we work, and various ways you can con
     running-the-site
     people
     text-extraction
+    documentation
     code-of-conduct
     communication
     overview
