@@ -9,7 +9,7 @@ Documentation for Open States, its API, and how to contribute.
 
    api/v2/index
    api/index
-   data/index
+   bulk/index
    contributing/index
    usage
    infrastructure/index
