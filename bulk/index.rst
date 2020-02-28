@@ -9,6 +9,5 @@ More Details:
    :maxdepth: 2
 
    boundaries
-   people
    legacy-json
    legacy-csv
