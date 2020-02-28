@@ -15,10 +15,13 @@ Currently only a few states require API keys:
 * New York - http://legislation.nysenate.gov/static/docs/html/index.html
 
   * Request Form: http://legislation.nysenate.gov/
+  * Set in environment prior to running scrape: ``NEW_YORK_API_KEY``
 
 * Indiana - http://docs.api.iga.in.gov/api.html
 
   * API Key Request Process: Email Bob Amos (bob.amos@iga.in.gov or bamos@iga.in.gov), and include your name, address, phone, email address and company. Also indicate that you have read the terms of service at the link above.
+  * Set in environment prior to running scrape: ``INDIANA_API_KEY``
+  * As a side note, Indiana also requires a `user-agent string <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent>`_, so set that in your environment as well, prior to running scrape: ``USER_AGENT``
   
 * Oregon - https://www.oregonlegislature.gov/citizen_engagement/Pages/data.aspx
 
