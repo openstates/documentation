@@ -219,6 +219,10 @@ Unless otherwise noted (most notably ``createdAt`` and ``updatedAt`` all date ob
 * YYYY-MM-DD
 * YYYY-MM-DD HH:MM:SS   (if times are allowed)
 
+Action/Vote times are all assumed to be in the state capitol's time zone.
+
+Times related to our updates such as updatedAt and createdAt are in UTC.
+
 
 .. _name-matching:
 

@@ -86,12 +86,12 @@ Parameters:
     Limit to bills that contain a given term.  (Experimental until 2020!)
 
 ``updatedSince``
-    Limit to bills that have had data updated since a given time.
+    Limit to bills that have had data updated since a given time (UTC).
 
     Time should be in the format YYYY-MM-DD[THH:MM:SS].
 
 ``actionsSince``
-    Limit to bills that have had actions since a given time.
+    Limit to bills that have had actions since a given time (UTC).
 
     Time should be in the format YYYY-MM-DD.
 
