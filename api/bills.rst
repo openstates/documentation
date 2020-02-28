@@ -45,7 +45,7 @@ The following fields are available on bill objects:
    -  ``action`` Name of action as state provides it.
    -  ``actor`` The chamber, person, committee, etc. responsible for
       this action.
-   -  ``type`` Open States-provided action categories, see :ref:`action-categorization`.
+   -  ``type`` Open States-provided action categories.
 
 -  ``chamber`` The chamber of origination ('upper' or 'lower')
 -  ``created_at`` The date that this object first appeared in our
@@ -59,8 +59,7 @@ The following fields are available on bill objects:
 -  ``id`` Open States-assigned permanent ID for this bill.
 -  ``scraped_subjects`` List of subject areas that the state categorized
    this bill under.
--  ``subjects`` List of Open States standardized bill subjects, see
-   :ref:`subject-categorization`.
+-  ``subjects`` List of Open States standardized bill subjects.
 -  ``sources`` List of source URLs used to compile information on this
    object.
 -  ``sponsors`` List of bill sponsors.
