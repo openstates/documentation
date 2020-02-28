@@ -11,6 +11,7 @@ Documentation for Open States, its API, and how to contribute.
    api/index
    bulk/index
    contributing/index
+   data/index
    usage
    infrastructure/index
    policies/index
