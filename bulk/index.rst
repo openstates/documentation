@@ -1,3 +1,5 @@
+:orphan:
+
 Static Data 
 ===========
 
@@ -8,6 +10,5 @@ More Details:
 .. toctree::
    :maxdepth: 2
 
-   boundaries
    legacy-json
    legacy-csv
