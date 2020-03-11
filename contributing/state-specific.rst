@@ -1,5 +1,28 @@
-State API Keys
-==============
+State-Specific Scraper Documentation
+====================================
+
+
+California MySQL
+----------------
+
+California is a unique state that takes a couple of extra steps to get working locally.
+
+California provides MySQL dumps of their data, and in order to use those we start up a local MySQL instance and read from that.
+
+To download the data for the current session::
+
+  docker-compose run --rm ca-download
+
+(You can append --year YYYY to instead select data for a given year.)
+
+This will start a local MySQL image as well, that image will need to stay up for the next step, which is running a scrape like normal::
+
+  docker-compose run --rm scrape ca bills --fast
+
+
+
+State API Keys (NY & IN)
+------------------------
 
 Unfortunately, some states find it necessary to require API Keys (or other credentials) to access their best data.
 
@@ -22,9 +45,3 @@ Currently only a few states require API keys:
   * API Key Request Process: Email Bob Amos (bob.amos@iga.in.gov or bamos@iga.in.gov), and include your name, address, phone, email address and company. Also indicate that you have read the terms of service at the link above.
   * Set in environment prior to running scrape: ``INDIANA_API_KEY``
   * As a side note, Indiana also requires a `user-agent string <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent>`_, so set that in your environment as well, prior to running scrape: ``USER_AGENT``
-  
-* Oregon - https://www.oregonlegislature.gov/citizen_engagement/Pages/data.aspx
-
-  * API Credentials Request Process: Email help.leg@oregonlegislature.gov and include your name, e-mail address, company or organization name, and contact phone number. Also please read over the API agreement and let them know you agree to the terms in the email.
-
-If you're in need of an API key and unable to via these channels please contact a member of the core team to discuss getting access to the development key.
