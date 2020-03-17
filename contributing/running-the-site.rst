@@ -4,7 +4,7 @@
 Working On openstates.org
 =========================
 
-openstates.org is the public-facing result of all the scraping we do.  The site is built in Django and includes the web frontend and API.
+openstates.org is the public-facing result of all the work we do.  The site is built in Django and includes the web frontend and API.
 
 Checking out
 ------------
@@ -64,6 +64,7 @@ The project is rather large, with quite a few django apps, here's a quick guide:
 Django Apps:
 
   * bulk/       - handles bulk downloads on the website
+  * dashboards/ - dashboards for viewing various statistics
   * geo/        - geography services for legislator lookup
   * graphapi/   - powers GraphQL API
   * profiles/   - user and subscription management
@@ -76,6 +77,7 @@ Other Stuff:
   * ansible/ - the files used to deploy OpenStates.org are here
   * docker/  - special scripts for running tests, etc. within docker
   * openstates/ - core Django settings files
+  * static/     - various static assets, including frontend code
   * templates/  - Django templates
 
 

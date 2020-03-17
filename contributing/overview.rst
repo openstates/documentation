@@ -36,8 +36,8 @@ Our current priorities:
 Power User Features
 ~~~~~~~~~~~~~~~~~~~
 
-- Add user logins & profiles.   (**completed January 2020**)
-- Introduce bill & issue tracking.  (**in beta February 2020**)
+- Add user logins & profiles.   (**launched January 2020**)
+- Introduce bill & issue tracking.  (**launched February 2020**)
 
 Data Quality
 ~~~~~~~~~~~~
@@ -55,8 +55,8 @@ API
 Bulk Data
 ~~~~~~~~~
 
-- Add new per-state CSV data exports.  (**in beta February 2020**)
-- Add custom data-export creation page. (TBD)
+- Add new per-state CSV data exports.  (**launched February 2020**)
+- <s>Add custom data-export creation page.</s> (**replaced with per-session JSON data instead, February 2020**)
 - Provide bulk geographic data ahead of 2021 redistricting. (TBD)
 
 Community
@@ -64,13 +64,14 @@ Community
 
 - Documentation updates (**in progress**)
 - New Contributor Support (Q1-Q2)
-- API User Dashboard (Q2-Q3)
+- API User Dashboard (**in progress**)
 
 Recent Major Work
 -----------------
 
 To give a sense of recent priorities, here are major milestones from the past few years:
 
+- `Legislation Tracking <https://blog.openstates.org/tracking-legislation-on-open-states/>`_ - Q1 2020
 - **Restoration of Historical Legislator Data** - Q4 2019
 - `Full Text Search <https://blog.openstates.org/adding-full-text-search-to-open-states-14b665c1fe30/>`_ - Q4 2019
 - **2019 Legislative Session Updates** - Q1 2019

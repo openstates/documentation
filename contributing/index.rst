@@ -10,6 +10,8 @@ The guides below will walk you through how we work, and various ways you can con
     :glob:
 
     getting-started
+    overview
+    communication
     scrapers
     state-specific
     testing-scrapers
@@ -18,5 +20,3 @@ The guides below will walk you through how we work, and various ways you can con
     text-extraction
     documentation
     code-of-conduct
-    communication
-    overview
