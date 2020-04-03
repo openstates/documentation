@@ -64,7 +64,7 @@ Community
 
 - Documentation updates (**in progress**)
 - New Contributor Support (Q1-Q2)
-- API User Dashboard (**in progress**)
+- API User Dashboard (**launched March 2020**)
 
 Recent Major Work
 -----------------
