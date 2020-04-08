@@ -81,7 +81,7 @@ Validate Scraper Output
 
 Scraper output is verified against JSON schemas that protect against common regressions (missing sources, invalid formatted districts, etc.) - most of these tests can be written effectively against scraper output across the board, and in doing so also applies universally across all 50 states.
 
-We also aim for our underlying libraries like `pupa <https://github.com/opencivicdata/pupa>`_ to be as well tested as possible.  (To be 100% clear, our lax testing philosophy only applies to site-specific scraper code, not these support libraries.)
+We also aim for our underlying libraries like `openstates-core <https://github.com/openstates/openstates-core>`_ to be as well tested as possible.  (To be 100% clear, our lax testing philosophy only applies to site-specific scraper code, not these support libraries.)
 
 Run Scrapers Regularly
 ~~~~~~~~~~~~~~~~~~~~~~

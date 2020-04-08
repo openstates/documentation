@@ -12,16 +12,17 @@ Repositories
 
 These repositories make up the core of the project, if you're looking to contribute there's a 90% chance one of these is what you're looking for.
 
-- `openstates`_ - Open States bill & vote scrapers.
+- `openstates-scrapers`_ - Open States bill & vote scrapers.
 - `people`_ - Open States People data, maintained as editable YAML files
+- `openstates-core`_ - Open States data model & scraper backend.
 - `text-extraction`_ - Text extraction powering full text search.
 - `openstates.org`_ - Powers https://openstates.org/ website & API.
-- `metadata`_ - Data on states and their districts, etc. that changes rarely.
+- `openstates-metadata`_ - Data on states and their districts, etc. that changes rarely.
 - `documentation`_ - https://docs.openstates.org/ (you're reading it now)
 
 These repositories are other pieces of our infrastructure, but are generally not interesting to the average person.
 
-- `task-definitions`_ - Definitions for bobsled.
+- `task-definitions`_ - Tasks for our task runner.
 - `maintenance-scripts`_ - Internal scripts used for various maintenance tasks.
 - `indiana-docs`_ - A proxy for fetching Indiana’s docs without API key.
 - `blog`_ - https://blog.openstates.org/
@@ -87,8 +88,9 @@ To give a sense of recent priorities, here are major milestones from the past fe
 .. _indiana-docs: https://github.com/openstates/indiana-docs
 .. _openstates.org: https://github.com/openstates/openstates.org
 .. _openstates-district-maps: https://github.com/openstates/openstates-district-maps
-.. _openstates: https://github.com/openstates/openstates
+.. _openstates-scrapers: https://github.com/openstates/openstates-scrapers
 .. _people: https://github.com/openstates/people
-.. _metadata: https://github.com/openstates/metadata
+.. _openstates-metadata: https://github.com/openstates/openstates-metadata
+.. _openstates-core: https://github.com/openstates/openstates-core
 .. _task-definitions: https://github.com/openstates/task-definitions
 

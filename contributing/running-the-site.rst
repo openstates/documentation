@@ -31,15 +31,10 @@ Whether you're aiming to work on openstates.org or just want to import scraped d
 
 If you haven't set up docker yet, see :ref:`prerequisites`.
 
-To download a recent copy of the Open States database and restore it::
+To initialize an empty Open States database::
 
   docker-compose up -d db
   docker-compose run --rm --entrypoint ./docker/init-db.sh django
-
-.. warning::
-  This command takes several GB of disk space.  The pgdump file that is downloaded is ~4GB as of March 2020 and the restored database is around 8GB.  If you don't have room for this but want to contribute let us know so we can prioritize more compact options.
-
-You'll see this command download a file from S3, which can take a while depending upon your internet connection.  It will then go silent for a while as it works to restore the database.  This takes 5-10 minutes on a late-2018 Macbook Pro, but your experience may vary.  So long as it isn't spitting out errors, things should be fine.
 
 If you're working on scrapers you'll now find that this database is available to your scrape processes! 
 
