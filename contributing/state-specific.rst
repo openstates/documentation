@@ -45,3 +45,8 @@ Currently only a few states require API keys:
   * API Key Request Process: Email Bob Amos (bob.amos@iga.in.gov or bamos@iga.in.gov), and include your name, address, phone, email address and company. Also indicate that you have read the terms of service at the link above.
   * Set in environment prior to running scrape: ``INDIANA_API_KEY``
   * As a side note, Indiana also requires a `user-agent string <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent>`_, so set that in your environment as well, prior to running scrape: ``USER_AGENT``
+
+* Virginia - https://lis.virginia.gov/SiteInformation/ftp.html
+
+  * API Credentials Request Process: To acquire access, please contact the Virginia Legislative Information System help desk at (804) 786-9631 for a user id.
+  * Set in environment prior to running scrape: ``VIRGINIA_FTP_USER``, ``VIRGINIA_FTP_PASSWORD``
