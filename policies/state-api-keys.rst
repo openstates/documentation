@@ -24,4 +24,8 @@ Currently only a few states require API keys:
 
   * API Credentials Request Process: Email help.leg@oregonlegislature.gov and include your name, e-mail address, company or organization name, and contact phone number. Also please read over the API agreement and let them know you agree to the terms in the email.
 
+* Virginia - https://lis.virginia.gov/SiteInformation/ftp.html
+
+  * API Credentials Request Process:  To acquire access, please contact the Virginia Legislative Information System help desk at (804) 786-9631 for a user id.
+
 If you're in need of an API key and unable to via these channels please contact a member of the core team to discuss getting access to the development key.
