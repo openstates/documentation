@@ -3,6 +3,11 @@ Changelog
 
 Changelog for Open States GraphQL API:
 
+v2.4 (April 2019)
+-----------------
+
+* removed unused fields from graph (organization.links, organization.other_names)
+
 v2.3 (August 2019)
 ------------------
 
