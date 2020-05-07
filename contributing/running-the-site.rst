@@ -33,8 +33,7 @@ If you haven't set up docker yet, see :ref:`prerequisites`.
 
 To initialize an empty Open States database::
 
-  docker-compose up -d db
-  docker-compose run --rm --entrypoint ./docker/init-db.sh django
+  ./docker/init-db.sh
 
 If you're working on scrapers you'll now find that this database is available to your scrape processes! 
 
@@ -80,3 +79,9 @@ Running openstates.org
 ----------------------
 
 Simply running ``docker-compose up`` should start django & the database, then browse to http://localhost:8000 and you'll be looking at your own local copy of openstates.org
+
+
+Running outside of Docker
+-------------------------
+
+It might be desirable to test outside of docker sometimes to bypass caching or other issues that make development within the docker environment difficult.  If so, you can install `goreman <https://github.com/mattn/goreman>`_ (or any foreman clone) and run ``goreman start``.
