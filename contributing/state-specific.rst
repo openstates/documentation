@@ -50,3 +50,9 @@ Currently only a few states require API keys:
 
   * API Credentials Request Process: To acquire access, please contact the Virginia Legislative Information System help desk at (804) 786-9631 for a user id.
   * Set in environment prior to running scrape: ``VIRGINIA_FTP_USER``, ``VIRGINIA_FTP_PASSWORD``
+
+* District of Columbia - https://lims.dccouncil.us/api/help/index.html
+
+    * API Key Request Form: https://lims.dccouncil.us/developerRegistration
+    * Set in environment prior to running scrape: ``DC_API_KEY``
+
