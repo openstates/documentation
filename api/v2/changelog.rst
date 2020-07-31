@@ -3,7 +3,12 @@ Changelog
 
 Changelog for Open States GraphQL API:
 
-v2.4 (April 2019)
+v2.5 (July 2020)
+-----------------
+
+* added Jurisdiction.lastScrapedAt, openstates/issues#32
+
+v2.4 (April 2020)
 -----------------
 
 * removed unused fields from graph (organization.links, organization.other_names)

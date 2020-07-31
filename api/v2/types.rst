@@ -24,6 +24,7 @@ Each JurisdictionNode has the following attributes & nodes available:
 * ``legislativeSessions`` - Paginated list (see :ref:`pagination`) of `LegislativeSessionNode`_ belonging to this jurisdiction's legislature.
 * ``organizations`` - Paginated list of `OrganizationNode`_ belonging to this jurisdiction.
     * it is also possible to filter the list of children using the ``classification`` parameter
+* ``lastScrapedAt`` - Time when last scrape finished.
 
 See also: `Open Civic Data Jurisdiction reference <http://docs.opencivicdata.org/en/latest/data/jurisdiction.html>`_
     
