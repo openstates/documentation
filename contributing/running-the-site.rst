@@ -31,7 +31,11 @@ Whether you're aiming to work on openstates.org or just want to import scraped d
 
 If you haven't set up docker yet, see :ref:`prerequisites`.
 
-To initialize an empty Open States database::
+First, make sure that the database is running with::
+
+  docker-compose up -d db
+
+Then, to initialize an empty Open States database::
 
   ./docker/init-db.sh
 
