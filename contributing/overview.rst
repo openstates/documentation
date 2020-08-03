@@ -44,27 +44,27 @@ Data Quality
 ~~~~~~~~~~~~
 
 - Improve data quality and timeliness.  (**in progress**)
-- Provide publicly accessible data quality dashboard.  (Q2)
+- Provide publicly accessible data quality dashboard.  (Q3)
 
 API
 ~~~
 
-- Improve speed of most popular graph queries.  (TBD)
-- Provide simplified endpoints for common queries.  (TBD)
-- Introduce a pub/sub type mechanism for staying in sync with bill & vote updates.  (TBD)
+- Improve speed of most popular graph queries.  (**launched June 2020**)
+- Provide simplified endpoints for common queries.  (Q3/Q4)
+- Introduce a pub/sub type mechanism for staying in sync with bill & vote updates.  (Q4/2021Q1)
 
 Bulk Data
 ~~~~~~~~~
 
 - Add new per-state CSV data exports.  (**launched February 2020**)
 - <s>Add custom data-export creation page.</s> (**replaced with per-session JSON data instead, February 2020**)
-- Provide bulk geographic data ahead of 2021 redistricting. (TBD)
+- Provide bulk geographic data ahead of 2021 redistricting. (Q4)
 
 Community
 ~~~~~~~~~
 
-- Documentation updates (**in progress**)
-- New Contributor Support (Q1-Q2)
+- Documentation updates (Q3)
+- New Contributor Support (Q3/Q4)
 - API User Dashboard (**launched March 2020**)
 
 Recent Major Work
