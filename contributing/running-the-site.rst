@@ -46,13 +46,13 @@ Running Tests
 
 You can run the tests for the project via::
 
-  docker-compose run --rm --entrypoint ./docker/run-tests.sh django
+  ./docker/run-tests.sh
 
 You can also append standard pytest arguments such as `-x` to bail on first failure.
 
 Example of running just the v1 tests, bailing on error::
 
-  docker-compose run --rm --entrypoint ./docker/run-tests.sh django v1 -x
+  ./docker/run-tests.sh v1 -x
 
 Repository overview
 -------------------
