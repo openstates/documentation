@@ -3,7 +3,7 @@
 Districts
 =========
 
-.. note:: API v2 is now available, please check out `API v2 <https://docs.openstates.org/en/latest/api/v2/>`_.
+.. warning:: API v1 is deprecated, please check out `API v3 <https://docs.openstates.org/en/latest/api/v3/>`_ or `API v2 <https://docs.openstates.org/en/latest/api/v2/>`_ both of which are actively supported.
 
 
 :ref:`district-search`

@@ -1,11 +1,9 @@
 .. _v1:
 
-Open States API v1
+Open States v1 API
 ==================
 
-.. note:: API v2 is now available, please check out `API v2 <https://docs.openstates.org/en/latest/api/v2/>`_.
-
-Open States provides a JSON API for accessing state legislative information.
+.. warning:: API v1 is deprecated, please check out `API v3 <https://docs.openstates.org/en/latest/api/v3/>`_ or `API v2 <https://docs.openstates.org/en/latest/api/v2/>`_ both of which are actively supported.
 
 Basics
 ------
@@ -26,11 +24,11 @@ Basics
 Deprecation
 -----------
 
-As of November 2018 we are beginning the process of removing lesser-used portions of this API.  New applications should use API v2.
+As of November 2018 we are beginning the process of removing lesser-used portions of this API.  New applications should use API v2 or v3.
 
 None of these were used by more than 1% of API users, and their removal will help us hopefully extend the life of the existing API.
 
-**The Event & Committee endpoints are no longer supported.**  Committees are available in API v2, and events are not currently collected part of Open States.
+**The Event & Committee endpoints are no longer supported.**  Committees are available in API v2, and events are not currently collected as part of Open States.
 
 Additionally, **the boundary endpoint will no longer be something we provide**. This data changes rarely and is best served from a static resource instead of an HTTP query.  We are exploring options to provide a suitable resource for this in the future.
 

@@ -1,6 +1,8 @@
 Categorization
 ==============
 
+   .. warning:: API v1 is deprecated, please check out `API v3 <https://docs.openstates.org/en/latest/api/v3/>`_ or `API v2 <https://docs.openstates.org/en/latest/api/v2/>`_ both of which are actively supported.
+
 One of the ways that we add value to the data we provide is by attempting to categorize bills, actions, and votes across states.
 
 Bill Types
