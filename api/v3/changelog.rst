@@ -1,6 +1,12 @@
 API v3 Changelog
 ================
 
+2020.09.14
+----------
+
+- removed some unused fields from responses
+- removed deprecated government classification from Jurisdiction
+
 2020.09.10
 ----------
 
