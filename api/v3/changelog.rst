@@ -1,6 +1,18 @@
 API v3 Changelog
 ================
 
+2020.09.28
+----------
+
+- set permissive CORS settings
+- bills endpoint updates
+  - added created_since filter, thanks to Donald Wasserman!
+  - added sponsor and sponsor_classification filters
+  - added sort parameter
+  - added useful error message when searching /bills by session without jurisdiction
+- restored missing Bill.from_organization field
+- introduced new fields: Person.openstates_url, Bill.openstates_url
+
 2020.09.14
 ----------
 
