@@ -1,6 +1,13 @@
 API v3 Changelog
 ================
 
+2020.10.13
+----------
+
+- add updated_asc sort option
+- add rate limiting
+- bugfix for New York jurisdiction lookup (openstates/issues#136)
+
 2020.09.28
 ----------
 
