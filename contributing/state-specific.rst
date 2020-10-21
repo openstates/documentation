@@ -17,7 +17,7 @@ To download the data for the current session::
 
 This will start a local MySQL image as well, that image will need to stay up for the next step, which is running a scrape like normal::
 
-  docker-compose run --rm scrape ca bills --fast
+  docker-compose run --rm ca-scrape ca bills --fast
 
 
 
