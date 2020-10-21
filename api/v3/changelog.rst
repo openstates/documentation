@@ -1,6 +1,11 @@
 API v3 Changelog
 ================
 
+2020.10.21
+----------
+  - fix datetime handling for updated_since and created_since filters
+  - add list of divisions when including Jurisdiction.organizations
+
 2020.10.13
 ----------
 
