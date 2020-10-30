@@ -1,6 +1,11 @@
 API v3 Changelog
 ================
 
+2020.10.30
+----------
+  - move email to a top-level field on Person responses
+  - add consistent post ordering
+
 2020.10.21
 ----------
   - fix datetime handling for updated_since and created_since filters
