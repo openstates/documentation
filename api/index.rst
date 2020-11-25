@@ -24,7 +24,9 @@ Basics
 Deprecation
 -----------
 
-As of November 2018 we are beginning the process of removing lesser-used portions of this API.  New applications should use API v2 or v3.
+As of November 2018 we began the process of removing lesser-used portions of this API.  New applications should use API v2 or v3.
+
+As of November 2020, API v1 is no longer supported.  Existing use cases may continue as-is, but endpoints will be turned off in 2021.  See the `API v3 announcement <https://blog.openstates.org/open-states-api-v3/>`_ for more details.
 
 None of these were used by more than 1% of API users, and their removal will help us hopefully extend the life of the existing API.
 

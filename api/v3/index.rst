@@ -3,8 +3,6 @@ Open States v3 API
 
 Open States provides a JSON API that can be used to programatically access state legislative information.
 
- .. note:: API v3 is in beta as of September 2020.  We are expecting to make a few changes, some of which might introduce small backwards incompatible changes.  While we encourage you to use the API, please be prepared to keep up to date at least through December 2020 when we expect the API will be officially designated as stable.
-
 API Basics
 ----------
 
@@ -21,8 +19,6 @@ Auto-generated interactive documentation is available at either:
 Issues should be filed at `our issue tracker <https://github.com/openstates/issues/issues>`_.
 
 You can also check out our `introductory blog post <TODO>`_ for more details.
-
-.. note:: API Limits are not yet defined or enforced, we're currently evaluating different tiers, but we aim to support 80% of users in our free tier.  If you're curious about your particular use case please reach out to contact@openstates.org.
 
 
 Methods
