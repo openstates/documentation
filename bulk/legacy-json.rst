@@ -1,7 +1,7 @@
 Legacy JSON Data
 ================
 
-The data contained in these downloads is in roughly the same format as that obtained via the legacy :ref:`v1`.  (Refer to those docs for specifics on file formats.)
+The data contained in these downloads is in roughly the same format as that obtained via the legacy API v1.
 
 These downloads are not intended as a replacement for using the API. 
 behind the current data.  This makes them useful for general research

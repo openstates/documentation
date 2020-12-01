@@ -11,4 +11,3 @@ Documentation for Open States, its API, and how to contribute.
    api/v2/index
    contributing/index
    data/index
-   usage
