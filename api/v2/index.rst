@@ -1,3 +1,5 @@
+.. _v2:
+
 Open States v2 GraphQL API
 ==========================
 
