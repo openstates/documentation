@@ -14,22 +14,17 @@ Recommendations
 
 **Want to ask a general question, have a conversation, or keep up with the community?**
 
-    The best place is our `Discourse Forum <https://discourse.openstates.org/>`_. This is the main place for Open States discussion. The core team and many other contributors are present there, and we're usually able to answer questions in a timely fashion.
+    The best place is our `Discussion Forum <https://github.com/openstates/issues/discussions>`_. This is the main place for Open States discussion. The core team and many other contributors are present there, and we're usually able to answer questions in a timely fashion.
 
 **Have a private or financial question, or a security concern?**
 
     Email `contact@openstates.org <mailto:contact@openstates.org>`_; only the administrative team can see these.
 
 **Have you found an error or issue in the Open States data?**
-
-    File an issue on `our bug tracker <https://github.com/openstates/openstates/issues>`_.  And before you do, quickly check whether anyone else there has already reported the same bug.
-
 **Have a technical issue not related to the data itself?**
 
-    Try to find the appropriate repository in `our GitHub organization <https://github.com/openstates>`_, and file an issue there. For example:
+    File an issue on `our bug tracker <https://github.com/openstates/issues/issues>`_.  And before you do, quickly check whether anyone else there has already reported the same bug.
 
-        * openstates.org: https://github.com/openstates/openstates.org/issues/
-        * our documentation: https://github.com/openstates/documentation/issues/
 
 **Want to contribute to the project more regularly?**
 

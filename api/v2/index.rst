@@ -3,7 +3,6 @@
 Open States v2 GraphQL API
 ==========================
 
-- If you are using the API please `visit our Discourse <https://discourse.openstates.org/>`_ and make use of `our issue tracker <https://github.com/openstates/openstates.org/issues>`_ to file comments/issues.
 - API keys are required.  You can `register for an API key <https://openstates.org/api/register/>`_ and once activated, you'll pass your API key via the ``X-API-KEY`` header.
 - You can also check out our `introductory blog post <https://blog.openstates.org/introducing-the-upcoming-open-states-graphql-api-838f9d023868>`_ for more details.
 
