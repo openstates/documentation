@@ -1,6 +1,10 @@
 API v3 Changelog
 ================
 
+2020.12.21
+----------
+  - people name= parameter is now fuzzy-searched, matching API v1 and v2
+
 2020.10.30
 ----------
   - move email to a top-level field on Person responses
