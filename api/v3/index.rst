@@ -20,7 +20,7 @@ Auto-generated interactive documentation is available at either:
 
 Issues should be filed at `our issue tracker <https://github.com/openstates/issues/issues>`_.
 
-You can also check out our `introductory blog post <TODO>`_ for more details.
+You can also check out our `introductory blog post <https://blog.openstates.org/open-states-api-v3-beta/>`_ for more details.
 
 
 Methods
