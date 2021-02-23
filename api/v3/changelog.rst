@@ -1,6 +1,10 @@
 API v3 Changelog
 ================
 
+2021.02.23
+----------
+  - people district= parameter added
+
 2020.12.21
 ----------
   - people name= parameter is now fuzzy-searched, matching API v1 and v2
