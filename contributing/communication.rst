@@ -28,7 +28,7 @@ Recommendations
 
 **Want to contribute to the project more regularly?**
 
-    We also have a private Slack that we can invite you to.  If you're interested in an invite, introduce yourself in an email to `contact@openstates.org <mailto:contact@openstates.org>`_.
+    We also have a Slack that you can join.  It is not the best place for asking questions better handled by filing an issue or opening a conversation on GitHub, but you're welcome to `join if you're interested in being a part of the community <https://join.slack.com/t/open-states/shared_invite/zt-njrpuaoi-JP0bROOFtZLdtNHN3LsuFg>`_.
 
 
 
