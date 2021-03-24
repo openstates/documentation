@@ -1,6 +1,11 @@
 API v3 Changelog
 ================
 
+2021.03.24
+----------
+  - Jurisdiction classification can now be 'country'
+  - experimental US federal support
+
 2021.02.23
 ----------
   - people district= parameter added
