@@ -3,6 +3,13 @@ Changelog
 
 Changelog for Open States GraphQL API:
 
+v2.6 (March 2021)
+-----------------
+
+* added preliminary support for federal jurisdiction
+* added Jurisdiction.classification node
+* Jurisdictions are now filterable by classification (municipal, state, country)
+
 v2.5 (July 2020)
 -----------------
 
