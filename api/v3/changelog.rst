@@ -1,6 +1,10 @@
 API v3 Changelog
 ================
 
+2021.04.19
+----------
+  - experimental support for Jurisdiction.latest_runs include parameter
+
 2021.03.24
 ----------
   - Jurisdiction classification can now be 'country'
