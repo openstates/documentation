@@ -1,6 +1,10 @@
 API v3 Changelog
 ================
 
+2021.08.02
+----------
+  - experimental committee support
+
 2021.04.19
 ----------
   - experimental support for Jurisdiction.latest_runs include parameter
