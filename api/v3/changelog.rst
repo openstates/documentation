@@ -1,9 +1,17 @@
 API v3 Changelog
 ================
 
+2021.08.30
+----------
+  - added `identifiers` parameter to bill search
+
+2021.08.03
+----------
+  - added latest_bill_update & latest_people_update to API v3
+
 2021.08.02
 ----------
-  - experimental committee support
+  - addded experimental committee endpoints
 
 2021.04.19
 ----------
