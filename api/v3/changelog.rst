@@ -1,6 +1,15 @@
 API v3 Changelog
 ================
 
+2021.10.12
+----------
+  - added classification field on Person.offices
+  - Person.offices now always have all fields present, even if empty
+
+2021.09.24
+-----------
+  - added experimental event endpoints
+
 2021.08.30
 ----------
   - added `identifiers` parameter to bill search
