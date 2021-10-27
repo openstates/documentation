@@ -1,6 +1,10 @@
 API v3 Changelog
 ================
 
+2021.10.27
+----------
+  - add Bill.related_bills include
+
 2021.10.12
 ----------
   - added classification field on Person.offices
