@@ -1,6 +1,10 @@
 API v3 Changelog
 ================
 
+2021.11.12
+----------
+  - add LegislativeSession.downloads
+
 2021.10.27
 ----------
   - add Bill.related_bills include
