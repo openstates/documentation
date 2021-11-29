@@ -1,0 +1,60 @@
+site_name: openstates
+site_url: https://openstates.github.io/documentation/
+site_author: James Turk
+site_description: Documentation for the Open States project.
+copyright: Copyright &copy; 2021 Open States
+repo_url: https://github.com/openstates/documentation
+repo_name: openstates/documentation
+edit_uri: edit/main/docs/
+
+theme:
+  logo: assets/openstates.svg
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+  features:
+    #- navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+markdown_extensions:
+  - admonition
+  - def_list
+  - pymdownx.highlight
+  - pymdownx.tabbed
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+plugins:
+- search
+extra_css:
+  - assets/extra.css
+nav:
+  - 'index.md'
+    #- Usage:
+    # - 'scraper-basics.md'
+    # - 'data-models.md'
+    # - 'advanced-techniques.md'
+  # - Reference:
+    # - 'cli.md'
+    # - 'reference.md'
+  # - About Spatula:
+    # - 'philosophy.md'
+    # - 'anatomy-of-a-scrape.md'
+    # - 'contributing.md'
+    # - 'code_of_conduct.md'
+    # - 'changelog.md'

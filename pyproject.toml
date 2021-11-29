@@ -8,6 +8,7 @@ authors = ["Your Name <you@example.com>"]
 python = "^3.7"
 sphinx = "^2.2"
 sphinx_rtd_theme = "^0.4.3"
+mkdocs-material = "^8.0.1"
 
 [tool.poetry.dev-dependencies]
 
