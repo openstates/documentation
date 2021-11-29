@@ -49,6 +49,14 @@ nav:
     - 'data/index.md'
     - 'data/categorization.md'
     - 'data/session-naming.md'
+  - API v2:
+    - 'api-v2/index.md'
+    - 'api-v2/root-nodes.md'
+    - 'api-v2/types.md'
+    - 'api-v2/other.md'
+    - 'api-v2/examples.md'
+    - 'api-v2/changelog.md'
+
     #- Usage:
     # - 'scraper-basics.md'
     # - 'data-models.md'
