@@ -45,6 +45,10 @@ extra_css:
   - assets/extra.css
 nav:
   - 'index.md'
+  - Data:
+    - 'data/index.md'
+    - 'data/categorization.md'
+    - 'data/session-naming.md'
     #- Usage:
     # - 'scraper-basics.md'
     # - 'data-models.md'
