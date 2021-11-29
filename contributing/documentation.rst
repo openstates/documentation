@@ -3,8 +3,6 @@ Contributing Documentation
 
 If you notice any issues on these docs, or just want to make them better the source is in the `openstates/documentation <https://github.com/openstates/documentation>`_ repository.
 
-This is a fairly standard `Sphinx <https://www.sphinx-doc.org/en/master/>`_ project, 
-
 Checking out
 ------------
 
