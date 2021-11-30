@@ -12,6 +12,8 @@ jobs:
     steps:
       # Python & dependency installation
       - uses: actions/checkout@v2
+        with:
+          submodules: true
       - name: setup Python
         uses: actions/setup-python@v2
       - name: install Poetry
