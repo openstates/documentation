@@ -1,0 +1,3 @@
+[submodule "docs/enhancement-proposals"]
+	path = docs/enhancement-proposals
+	url = git@github.com:openstates/enhancement-proposals.git

@@ -71,3 +71,12 @@ nav:
     - 'data/index.md'
     - 'data/categorization.md'
     - 'data/session-naming.md'
+  - Enhancement Proposals:
+    - 'enhancement-proposals/001-purpose-and-process.md'
+    - 'enhancement-proposals/002-legal-citations.md'
+    - 'enhancement-proposals/003-manual-people-data-tools.md'
+    - 'enhancement-proposals/004-committee-data.md'
+    - 'enhancement-proposals/005-dedupe-key.md'
+    - 'enhancement-proposals/006-new-people-offices.md'
+    - 'enhancement-proposals/007-events.md'
+    - 'enhancement-proposals/008-active-sessions.md'
