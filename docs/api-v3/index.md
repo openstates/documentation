@@ -35,6 +35,11 @@ details.
   /bills                                |Search bills by various criteria.                     |[try it!](https://v3.openstates.org/docs#/bills/bills_search_bills_get)
   /bills/ocd-bill/{uuid}                |Get bill by internal ID.                              |[try it!](https://v3.openstates.org/docs#/bills/bill_detail_by_id_bills_ocd_bill__openstates_bill_id__get)
   /bills/{jurisdiction}/{session}/{id}  |Get bill by jurisdiction, session, and ID.            |[try it!](https://v3.openstates.org/docs#/bills/bill_detail_bills__jurisdiction___session___bill_id__get)
+  /committees                           |Get list of committees by jurisdiction.               |[try it!](https://v3.openstates.org/docs#/committees/committee_list_committees_get)
+  /committees/{committee_id}            |Get details on committee by internal ID.              |[try it!](https://v3.openstates.org/docs#/committees/committee_detail_committees__committee_id__get)
+  /events                               |Get list of events by jurisdiction.                   |[try it!](https://v3.openstates.org/docs#/events/event_list_events_get)
+  /events/{event_id}                    |Get details on event by internal ID.                  |[try it!](https://v3.openstates.org/docs#/events/event_detail_events__event_id__get)
+
 
 ## Concepts
 
