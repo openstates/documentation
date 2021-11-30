@@ -62,6 +62,8 @@ nav:
     - 'contributing/getting-started.md'
     - 'contributing/people.md'
     - 'contributing/scrapers.md'
+    - 'contributing/openstates-org.md'
+      # - 'contributing/text-extraction.md'
     - 'contributing/testing-scrapers.md'
     - 'contributing/state-specific.md'
     - 'contributing/documentation.md'
