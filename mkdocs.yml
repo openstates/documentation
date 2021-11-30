@@ -48,10 +48,6 @@ nav:
   - 'index.md'
   - 'communication.md'
   - 'code-of-conduct.md'
-  - Data:
-    - 'data/index.md'
-    - 'data/categorization.md'
-    - 'data/session-naming.md'
   - API v3:
     - 'api-v3/index.md'
     - 'api-v3/changelog.md'
@@ -62,6 +58,13 @@ nav:
     - 'api-v2/other.md'
     - 'api-v2/examples.md'
     - 'api-v2/changelog.md'
+  - Contributing:
+    - 'contributing/getting-started.md'
+    - 'contributing/documentation.md'
+  - Data:
+    - 'data/index.md'
+    - 'data/categorization.md'
+    - 'data/session-naming.md'
 
     #- Usage:
     # - 'scraper-basics.md'
