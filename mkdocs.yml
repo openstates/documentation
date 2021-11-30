@@ -34,6 +34,7 @@ theme:
 markdown_extensions:
   - admonition
   - def_list
+  - tables
   - pymdownx.highlight
   - pymdownx.tabbed
   - pymdownx.superfences
@@ -49,7 +50,10 @@ nav:
     - 'data/index.md'
     - 'data/categorization.md'
     - 'data/session-naming.md'
-  - API v2:
+  - API v3:
+    - 'api-v3/index.md'
+    - 'api-v3/changelog.md'
+  - GraphQL API:
     - 'api-v2/index.md'
     - 'api-v2/root-nodes.md'
     - 'api-v2/types.md'
