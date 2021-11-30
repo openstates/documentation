@@ -60,6 +60,8 @@ nav:
     - 'api-v2/changelog.md'
   - Contributing:
     - 'contributing/getting-started.md'
+    - 'contributing/testing-scrapers.md'
+    - 'contributing/state-specific.md'
     - 'contributing/documentation.md'
   - Data:
     - 'data/index.md'
