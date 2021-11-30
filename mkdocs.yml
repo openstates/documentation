@@ -13,21 +13,21 @@ theme:
   palette:
     - scheme: default
       primary: indigo
-      accent: indigo
+      accent: red
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
     - scheme: slate
       primary: indigo
-      accent: indigo
+      accent: red
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
 
   features:
-    #- navigation.tabs
-    - navigation.sections
+    - navigation.expand
     - navigation.top
+    - navigation.sections
     - content.tabs.link
   icon:
     repo: fontawesome/brands/github
@@ -71,17 +71,3 @@ nav:
     - 'data/index.md'
     - 'data/categorization.md'
     - 'data/session-naming.md'
-
-    #- Usage:
-    # - 'scraper-basics.md'
-    # - 'data-models.md'
-    # - 'advanced-techniques.md'
-  # - Reference:
-    # - 'cli.md'
-    # - 'reference.md'
-  # - About Spatula:
-    # - 'philosophy.md'
-    # - 'anatomy-of-a-scrape.md'
-    # - 'contributing.md'
-    # - 'code_of_conduct.md'
-    # - 'changelog.md'
