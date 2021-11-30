@@ -1,11 +1,8 @@
-# Open States v2 GraphQL API
+# GraphQL API
 
--   API keys are required. You can [register for an API
-    key](https://openstates.org/api/register/) and once activated,
+-   API keys are required. You can [register for an API key](https://openstates.org/api/register/) and once activated,
     you'll pass your API key via the `X-API-KEY` header.
--   You can also check out our [introductory blog
-    post](https://blog.openstates.org/introducing-the-upcoming-open-states-graphql-api-838f9d023868)
-    for more details.
+-   You can also check out our [introductory blog post](https://blog.openstates.org/introducing-the-upcoming-open-states-graphql-api-838f9d023868) for more details.
 
 ## Basics
 
