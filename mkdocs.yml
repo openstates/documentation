@@ -46,6 +46,8 @@ extra_css:
   - assets/extra.css
 nav:
   - 'index.md'
+  - 'communication.md'
+  - 'code-of-conduct.md'
   - Data:
     - 'data/index.md'
     - 'data/categorization.md'
