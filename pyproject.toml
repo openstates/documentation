@@ -2,12 +2,10 @@
 name = "openstates-documentation"
 version = "2019.12"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["James Turk <james@openstates.org>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-sphinx = "^2.2"
-sphinx_rtd_theme = "^0.4.3"
 mkdocs-material = "^8.0.1"
 
 [tool.poetry.dev-dependencies]
