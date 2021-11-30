@@ -64,7 +64,7 @@ nav:
     - 'api-v2/examples.md'
     - 'api-v2/changelog.md'
   - Contributing:
-    - 'contributing/getting-started.md'
+    - 'contributing/index.md'
     - 'contributing/people.md'
     - 'contributing/scrapers.md'
     - 'contributing/openstates-org.md'

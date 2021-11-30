@@ -3,12 +3,14 @@
 Person data is maintained in the
 [openstates/people](https://github.com/openstates/people) repository.
 This repository contains YAML files with all the information on given
-individuals, as well as scripts to work with & maintain the data.
+individuals and committees.
 
-Also, please note that this portion of the project is in the public
-domain in the United States with all copyright waived via a
-[CC0](https://creativecommons.org/publicdomain/zero/1.0/) dedication. By
-contributing you agree to waive all copyright claims.
+!!! info
+
+    Please note that this portion of the project is in the public
+    domain in the United States with all copyright waived via a
+    [CC0](https://creativecommons.org/publicdomain/zero/1.0/) dedication. By
+    contributing you agree to waive all copyright claims.
 
 ## Checking out
 
@@ -39,9 +41,13 @@ The repository consists of a few key components:
 -   `settings.yml` Settings for state legislatures, including the number of seats, and current vacancies.
 -   `data/` Data files in YAML format on legislators, organized by state & status.
 
-To run a script using `docker-compose` you can run a command like:
+You can use the `os-people` and `os-committees` commands to manage the data:
 
-    docker-compose run --rm people ./scripts/lint_yaml.py
+    poetry run os-people --help
+
+or
+
+    poetry run os-committees --help
 
 ## Common tasks
 
