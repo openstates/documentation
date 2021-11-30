@@ -1,0 +1,23 @@
+name: Build Docs
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+
+jobs:
+  build:
+    steps:
+      # Python & dependency installation
+      - uses: actions/checkout@v2
+      - name: setup Python
+        uses: actions/setup-python@v2
+      - name: install Poetry
+        uses: snok/install-poetry@v1.2.1
+      - name: set poetry config path
+        run: poetry config virtualenvs.path ~/.virtualenvs
+      - name: build with mkdocs
+        run: poetry run mkdocs gh-deploy
+    runs-on: ubuntu-20.04
