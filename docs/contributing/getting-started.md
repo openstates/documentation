@@ -9,7 +9,7 @@ and Python.
 No worries if you aren't an expert though, we'll walk you through the
 steps. And as for Python, if you've written other languages like
 Javascript or Ruby you'll probably be just fine. Don't be afraid to
-[ask for help](../communication.md) either!
+[ask for help](../index.md#communication) either!
 
 ## Get Familiar With Our Processes
 
@@ -17,7 +17,7 @@ We're glad to have you joining us, taking a few minutes to read the
 following pages will help you be a better member of our community:
 
 -   Our [Code of Conduct](../code-of-conduct.md) is important to us, and helps us maintain a healthy community.
--   We also have a [guide to help you learn where to get help](../communication.md) that you should look over.
+-   We also have a [guide to help you learn where to get help](../index.md#communication) that you should look over.
 
 ## Installing docker
 

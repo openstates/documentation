@@ -1,4 +1,4 @@
-site_name: openstates
+site_name: Open States
 site_url: https://openstates.github.io/documentation/
 site_author: James Turk
 site_description: Documentation for the Open States project.
@@ -52,7 +52,6 @@ extra_css:
   - assets/extra.css
 nav:
   - 'index.md'
-  - 'communication.md'
   - 'code-of-conduct.md'
   - API v3:
     - 'api-v3/index.md'
