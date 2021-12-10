@@ -22,22 +22,23 @@ Fork and clone the openstates.org repository:
 
 ## Getting a working database
 
-Whether you're aiming to work on openstates.org or just want to import
-scraped data, you'll need postgres server running in your docker
-environment.
+See [Running a Local Database](local-database.md) to get your database ready for OpenStates.org.
 
-If you haven't set up docker yet, see `prerequisites`.
+You'll need to make sure that database is running whenever you're working on OpenStates.org locally.
 
-First, make sure that the database is running with:
+You can do that by running `docker-compose up -d db` from the `openstates-scrapers` directory.
 
-    docker-compose up -d db
+``` console
+openstates-scrapers$ docker-compose up -d db
+Starting scrapers_db_1 ... done
+```
 
-Then, to initialize an empty Open States database:
+If it is already running output will look like:
 
-    ./docker/init-db.sh
-
-If you're working on scrapers you'll now find that this database is
-available to your scrape processes!
+``` console
+openstates-scrapers$ docker-compose up -d db
+scrapers_db_1 is up-to-date
+```
 
 ## Running Tests
 
