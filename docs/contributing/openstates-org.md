@@ -24,22 +24,6 @@ Fork and clone the openstates.org repository:
 
 See [Running a Local Database](local-database.md) to get your database ready for OpenStates.org.
 
-You'll need to make sure that database is running whenever you're working on OpenStates.org locally.
-
-You can do that by running `docker-compose up -d db` from the `openstates-scrapers` directory.
-
-``` console
-openstates-scrapers$ docker-compose up -d db
-Starting scrapers_db_1 ... done
-```
-
-If it is already running output will look like:
-
-``` console
-openstates-scrapers$ docker-compose up -d db
-scrapers_db_1 is up-to-date
-```
-
 ## Running Tests
 
 You can run the tests for the project via:

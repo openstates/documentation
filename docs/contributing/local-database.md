@@ -82,3 +82,40 @@ docker-compose run --rm -e PYTHONPATH=docker/ --entrypoint 'poetry run ./manage.
 ```
 
 This creates the Django-specific tables, and also creates a local API key `testkey` that can be used for local development.
+
+## Working with the Local Database
+
+The database will persist to disk, so for the most part once you run these steps you're good to go.
+
+### Starting the Database
+
+You'll need to make sure that database is running whenever you're working on scrapers or OpenStates.org locally.
+
+You can do that by running `docker-compose up -d db` from the `openstates-scrapers` directory.
+
+``` console
+openstates-scrapers$ docker-compose up -d db
+Starting scrapers_db_1 ... done
+```
+
+If it is already running output will look like:
+
+``` console
+openstates-scrapers$ docker-compose up -d db
+scrapers_db_1 is up-to-date
+```
+
+### Stopping the Database
+
+``` console
+openstates-scrapers$ docker-compose stop db
+Stopping scrapers_db_1 ... done
+```
+
+### Resetting the Database
+
+You can always run `scripts/init-db.sh` to reset your database.  This can be good if you have some bad data, or just whenever you'd like a fresh start:
+
+``` console
+openstates-scrapers/$ ./scripts/init-db.sh
+```
