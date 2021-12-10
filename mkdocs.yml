@@ -66,6 +66,7 @@ nav:
   - Contributing:
     - 'contributing/index.md'
     - 'contributing/people.md'
+    - 'contributing/local-database.md'
     - 'contributing/scrapers.md'
     - 'contributing/openstates-org.md'
       # - 'contributing/text-extraction.md'
