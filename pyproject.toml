@@ -2,7 +2,7 @@
 name = "openstates-documentation"
 version = "2019.12"
 description = ""
-authors = ["James Turk <james@openstates.org>"]
+authors = ["James Turk <dev@jamesturk.net>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
