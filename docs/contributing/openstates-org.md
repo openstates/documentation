@@ -7,15 +7,16 @@ site is built in Django and includes the web frontend and API.
 
 Fork and clone the openstates.org repository:
 
--   Visit <https://github.com/openstates/openstates.org> and click the
+- Visit <https://github.com/openstates/openstates.org> and click the
     'Fork' button.
 
--   Clone your fork using your tool of choice or the command line:
+- Clone your fork using your tool of choice or the command line:
 
         $ git clone git@github.com:yourname/openstates.org.git
         Cloning into 'openstates.org'...
 
--   And remember to `install pre-commit <pre-commit>`:
+- Be sure to run `poetry install` to fetch the correct version of dependencies.
+- And remember to `install pre-commit <pre-commit>`:
 
         $ pre-commit install
         pre-commit installed at .git/hooks/pre-commit
@@ -63,7 +64,16 @@ Other Stuff:
 
 Simply running `docker-compose up` should start django & the database,
 then browse to <http://localhost:8000> and you'll be looking at your
-own local copy of openstates.org
+own local copy of openstates.org. In a separate terminal window, run `npm run build` and `npm run start` to see the 
+site's react and style components.
+
+!!! note 
+    
+    If you're running into issues with models not being found or an incorrectly configured virtual environment, running
+    `docker-compose build` should help to fix it.
+
+If you have issues getting your instance up and running, please document the
+errors you're seeing and [reach out](../index.md#communication).
 
 ## Running outside of Docker
 

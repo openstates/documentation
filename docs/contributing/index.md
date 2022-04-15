@@ -12,7 +12,8 @@ No matter how experienced you are, it is a good idea to read through this sectio
 
 No worries if you aren't an expert though, we'll walk you through the
 steps. And as for Python, if you've written other languages like
-Javascript or Ruby you'll probably be just fine.
+Javascript or Ruby you'll probably be just fine. Here's a [great guide](https://realpython.com/intro-to-pyenv/) on 
+getting started installing and managing Python versions. 
 
 Don't be afraid to [ask for help](../index.md#communication) either!
 

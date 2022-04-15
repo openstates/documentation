@@ -11,18 +11,20 @@ learn from.
 
 Fork and clone the main scraper repository:
 
--   Visit <https://github.com/openstates/openstates-scrapers> and
+- Visit <https://github.com/openstates/openstates-scrapers> and
     click the 'Fork' button.
 
--   Clone your fork using your tool of choice or the command line:
+- Clone your fork using your tool of choice or the command line:
 
         $ git clone git@github.com:yourname/openstates-scrapers.git
         Cloning into 'openstates-scrapers'...
 
--   And remember to `install pre-commit <pre-commit>` hooks:
+- And remember to `install pre-commit <pre-commit>` hooks:
 
         $ pre-commit install
         pre-commit installed at .git/hooks/pre-commit
+
+- Be sure to run `poetry install` to fetch the correct version of dependencies.
 
 !!! warning
 
