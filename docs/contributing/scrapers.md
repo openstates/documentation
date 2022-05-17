@@ -7,7 +7,7 @@ around 200 scrapers, each one essentially independent, which means that
 there is always more work to do, but fortunately plenty of prior work to
 learn from.
 
-## Checking out
+## Checking Out
 
 Fork and clone the main scraper repository:
 
@@ -33,7 +33,7 @@ Fork and clone the main scraper repository:
     cloning and entering the repo, you'll likely want to set global
     line-ending conversion back to true, and set local conversion to false.
 
-## Repository overview
+## Repository Overview
 
 At this point you'll have a local `openstates-scrapers` directory.
 Within it, you'll find a directory called `scrapers`, lets take a look
