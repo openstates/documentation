@@ -36,7 +36,7 @@ Fork and clone the main scraper repository:
 ## Repository overview
 
 At this point you'll have a local `openstates-scrapers` directory.
-Within it, you'll find a directory called `scrapers` lets take a look
+Within it, you'll find a directory called `scrapers`, lets take a look
 at it:
 
     $ ls scrapers
@@ -54,7 +54,7 @@ This directory has 50+ python modules, one for each state.
 Let's look inside one:
 
     $ ls scrapers/nc
-    __init__.py    bills.py       committees.py  people.py      votes.py
+    __init__.py    bills.py     votes.py
 
 Some states' directories will differ a bit, but all will have
 `__init__.py` and `bills.py`.
@@ -63,6 +63,12 @@ The `__init__.py` file for each state has basic metadata on the state
 including a list of sessions.
 
 Other files contain the scrapers, typically named `bills`, `votes`, etc.
+
+At the root, you'll also find a directory called `scrapers_next`. This directory also has python modules for each state.
+
+Inside a state, you'll find `people` and potentially `committee` scrapers written using 
+[spatula](https://jamesturk.github.io/spatula/). The plan is to port all scrapers to this framework and have 
+`scrapers_next` replace the `scraper` directory.
 
 ## Running Your First Scraper
 
@@ -188,3 +194,39 @@ available for spot checking, as well as the total number of items that
 were seen that already exactly matched what was in the database. These
 can be useful stats as you try to see if your local changes to a scraper
 have the impact you expect.
+
+## Running Spatula Scrapers
+
+Let's run a people scraper:
+
+    $ poetry run spatula scrape scrapers_next.nc.people.SenList
+
+The command to run these scrapers is structured differently, as the parameters
+are set by giving the exact location of the function you want to run: `directory.state.file.function`. 
+
+!!! note
+    Function names do vary and scrapes for legislators are commonly split by chamber, so make sure to check you're 
+    passing the right function in your command.
+
+The actual data scraping should look something like:
+
+    INFO:scrapers_next.nc.people.SenList:fetching https://www.ncleg.gov/Members/MemberTable/S
+    INFO:scrapers_next.nc.people.LegDetail:fetching https://www.ncleg.gov/Members/Biography/S/430
+    INFO:scrapers_next.nc.people.LegDetail:fetching https://www.ncleg.gov/Members/Biography/S/431
+    INFO:scrapers_next.nc.people.LegDetail:fetching https://www.ncleg.gov/Members/Biography/S/432
+    INFO:scrapers_next.nc.people.LegDetail:fetching https://www.ncleg.gov/Members/Biography/S/433
+    INFO:scrapers_next.nc.people.LegDetail:fetching https://www.ncleg.gov/Members/Biography/S/434
+
+To review the data you scraped, you can inspect the JSON files in the dated directory within `_scrapes/`. Each time you
+run a scrape, a new numbered folder will be within the dated directory, so you can compare older data to new easily.
+
+!!! note
+    If a scrape fails, it's likely an issue with the scraper. Feel free to get in touch with us or [file an
+    issue](https://github.com/openstates/openstates/issues).
+
+[Spatula](https://jamesturk.github.io/spatula/) is incredibly powerful with lots of flexibility and useful [CLI 
+commands](https://jamesturk.github.io/spatula/cli/) that are worth checking out as well.
+
+At this point you're ready to run spatula scrapers and contribute fixes. Hop
+onto [our GitHub ticket queue](https://github.com/openstates/openstates/issues), pick an issue
+to solve, and then submit a Pull Request!
