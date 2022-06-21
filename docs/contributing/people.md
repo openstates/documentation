@@ -87,7 +87,7 @@ re-scrape everything for that state.
 
 Example of the process:
 
-(In this example, we assume the `people` repo is stored at `~/gitroot/people`)
+(In this example, we assume the `people` repo is stored at `~/gitroot/people` and the openstates-scrapers repo is stored at `~/gitroot/openstates-scrapers`)
 
 ```bash
 :#~/gitroot/openstates-scrapers$ poetry run spatula scrape scrapers_next.de.people.House
@@ -115,4 +115,4 @@ analyzing 120 existing people and 41 scraped
 Aborted!
 ```
 
-This example stops at step #4 because the final steps all require manual work. We _can_ use `--retirement <date>` to automatically retire members during this process.
+This example stops at step #4 because the final steps all require manual work. We _can_ use `--retirement <date>` to automatically retire members during this process, but this requires knowing that all potentially retired members happened at the same time.
