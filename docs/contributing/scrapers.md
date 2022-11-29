@@ -82,6 +82,24 @@ scrapers, and that we want to do it in "fast mode". By default,
 `os-update` imports results into a postgres database; the `--scrape`
 flag skips that step.
 
+The following arguments are optional: To bring up a list of the optional arguments in the CLI use `-h`, `--help`\
+    `-h`, `--help`          show this help message and exit\
+    `--debug`               open debugger on error\
+    `--loglevel {LOGLEVEL}` set log level. options are: `DEBUG|INFO|WARNING|ERROR|CRITICAL (default is INFO)`\
+    `--scrape`              only run scrape post-scrape step\
+    `--import`              only run import post-scrape step\
+    `--nonstrict`           skip validation on save\
+    `--fastmode`            use cache and turn off throttling\
+    `--datadir {SCRAPED_DATA_DIR}` data directory\
+    `--cachedir {CACHE_DIR}`  cache directory\
+    `-r {SCRAPELIB_RPM}`    scraper rpm\
+    `--rpm {SCRAPELIB_RPM}` scraper rpm\                        
+    `--timeout {SCRAPELIB_TIMEOUT}` scraper timeout\
+    `--no-verify`           skip tls verification\
+    `--retries {SCRAPELIB_RETRIES}` scraper retries\
+    `--retry_wait {SCRAPELIB_RETRY_WAIT_SECONDS}` scraper retry wait\
+    `--realtime` loads bills in realtime to database, this requires configuring an AWS S3 bucket and using the lambda function: [openstates-realtime](https://github.com/openstates/openstates-realtime) 
+
 You'll see the *run plan*, which is what the update aims to capture; in
 this case we're scraping the state website's data into JSON files:
 
