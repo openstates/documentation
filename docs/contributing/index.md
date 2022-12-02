@@ -6,7 +6,9 @@ following pages will help you be a better member of our community:
 -   Our [Code of Conduct](../code-of-conduct.md) is important to us, and helps us maintain a healthy community.
 -   We also have a [guide to help you learn where to get help](../index.md#communication) that you should look over.
 
-This guide assumes a basic familiarity with using the command line, git, and Python.
+If you are new to open source, or unfamiliar to contributing to open source projects, it might be beneficial to read [this guide](https://opensource.guide/how-to-contribute/). We welcome and value all contributions to Open States, including (but not limited to!) code contributions.
+
+This guide assumes a basic familiarity with using the [command line](https://www.freecodecamp.org/news/command-line-for-beginners/), [git](https://www.freecodecamp.org/news/git-and-github-for-beginners/), and Python. If you are unfamiliar with something that is mentioned in this guide, we encourage you to read the linked resources. 
 
 No matter how experienced you are, it is a good idea to read through this section before diving into Open States' code.
 
@@ -26,7 +28,7 @@ As you look to contribute, it may be beneficial to understand a little bit about
 
 These repositories make up the core of the project, if you're looking to contribute there's a 95% chance one of these is what you want.
 
--   [openstates-scrapers](https://github.com/openstates/openstates-scrapers) - Open States' scrapers.
+-   [openstates-scrapers](https://github.com/openstates/openstates-scrapers) - Open States' scrapers. All code related to getting information from a website and storing it in the Open States database lives here. [What is a scraper?](https://realpython.com/python-web-scraping-practical-introduction/) 
 -   [people](https://github.com/openstates/people) - Open States people & committee data, maintained as editable YAML files.
 -   [openstates-core](https://github.com/openstates/openstates-core) - Open States data model & scraper backend.
 -   [openstates.org](https://github.com/openstates/openstates.org) - Powers [OpenStates.org](https://openstates.org/) website & GraphQL API.
@@ -38,7 +40,7 @@ These repositories make up the core of the project, if you're looking to contrib
 
 ### poetry
 
-If you're working on the `people` repo, `api-v3`, or want to work on scrapers without Docker, you'll need `poetry` to build your Python virtual environment.
+If you're working on the `people` repo, `api-v3`, or want to work on scrapers without [Docker](https://docker-curriculum.com/), you'll need `poetry` to build your [Python virtual environment](https://realpython.com/python-virtual-environments-a-primer/).
 
 !!! note
 
@@ -107,6 +109,7 @@ style.
     If you're running `flake8` and `black` yourself via your editor or
     similar this isn't strictly necessary, but we find it helps ensure
     commits don't fail linting. **We require all PRs to pass linting!**
+[What is linting?](https://www.freecodecamp.org/news/what-is-linting-and-how-can-it-save-you-time/)
 
 ## Recent Major Work
 
