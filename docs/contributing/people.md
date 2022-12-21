@@ -78,8 +78,41 @@ either amend the schema or make a recommendation.
 Let's say a North Carolina has had an election & it makes sense to
 re-scrape everything for that state.
 
-0.  Start a new branch for this work
+0.  Start a new branch for this work (e.g. `nc-2021-people-update`)
 1.  Scrape data using [Open States' Scrapers](https://github.com/openstates/openstates-scrapers)
 2.  Run `poetry run os-people merge nc scrapes/2021-01-01/001` against the generated JSON data from the scrape
 4.  Manually reconcile remaining changes, will often require some retirements as well.
-5.  Check that data looks clean with `poetry run os-people lint nc --summary` and prepare a PR.
+5.  Check that data looks clean with `poetry run os-people lint nc --summary`
+6.  commit your changes and prepare a PR.
+
+Example of the process:
+
+(In this example, we assume the `people` repo is stored at `~/gitroot/people` and the openstates-scrapers repo is stored at `~/gitroot/openstates-scrapers`)
+
+```bash
+:#~/gitroot/openstates-scrapers$ poetry run spatula scrape scrapers_next.de.people.House
+INFO:scrapers_next.de.people.House:fetching https://legis.delaware.gov/json/House/GetRepresentatives
+INFO:scrapers_next.de.people.LegDetail:fetching https://legis.delaware.gov/LegislatorDetail?personId=13589
+INFO:scrapers_next.de.people.LegDetail:fetching https://legis.delaware.gov/LegislatorDetail?personId=332
+...
+success: wrote 41 objects to _scrapes/2022-06-17/001
+:#~/gitroot/openstates-scrapers$ OS_PEOPLE_DIRECTORY=~/gitroot/people poetry run os-people merge de _scrapes/2022-06-17/001/
+analyzing 120 existing people and 41 scraped
+ perfect match
+ perfect match
+ perfect match
+    other_names: append {'start_date': '', 'end_date': '', 'name': 'Gerald L. Brady'}
+    name: Gerald L. Brady => Charles "Bud" M. Freel
+    email: Gerald.Brady@delaware.gov => Bud.Freel@delaware.gov
+    offices changed from:
+	Capitol Office address=411 Legislative Ave. Dover, DE 19901 voice=302-744-4351
+  to
+	Capitol Office address=411 Legislative Avenue Dover, DE 19901 voice=302-744-4351
+    links: append {'url': 'https://legis.delaware.gov/LegislatorDetail?personId=24197', 'note': 'homepage'}
+    sources: append {'url': 'https://legis.delaware.gov/LegislatorDetail?personId=24197', 'note': ''}
+(m)erge? (r)etire Gerald L. Brady? (s)kip? (a)bort?
+
+Aborted!
+```
+
+This example stops at step #4 because the final steps all require manual work. We _can_ use `--retirement <date>` to automatically retire members during this process, but this requires knowing that all potentially retired members happened at the same time.
