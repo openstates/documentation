@@ -68,6 +68,7 @@ nav:
     - 'contributing/people.md'
     - 'contributing/local-database.md'
     - 'contributing/scrapers.md'
+    - 'contributing/writing-a-committee-scraper.md'
     - 'contributing/openstates-org.md'
       # - 'contributing/text-extraction.md'
     - 'contributing/testing-scrapers.md'
