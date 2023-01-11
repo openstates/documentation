@@ -74,11 +74,11 @@ Because the vast majority of legislation goes through the committee process, and
   * Getting the selector/XPath on chrome:
     * Right click the item you want to grab
     * Click “inspect”
-    * ![Selector Tutorial Image](./contributing/images/selector_ex1.png "Selector Example 1")
+    * ![Selector Tutorial Image](./images/selector_ex1.png "Selector Example 1")
     * A panel will pop up and the element that you’re inspecting should be highlighted. Click on the three dots on the left side of the highlight
-    * ![Selector Tutorial Image](./contributing/images/selector_ex2.png "Selector Example 2")
+    * ![Selector Tutorial Image](./images/selector_ex2.png "Selector Example 2")
     * Hover over “copy” and click on either selector (for a CSS selector) or XPath to copy it
-    * ![Selector Tutorial Image](./contributing/images/selector_ex3.png "Selector Example 3")
+    * ![Selector Tutorial Image](./images/selector_ex3.png "Selector Example 3")
   * There aren’t any rules about whether XPath or CSS selectors are better. Use whichever helps you grab the information you need!
 
 ### General Scraper Writing Tips 
