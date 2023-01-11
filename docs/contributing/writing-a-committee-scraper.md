@@ -90,15 +90,15 @@ Because the vast majority of legislation goes through the committee process, and
   * The command for running a spatula scraper is `poetry run spatula scrape {directory your python file is in}.{state your scraper is for}.committees.{function (optional)}`
     * Example: To run the entire committee scraper for Missouri, the command would be `poetry run spatula scrape scrapers_next.mo.committees`
 * Help! My code doesn't work! 
-Stuck? Think it through and ask us for help!
-What’s not working? What do you think should happen? What’s actually happening?
-Exception handling can be great for weird cases, like a specific committee’s information being unavailable 
-Spatula lets you easily skip over weird cases
-Debug and quickly test if your CSS or Xpath selector is accurate with spatula test for a single page
-Before running spatula scrape, you can test the logic of what you’ve already written (and essentially get a quick “preview”) in the terminal. This is especially helpful for making sure you’re using the correct CSS or Xpath selector for an element.
-You can set an example_source as a default URL to keep running spatula scrape on
-Example use case: After scraping a list of committees on one page, I now need specific information about each committee. Each committee has its own webpage (that we navigate to from that list of committees), and the format for each webpage is fairly similar (this is most likely the case!). I can set the example_source as a single committee’s more-detailed webpage, and as I write that part of the scraper, I can keep running spatula test to see in my terminal that I’m grabbing the correct information from that specific webpage.
-This should save time and prevent some headaches!
+  * Stuck? Think it through and ask us for help!
+    * What’s not working? What do you think should happen? What’s actually happening?
+  * Exception handling can be great for weird cases, like a specific committee’s information being unavailable 
+    * Spatula lets you easily skip over weird cases
+  * Debug and quickly test if your CSS or Xpath selector is accurate with spatula test for a single page
+    * Before running spatula scrape, you can test the logic of what you’ve already written (and essentially get a quick “preview”) in the terminal. This is especially helpful for making sure you’re using the correct CSS or Xpath selector for an element.
+    * You can set an [example_source](https://jamesturk.github.io/spatula/data-models/#example_source) as a default URL to keep running spatula scrape on
+    * Example use case: After scraping a list of committees on one page, I now need specific information about each committee. Each committee has its own webpage (that we navigate to from that list of committees), and the format for each webpage is fairly similar (this is most likely the case!). I can set the `example_source` as a single committee’s more-detailed webpage, and as I write that part of the scraper, I can keep running spatula test to see in my terminal that I’m grabbing the correct information from that specific webpage.
+    * This should save time and prevent some headaches!
   
 
 
