@@ -33,6 +33,16 @@ Standing committees are permanent committees that are created at the beginning o
 Because the vast majority of legislation goes through the committee process, and because the committee membership has such an outsized role on whether that legislation lives or dies, it's incredibly important that people have accurate and up to date information about committees, their membership, and their work. 
 
 ### Writing a Committee Scraper, Step by Step
+- How do I set up my environment?
+  - Make sure you've walked through our [installation prerequisities](https://docs.openstates.org/contributing/#installing-prerequisites)
+- Where should my code live?
+  - All committee scrapers live in the `scrapers_next` directory of the [openstates_scrapers](https://github.com/openstates/openstates-scrapers) repository
+  - When you're ready to commit your code, this is where your new committee scraper will live too!
+- What are the steps for working on my committee scraper locally?
+ 1. Fork the openstates-scrapers repository ([what is a fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository)?)
+ 2. Find the state you want to write a committee scraper for under the `scrapers_next` directory
+ 3. Create a `committees.py` file inside of that state's directory
+ 4. Write your committee scraper code! 
 - What information does a committee scraper need to grab?
   * Name of the committee
   * Chamber (upper/lower/etc)
