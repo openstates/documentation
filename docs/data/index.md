@@ -10,7 +10,7 @@ choices, particularly where they might be surprising.
 
 ## Main Concepts
 
-The main concepts are defined below:
+The main concepts are defined below. You'll notice these concepts mostly correspond to the v2 GraphQL root nodes.
 
 |    Concept    |                             Definition                            |
 |:-------------:|:-----------------------------------------------------------------:|
@@ -22,7 +22,3 @@ The main concepts are defined below:
 |  **Organization** | A generic term used to represent a few different concepts: legislatures, chambers, committees, and political parties. |
 |      **Post**     | A particular role within an organization, typically used to represent a seat in the legislature. (e.g. the District 4 post in the North Carolina Senate Organization) |
 |   **Membership**  | Ties a Person to a Post for a duration of time. |
-
-
-(You'll notice these concepts mostly correspond to the v2 GraphQL root nodes.)
-
