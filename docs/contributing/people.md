@@ -70,8 +70,9 @@ either amend the schema or make a recommendation.
 ### Retiring a legislator
 
 0.  Start a new branch for this work
-1.  Run `poetry run os-people retire` with the appropriate legislator file(s)
-2.  Review the automatically edited files & submit a PR.
+1.  Add an `end_date` to their most recent role within the appropriate legislator's YAML file
+2.  Run `poetry run os-people retire` with the appropriate legislator file(s) from the root directory
+3.  Review the automatically edited files & submit a PR.
 
 ### Updating an entire state's legislators via a scrape
 
