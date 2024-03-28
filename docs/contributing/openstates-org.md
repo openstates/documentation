@@ -1,7 +1,20 @@
-# Working On openstates.org
+# History of open.pluralpolicy.com / openstates.org
 
-openstates.org is the public-facing result of all the work we do. The
-site is built in Django and includes the web frontend and API.
+open.pluralpolicy.com is the public-facing web app that has historically provided free democracy tools, API key registration,
+and access to bulk data. However, we are in the process of migrating functionality into the main Plural application.
+The Plural application provides continued [free legislative research and tracking tools](https://pluralpolicy.com/app/legislative-tracking)
+as well as the ability to [Find Your Legislators](https://pluralpolicy.com/open/). The Plural app is not open source,
+because our business model to support continued free democracy tools and expanded open data depends on providing
+premium policy intelligence features to organizational customers.
+
+For now, open.pluralpolicy.com will continue to provide a subset of related features:
+
+- Register and manage your API key
+- Bulk data downloads
+- v2 of the API until is taken out of service (already deprecated, so please use the [v3 API](https://v3.openstates.org/docs)
+
+The application is built in Django. Even after migration is complete, we will keep the repository up for anyone who
+is interested in the open source code. The rest of this documentation is maintained here for reference.
 
 ## Checking out
 

@@ -8,7 +8,7 @@ access state legislative information.
 The root URL for the API is <https://v3.openstates.org/>.
 
 API keys are required. You can [register for an API
-key](https://openstates.org/accounts/profile/) and once activated,
+key](https://open.pluralpolicy.com/accounts/profile/) and once activated,
 you\'ll pass your API key via the `X-API-KEY` header or `?apikey` query
 parameter.
 
