@@ -13,10 +13,10 @@
     * Store the data in the required format 
 
 
-## For those new to Open States:
-- [What is Open States?](https://docs.openstates.org/#about-open-states)
+## For those new to Plural Open / Open States:
+- [What is Plural Open?](https://docs.openstates.org/#about-plural-open)
 - [What is an open source project?](https://opensource.com/resources/what-open-source)
-- [How do you contribute to Open States?](https://docs.openstates.org/contributing/#getting-started)
+- [How do you contribute to Plural Open?](https://docs.openstates.org/contributing/#getting-started)
 - What projects are we looking for contributions on?
     * [Committee Scrapers](https://github.com/openstates/issues/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+scraper%22)
     * [Other issues](https://github.com/openstates/issues/issues)

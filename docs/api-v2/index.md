@@ -1,4 +1,10 @@
-# GraphQL API
+# DEPRECATED - GraphQL API
+
+As of [December 1, 2023, the v2/GraphQL API has been sunset](https://blog.openstates.org/2023-june-changes/). Please
+migrate to the [v3 API](https://docs.openstates.org/api-v3/) as soon as possible. Future service for the GraphQL API
+is not guaranteed.
+
+The rest of this documentation is left up for reference.
 
 -   API keys are required. You can [register for an API key](https://openstates.org/api/register/) and once activated,
     you'll pass your API key via the `X-API-KEY` header.
