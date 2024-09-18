@@ -149,6 +149,10 @@ directory and inspect the JSON files. If you're trying to make a small
 fix this is often sufficient, you can confirm that the scraped data
 looks correct and move on.
 
+Please see our document on [Querying Scraper Output Data](./query-scraper-output-data.md)
+for tools you can use to investigate data issues across a set of many
+scraped data output files.
+
 
 !!! note
     It is of course possible that the scrape fails. If so, there's a good
