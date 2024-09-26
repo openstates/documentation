@@ -82,7 +82,8 @@ D DESCRIBE SELECT * FROM read_json('bill_*.json');
 ```
 
 You'll notice that related entities like Bill Actions, Bill Sponsorships, etc... are embedded in the data as `STRUCT`
-data, usually as a list (`STRUCT(property_a VARCHAR, property_b VARCHAR)[]`). We can drill down into those.
+data: `actions`, `sponsorships`, etc.. This is typically structured as a list of `STRUCT` data, which is like a dict
+or object (`STRUCT(property_a VARCHAR, property_b VARCHAR)[]`). We can drill down into those.
 
 ### Use views to drill into the data
 
