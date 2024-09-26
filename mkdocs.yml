@@ -76,6 +76,7 @@ nav:
     - 'contributing/documentation.md'
   - Data:
     - 'data/index.md'
+    - 'data/query-scraper-output-data.md'
     - 'data/categorization.md'
     - 'data/session-naming.md'
   - Enhancement Proposals:
