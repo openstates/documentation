@@ -86,7 +86,9 @@ data, usually as a list (`STRUCT(property_a VARCHAR, property_b VARCHAR)[]`). We
 
 ### Use views to drill into the data
 
-To make this data structure simpler to reason about, we can use Views. Here's a set of recommended views you can try:
+To make this data structure simpler to reason about, we can use Views. Here's a set of recommended views you can try.
+Please note that these views are used in many of the suggested queries below. In order to execute a query that uses
+a view, you need to create the view first!
 
 ```sql
 -- Bills
@@ -133,7 +135,7 @@ To view Views in your DuckDB database: `SHOW TABLES;`
 
 ### Useful queries
 
-These queries will assume you've created the views listed above.
+These queries will assume you've created the Views listed above! Execute the Views queries above before trying these!
 
 General utility: describe the shape of a given dataset:
 
