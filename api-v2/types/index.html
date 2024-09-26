@@ -1,0 +1,2028 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the Open States project.">
+      
+      
+        <meta name="author" content="James Turk">
+      
+      
+        <link rel="canonical" href="https://docs.openstates.org/api-v2/types/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Data Types - Open States</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="red">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-types" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Open States" class="md-header__button md-logo" aria-label="Open States" data-md-component="logo">
+      
+  <img src="../../assets/openstates.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open States
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Types
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/openstates/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    openstates/documentation
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Open States" class="md-nav__button md-logo" aria-label="Open States" data-md-component="logo">
+      
+  <img src="../../assets/openstates.svg" alt="logo">
+
+    </a>
+    Open States
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/openstates/documentation" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    openstates/documentation
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-of-conduct/" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          API v3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API v3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          API v3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v3/" class="md-nav__link">
+        API v3 Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v3/changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          GraphQL API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GraphQL API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          GraphQL API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        DEPRECATED - GraphQL API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../root-nodes/" class="md-nav__link">
+        Root Nodes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Data Types
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Data Types
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jurisdictions-sessions" class="md-nav__link">
+    Jurisdictions &amp; Sessions
+  </a>
+  
+    <nav class="md-nav" aria-label="Jurisdictions &amp; Sessions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jurisdictionnode" class="md-nav__link">
+    JurisdictionNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legislativesessionnode" class="md-nav__link">
+    LegislativeSessionNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#divisionnode" class="md-nav__link">
+    DivisionNode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#people-organizations" class="md-nav__link">
+    People &amp; Organizations
+  </a>
+  
+    <nav class="md-nav" aria-label="People &amp; Organizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#personnode" class="md-nav__link">
+    PersonNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizationnode" class="md-nav__link">
+    OrganizationNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#membershipnode" class="md-nav__link">
+    MembershipNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postnode" class="md-nav__link">
+    PostNode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bills-votes" class="md-nav__link">
+    Bills &amp; Votes
+  </a>
+  
+    <nav class="md-nav" aria-label="Bills &amp; Votes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#billnode" class="md-nav__link">
+    BillNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billabstractnode" class="md-nav__link">
+    BillAbstractNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billtitlenode" class="md-nav__link">
+    BillTitleNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billidentifiernode" class="md-nav__link">
+    BillIdentifierNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billactionnode" class="md-nav__link">
+    BillActionNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relatedentitynode" class="md-nav__link">
+    RelatedEntityNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billsponsorshipnode" class="md-nav__link">
+    BillSponsorshipNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relatedbillnode" class="md-nav__link">
+    RelatedBillNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billdocumentnode" class="md-nav__link">
+    BillDocumentNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mimetypelinknode" class="md-nav__link">
+    MimetypeLinkNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voteeventnode" class="md-nav__link">
+    VoteEventNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personvotenode" class="md-nav__link">
+    PersonVoteNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#votecountnode" class="md-nav__link">
+    VoteCountNode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-nodes" class="md-nav__link">
+    Other Nodes
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identifiernode" class="md-nav__link">
+    IdentifierNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namenode" class="md-nav__link">
+    NameNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linknode" class="md-nav__link">
+    LinkNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contactdetailnode" class="md-nav__link">
+    ContactDetailNode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other/" class="md-nav__link">
+        Other Notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Contributing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Contributing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Contributing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/people/" class="md-nav__link">
+        Contributing People Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/local-database/" class="md-nav__link">
+        Running a Local Database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/scrapers/" class="md-nav__link">
+        Contributing to Scrapers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/writing-a-committee-scraper/" class="md-nav__link">
+        Writing a Committee Scraper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/openstates-org/" class="md-nav__link">
+        History of open.pluralpolicy.com / openstates.org
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/testing-scrapers/" class="md-nav__link">
+        Testing Scrapers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/state-specific/" class="md-nav__link">
+        State-Specific Scraper Info
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/documentation/" class="md-nav__link">
+        Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        Understanding the Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/query-scraper-output-data/" class="md-nav__link">
+        How to query and examine data file output created by scrapers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/categorization/" class="md-nav__link">
+        Categorization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/session-naming/" class="md-nav__link">
+        Session Naming
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Enhancement Proposals
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Enhancement Proposals" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Enhancement Proposals
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enhancement-proposals/001-purpose-and-process/" class="md-nav__link">
+        OSEP #1: Purpose &amp; Process
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enhancement-proposals/002-legal-citations/" class="md-nav__link">
+        OSEP #2: Legal Citations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enhancement-proposals/003-manual-people-data-tools/" class="md-nav__link">
+        OSEP #3: Manual People Data Tools
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enhancement-proposals/004-committee-data/" class="md-nav__link">
+        OSEP #4: Committee Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enhancement-proposals/005-dedupe-key/" class="md-nav__link">
+        OSEP #5: Replacing pupa_id with dedupe_key
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enhancement-proposals/006-new-people-offices/" class="md-nav__link">
+        OSEP #6: New People Offices Schema
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enhancement-proposals/007-events/" class="md-nav__link">
+        OSEP #7: Restoring Events Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enhancement-proposals/008-active-sessions/" class="md-nav__link">
+        OSEP #8: Active Sessions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jurisdictions-sessions" class="md-nav__link">
+    Jurisdictions &amp; Sessions
+  </a>
+  
+    <nav class="md-nav" aria-label="Jurisdictions &amp; Sessions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jurisdictionnode" class="md-nav__link">
+    JurisdictionNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legislativesessionnode" class="md-nav__link">
+    LegislativeSessionNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#divisionnode" class="md-nav__link">
+    DivisionNode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#people-organizations" class="md-nav__link">
+    People &amp; Organizations
+  </a>
+  
+    <nav class="md-nav" aria-label="People &amp; Organizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#personnode" class="md-nav__link">
+    PersonNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizationnode" class="md-nav__link">
+    OrganizationNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#membershipnode" class="md-nav__link">
+    MembershipNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postnode" class="md-nav__link">
+    PostNode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bills-votes" class="md-nav__link">
+    Bills &amp; Votes
+  </a>
+  
+    <nav class="md-nav" aria-label="Bills &amp; Votes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#billnode" class="md-nav__link">
+    BillNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billabstractnode" class="md-nav__link">
+    BillAbstractNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billtitlenode" class="md-nav__link">
+    BillTitleNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billidentifiernode" class="md-nav__link">
+    BillIdentifierNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billactionnode" class="md-nav__link">
+    BillActionNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relatedentitynode" class="md-nav__link">
+    RelatedEntityNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billsponsorshipnode" class="md-nav__link">
+    BillSponsorshipNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relatedbillnode" class="md-nav__link">
+    RelatedBillNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#billdocumentnode" class="md-nav__link">
+    BillDocumentNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mimetypelinknode" class="md-nav__link">
+    MimetypeLinkNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voteeventnode" class="md-nav__link">
+    VoteEventNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personvotenode" class="md-nav__link">
+    PersonVoteNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#votecountnode" class="md-nav__link">
+    VoteCountNode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-nodes" class="md-nav__link">
+    Other Nodes
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Nodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identifiernode" class="md-nav__link">
+    IdentifierNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namenode" class="md-nav__link">
+    NameNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linknode" class="md-nav__link">
+    LinkNode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contactdetailnode" class="md-nav__link">
+    ContactDetailNode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/openstates/documentation/edit/main/docs/api-v2/types.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="data-types">Data Types<a class="headerlink" href="#data-types" title="Permanent link">&para;</a></h1>
+<p>Starting at the base nodes, data in the API is represented as
+interconnected nodes of various types. This page provides an overview of
+the nodes.</p>
+<p>Another good way to get acquainted with the layout is to use the
+<a href="https://openstates.org/graphql">GraphiQL browser</a> (click Docs in the
+upper right corner).</p>
+<h2 id="jurisdictions-sessions">Jurisdictions &amp; Sessions<a class="headerlink" href="#jurisdictions-sessions" title="Permanent link">&para;</a></h2>
+<h3 id="jurisdictionnode">JurisdictionNode<a class="headerlink" href="#jurisdictionnode" title="Permanent link">&para;</a></h3>
+<p>A Jurisdiction is the <a href="https://opencivicdata.org">Open Civic Data</a> term
+for the top level divisions of the US. Open States is comprised of 52
+jurisdictions, one for each state, and two more for D.C. and Puerto
+Rico.</p>
+<p>Each JurisdictionNode has the following attributes &amp; nodes available:</p>
+<ul>
+<li>
+<p><code>id</code> - ocd-jurisdiction identifier, these are permanent identifiers
+    assigned to each Jurisdiction</p>
+</li>
+<li>
+<p><code>name</code> - human-readable name for the jurisdiction (e.g. Kansas)</p>
+</li>
+<li>
+<p><code>url</code> - URL of official website for jurisdiction</p>
+</li>
+<li>
+<p><code>featureFlags</code> - reserved for future use</p>
+</li>
+<li>
+<p><code>legislativeSessions</code> - Paginated list (see <code>pagination</code>) of
+    <a href="#legislativesessionnode">LegislativeSessionNode</a> belonging to this
+    jurisdiction's legislature.</p>
+</li>
+<li>
+<dl>
+<dt><code>organizations</code> - Paginated list of <a href="#organizationnode">OrganizationNode</a> belonging to this jurisdiction.</dt>
+<dd>
+<ul>
+<li>it is also possible to filter the list of children using the
+    <code>classification</code> parameter</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>
+<p><code>lastScrapedAt</code> - Time when last scrape finished.</p>
+</li>
+</ul>
+<p>See also: <a href="http://docs.opencivicdata.org/en/latest/data/jurisdiction.html">Open Civic Data Jurisdiction
+reference</a></p>
+<h3 id="legislativesessionnode">LegislativeSessionNode<a class="headerlink" href="#legislativesessionnode" title="Permanent link">&para;</a></h3>
+<p>A legislative session is a convening of the legislature, either a
+primary or special session.</p>
+<p>Each LegislativeSessionNode has the following attributes and nodes
+available:</p>
+<ul>
+<li><code>jurisdiction</code> - <a href="#jurisdictionnode">JurisdictionNode</a> which this
+    session belongs to.</li>
+<li><code>identifier</code> - short identifier by which this session is referred to
+    (e.g. 2017s1 or 121)</li>
+<li><code>name</code> - formal name of session (e.g. "2017 Special Session #1"
+    or "121st Session"</li>
+<li><code>classification</code> - "primary" or "special"</li>
+<li><code>startDate</code> - start date of session if known</li>
+<li><code>endDate</code> - end date of session if known</li>
+</ul>
+<h3 id="divisionnode">DivisionNode<a class="headerlink" href="#divisionnode" title="Permanent link">&para;</a></h3>
+<p>Divisions represent particular geopolitical boundaries. Divisions exist
+for states as well as their component districts and are tied closely to
+political geographies.</p>
+<ul>
+<li><code>id</code> - <a href="http://docs.opencivicdata.org/en/latest/ocdids.html#division-ids">Open Civic Data Division
+    ID</a></li>
+<li><code>name</code> - human-readable name for the division</li>
+<li><code>redirect</code> - link to another DivisionNode, only present if division
+    has been replaced</li>
+<li><code>country</code> - country code (will be "us") for all Open States
+    divisions</li>
+<li><code>createdAt</code> - date at which this object was created in our system</li>
+<li><code>updatedAt</code> - date at which this object was last updated in our
+    system</li>
+<li><code>extras</code> - JSON string with optional additional information about
+    the object</li>
+</ul>
+<h2 id="people-organizations">People &amp; Organizations<a class="headerlink" href="#people-organizations" title="Permanent link">&para;</a></h2>
+<h3 id="personnode">PersonNode<a class="headerlink" href="#personnode" title="Permanent link">&para;</a></h3>
+<p>People, typically legislators and their associated metadata.</p>
+<p>Note that most fields are optional beyond name as often we don't have a
+reliable given/family name or birthDate for instance.</p>
+<ul>
+<li>
+<p><code>id</code> - <a href="http://docs.opencivicdata.org/en/latest/ocdids.html">Open Civic Data Person
+    ID</a></p>
+</li>
+<li>
+<p><code>name</code> - primary name for the person</p>
+</li>
+<li>
+<p><code>sortName</code> - alternate name to sort by (if known)</p>
+</li>
+<li>
+<p><code>familyName</code> - hereditary name, essentially a "last name" (if
+    known)</p>
+</li>
+<li>
+<p><code>givenName</code> - essentially a "first name" (if known)</p>
+</li>
+<li>
+<p><code>image</code> - full URL to official image of legislator</p>
+</li>
+<li>
+<p><code>birthDate</code> - see <code>date-format</code></p>
+</li>
+<li>
+<p><code>deathDate</code> - see <code>date-format</code></p>
+</li>
+<li>
+<p><code>identifiers</code> - list of other known identifiers,
+    <a href="#identifiernode">IdentifierNode</a></p>
+</li>
+<li>
+<p><code>otherNames</code> - list of other known names, <a href="#namenode">NameNode</a></p>
+</li>
+<li>
+<p><code>links</code> - official URLs relating to this person,
+    <a href="#linknode">LinkNode</a></p>
+</li>
+<li>
+<p><code>contactDetails</code> - ways to contact this person (via email, phone,
+    etc.), <a href="#contactdetailnode">contactdetailnode</a></p>
+</li>
+<li>
+<dl>
+<dt><code>currentMemberships</code> - currently active memberships <a href="#membershipnode">MembershipNode</a></dt>
+<dd>
+<ul>
+<li>can be filtered with the <code>classification</code> parameter to only
+    get memberships to certain types of
+    <a href="#organizationnode">OrganizationNode</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt><code>oldMemberships</code> - inactive memberships <a href="#membershipnode">MembershipNode</a></dt>
+<dd>
+<ul>
+<li>can be filtered with the <code>classification</code> parameter to only
+    get memberships to certain types of
+    <a href="#organizationnode">OrganizationNode</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>
+<p><code>sources</code> - URLs which were used in compiling Open States' information on this subject, [LinkNode]</p>
+</li>
+<li>
+<p><code>createdAt</code> - date at which this object was created in our system</p>
+</li>
+<li>
+<p><code>updatedAt</code> - date at which this object was last updated in our
+    system</p>
+</li>
+<li>
+<p><code>extras</code> - JSON string with optional additional information about
+    the object</p>
+</li>
+</ul>
+<p>See also:</p>
+<ul>
+<li><a href="http://popoloproject.com/specs/person.html">Popolo's person</a></li>
+<li><a href="http://docs.opencivicdata.org/en/latest/proposals/0005.html">Open Civic Data OCDEP 5</a></li>
+</ul>
+<h3 id="organizationnode">OrganizationNode<a class="headerlink" href="#organizationnode" title="Permanent link">&para;</a></h3>
+<p>Organizations that comprise the state legislatures and their associated
+metdata.</p>
+<p>A typical bicameral legislature is comprised of a top-level organization
+(classification=legislature), two chambers (classification=upper &amp;
+lower), and any number of committees (classification=committee).</p>
+<p>Each Organization is comprised of the following attributes and nodes:</p>
+<ul>
+<li>
+<p><code>id</code> - <a href="http://docs.opencivicdata.org/en/latest/ocdids.html">Open Civic Data Organization ID</a></p>
+</li>
+<li>
+<p><code>name</code> - primary name for the person</p>
+</li>
+<li>
+<p><code>image</code> - full URL to official image for organization</p>
+</li>
+<li>
+<p><code>classification</code> - the type of organization as described above</p>
+</li>
+<li>
+<p><code>foundingDate</code> - see <code>date-format</code></p>
+</li>
+<li>
+<p><code>dissolutionDate</code> - see <code>date-format</code></p>
+</li>
+<li>
+<p><code>parent</code> - parent OrganizationNode if one exists</p>
+</li>
+<li>
+<dl>
+<dt><code>children</code> - paginated list of child OrganizationNode objects</dt>
+<dd>
+<ul>
+<li>it is also possible to filter the list of children using the
+    <code>classification</code> parameter</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>
+<p><code>currentMemberships</code> - list of all current members of this
+    Organization</p>
+</li>
+<li>
+<p><code>identifiers</code> - list of other known identifiers for this
+    organization, <a href="#identifiernode">IdentifierNode</a></p>
+</li>
+<li>
+<p><code>otherNames</code> - list of other known names for this organization,
+    <a href="#namenode">NameNode</a></p>
+</li>
+<li>
+<p><code>links</code> - official URLs relating to this person,
+    <a href="#linknode">LinkNode</a></p>
+</li>
+<li>
+<p><code>sources</code> - URLs which were used in compiling Open States'
+    information on this subject, [LinkNode]</p>
+</li>
+<li>
+<p><code>createdAt</code> - date at which this object was created in our system</p>
+</li>
+<li>
+<p><code>updatedAt</code> - date at which this object was last updated in our
+    system</p>
+</li>
+<li>
+<p><code>extras</code> - JSON string with optional additional information about
+    the object</p>
+</li>
+</ul>
+<p>See also:</p>
+<ul>
+<li><a href="http://popoloproject.com/specs/organization.html">Popolo's
+    organization</a></li>
+<li><a href="http://docs.opencivicdata.org/en/latest/proposals/0005.html">Open Civic Data OCDEP
+    5</a></li>
+</ul>
+<h3 id="membershipnode">MembershipNode<a class="headerlink" href="#membershipnode" title="Permanent link">&para;</a></h3>
+<p>A MembershipNode represents a connection between a
+<a href="#personnode">personnode</a> and a <a href="#organizationnode">organizationnode</a>. A
+membership may optionally also reference a particular
+<a href="#postnode">postnode</a>, such as a particular seat within a given chamber.</p>
+<p>Each membership has the following attributes and nodes:</p>
+<ul>
+<li><code>id</code> - <a href="http://docs.opencivicdata.org/en/latest/ocdids.html">Open Civic Data Membership
+    ID</a></li>
+<li><code>personName</code> the raw name of the person that the membership
+    describes (see <code>name-matching</code></li>
+<li><code>person</code> - <a href="#personnode">personnode</a></li>
+<li><code>organization</code> - <a href="#organizationnode">organizationnode</a></li>
+<li><code>post</code> - <a href="#postnode">postnode</a></li>
+<li><code>label</code> - label assigned to this membership</li>
+<li><code>role</code> - role fulfilled by this membership</li>
+<li><code>startDate</code> - start date of membership if known</li>
+<li><code>endDate</code> - end date of membership if known</li>
+<li><code>createdAt</code> - date at which this object was created in our system</li>
+<li><code>updatedAt</code> - date at which this object was last updated in our
+    system</li>
+<li><code>extras</code> - JSON string with optional additional information about
+    the object</li>
+</ul>
+<p>See also:</p>
+<ul>
+<li><a href="http://popoloproject.com/specs/membership.html">Popolo's
+    membership</a></li>
+<li><a href="http://docs.opencivicdata.org/en/latest/proposals/0005.html">Open Civic Data OCDEP
+    5</a></li>
+</ul>
+<h3 id="postnode">PostNode<a class="headerlink" href="#postnode" title="Permanent link">&para;</a></h3>
+<p>A PostNode represents a given position within an organization. The most
+common example would be a seat such as Maryland's 4th House Seat.</p>
+<p>It is worth noting that some seats can have multiple active memberships
+at once, as noted in <code>maximumMemberships</code>.</p>
+<p>Each post has the following attributes and nodes:</p>
+<ul>
+<li><code>id</code> - <a href="http://docs.opencivicdata.org/en/latest/ocdids.html">Open Civic Data Post
+    ID</a></li>
+<li><code>label</code> - label assigned to this post (e.g. 3)</li>
+<li><code>role</code> - role fulfilled by this membership (e.g. 'member')</li>
+<li><code>division</code> - related <a href="#divisionnode">divisionnode</a> if this role has
+    a relevant division</li>
+<li><code>startDate</code> - start date of membership if known</li>
+<li><code>endDate</code> - end date of membership if known</li>
+<li><code>maximumMemberships</code> - typically 1, but set higher in the case of
+    multi-member districts</li>
+<li><code>createdAt</code> - date at which this object was created in our system</li>
+<li><code>updatedAt</code> - date at which this object was last updated in our
+    system</li>
+<li><code>extras</code> - JSON string with optional additional information about
+    the object</li>
+</ul>
+<p>See also:</p>
+<ul>
+<li><a href="http://popoloproject.com/specs/post.html">Popolo's post</a></li>
+<li><a href="http://docs.opencivicdata.org/en/latest/proposals/0005.html">Open Civic Data OCDEP
+    5</a></li>
+</ul>
+<h2 id="bills-votes">Bills &amp; Votes<a class="headerlink" href="#bills-votes" title="Permanent link">&para;</a></h2>
+<h3 id="billnode">BillNode<a class="headerlink" href="#billnode" title="Permanent link">&para;</a></h3>
+<p>A BillNode represents any legislative instrument such as a bill or
+resolution.</p>
+<p>Each node has the following attributes and nodes available:</p>
+<ul>
+<li><code>id</code> - Internal ocd-bill identifier for this bill.</li>
+<li><code>legislativeSession</code> - link to
+    <a href="#legislativesessionnode">LegislativeSessionNode</a> this bill is from</li>
+<li><code>identifier</code> - primary identifier for this bill (e.g. HB 264)</li>
+<li><code>title</code> - primary title for this bill</li>
+<li><code>fromOrganization</code> - organization (typically upper or lower chamber)
+    primarily associated with this bill</li>
+<li><code>classification</code> - list of one or more bill types such as "bill"
+    or "resolution"</li>
+<li><code>subject</code> - list of zero or more subjects assigned by the state</li>
+<li><code>abstracts</code> - list of abstracts provided by the state,
+    <a href="#billabstractnode">BillAbstractNode</a></li>
+<li><code>otherTitles</code> - list of other titles provided by the state,
+    <a href="#billtitlenode">BillTitleNode</a></li>
+<li><code>otherIdentifiers</code> - list of other identifiers provided by the
+    state, <a href="#billidentifiernode">BillIdentifierNode</a></li>
+<li><code>actions</code> - list of actions (such as introduction, amendment,
+    passage, etc.) that have been taken on the bill,
+    <a href="#billactionnode">BillActionNode</a></li>
+<li><code>sponsorships</code> - list of bill sponsors,
+    <a href="#billsponsorshipnode">BillSponsorshipNode</a></li>
+<li><code>relatedBills</code> - list of related bills as provided by the state,
+    <a href="#relatedbillnode">RelatedBillNode</a></li>
+<li><code>versions</code> - list of bill versions as provided by the state,
+    <a href="#billdocumentnode">BillDocumentNode</a></li>
+<li><code>documents</code> - list of related documents (e.g. legal analysis, fiscal
+    notes, etc.) as provided by the state,
+    <a href="#billdocumentnode">BillDocumentNode</a></li>
+<li><code>votes</code> - paginated list of <a href="#voteeventnode">VoteEventNode</a> related
+    to the bill</li>
+<li><code>sources</code> - URLs which were used in compiling Open States'
+    information on this subject, <a href="#linknode">linknode</a></li>
+<li><code>openstatesUrl</code> - URL to bill page on OpenStates.org</li>
+<li><code>createdAt</code> - date at which this object was created in our system</li>
+<li><code>updatedAt</code> - date at which this object was last updated in our
+    system</li>
+<li><code>extras</code> - JSON string with optional additional information about
+    the object</li>
+</ul>
+<h3 id="billabstractnode">BillAbstractNode<a class="headerlink" href="#billabstractnode" title="Permanent link">&para;</a></h3>
+<p>Represents an official abstract for a bill, each BillAbstractNode has
+the following attributes:</p>
+<ul>
+<li><code>abstract</code> - the abstract itself</li>
+<li><code>note</code> - optional note about origin/purpose of abstract</li>
+<li><code>date</code> - optional date associated with abstract</li>
+</ul>
+<h3 id="billtitlenode">BillTitleNode<a class="headerlink" href="#billtitlenode" title="Permanent link">&para;</a></h3>
+<p>Represents an alternate title for a bill, each BillTitleNode has the
+following attributes:</p>
+<ul>
+<li><code>title</code> - the alternate title</li>
+<li><code>note</code> - optional note about origin/purpose of this title</li>
+</ul>
+<h3 id="billidentifiernode">BillIdentifierNode<a class="headerlink" href="#billidentifiernode" title="Permanent link">&para;</a></h3>
+<p>Represents an alternate identifier for a bill, each BillIdentifierNode
+has the following attributes:</p>
+<ul>
+<li><code>identifier</code> - the alternate identifier</li>
+<li><code>scheme</code> - a name for the identifier scheme</li>
+<li><code>note</code> - optional note about origin/purpose of this identifier</li>
+</ul>
+<h3 id="billactionnode">BillActionNode<a class="headerlink" href="#billactionnode" title="Permanent link">&para;</a></h3>
+<p>Represents an action taken on a bill, each BillActionNode has the
+following attributes and nodes:</p>
+<ul>
+<li><code>organization</code> - <a href="#organizationnode">OrganizationNode</a> where this
+    action originated, will typically be either upper or lower chamber,
+    or perhaps legislature as a whole.</li>
+<li><code>description</code> - text describing the action as provided by the
+    jurisdiction.</li>
+<li><code>date</code> - date action took place (see <code>date-format</code>)</li>
+<li><code>classification</code> - list of zero or more normalized action types (see
+    <code>action-categorization</code>)</li>
+<li><code>order</code> - integer by which actions can be sorted, not intended for
+    display purposes</li>
+<li><code>extras</code> - JSON string providing extra information about this action</li>
+<li><code>vote</code> - if there is a known associated vote, pointer to the
+    relevant <a href="#voteeventnode">VoteEventNode</a></li>
+<li><code>relatedEntities</code> - a list of
+    <a href="#relatedentitynode">RelatedEntityNode</a> with known entities
+    referenced in this action</li>
+</ul>
+<h3 id="relatedentitynode">RelatedEntityNode<a class="headerlink" href="#relatedentitynode" title="Permanent link">&para;</a></h3>
+<p>Represents an entity that is related to a
+<a href="#billactionnode">BillActionNode</a>.</p>
+<ul>
+<li><code>name</code> - raw (source-provided) name of entity</li>
+<li><code>entityType</code> - either organization or person</li>
+<li><code>organization</code> - if <code>entityType</code> is 'organization', the resolved
+    <a href="#organizationnode">OrganizationNode</a></li>
+<li><code>person</code> - if <code>entityType</code> is 'person', the resolved
+    <a href="#personnode">PersonNode</a></li>
+</ul>
+<p>See <code>name-matching</code> for details on how <code>name</code> relates to <code>organiation</code> and <code>person</code>.</p>
+<h3 id="billsponsorshipnode">BillSponsorshipNode<a class="headerlink" href="#billsponsorshipnode" title="Permanent link">&para;</a></h3>
+<p>Represents a sponsor of a bill.</p>
+<ul>
+<li><code>name</code> - raw (source-provided) name of sponsoring person or
+    organization</li>
+<li><code>entityType</code> - either organization or person</li>
+<li><code>organization</code> - if <code>entityType</code> is 'organization', the resolved
+    <a href="#organizationnode">OrganizationNode</a></li>
+<li><code>person</code> - if <code>entityType</code> is 'person', the resolved
+    <a href="#personnode">PersonNode</a></li>
+<li><code>primary</code> - boolean, true if sponsorship is considered by the
+    jurisdiction to be "primary" (note: in many states multiple
+    primary sponsors may exist)</li>
+<li><code>classification</code> - jurisdiction-provided type of sponsorship, such
+    as "author" or "cosponsor". These meanings typically vary across
+    states, which is why we provide <code>primary</code> as a sort of indicator of
+    the degree of sponsorship indicated.</li>
+</ul>
+<p>See <code>name-matching</code> for details on how <code>name</code> relates to <code>organiation</code> and <code>person</code>.</p>
+<h3 id="relatedbillnode">RelatedBillNode<a class="headerlink" href="#relatedbillnode" title="Permanent link">&para;</a></h3>
+<p>Represents relationships between bills.</p>
+<ul>
+<li><code>identifier</code> - identifier of related bill (e.g. SB 401)</li>
+<li><code>legislativeSession</code> - identifier of related session (in same jurisdiction)</li>
+<li><code>relationType</code> - type of relationship such as "companion", "prior-session", "replaced-by", or "replaces"</li>
+<li><code>relatedBill</code> - if the related bill is found to exist in our data, link to the <a href="#billnode">BillNode</a></li>
+</ul>
+<h3 id="billdocumentnode">BillDocumentNode<a class="headerlink" href="#billdocumentnode" title="Permanent link">&para;</a></h3>
+<p>Representation of <code>documents</code> and <code>versions</code> on bills. A given document
+can have multiple links representing different manifestations (e.g.
+HTML, PDF, DOC) of the same content.</p>
+<ul>
+<li><code>note</code> - note describing the purpose of the document or version
+    (e.g. Final Printing)</li>
+<li><code>date</code> - optional date associated with the document</li>
+<li><code>links</code> - list of one or more <code>MimetypeLinkNode</code> with actual URLs to
+    bills.</li>
+</ul>
+<h3 id="mimetypelinknode">MimetypeLinkNode<a class="headerlink" href="#mimetypelinknode" title="Permanent link">&para;</a></h3>
+<p>Represents a single manifestation of a particular document.</p>
+<ul>
+<li><code>mediaType</code> - media type (aka MIME type) such as application/pdf or
+    text/html</li>
+<li><code>url</code> - URL to official copy of the bill</li>
+<li><code>text</code> - text describing this particular manifestation (e.g. PDF)</li>
+</ul>
+<h3 id="voteeventnode">VoteEventNode<a class="headerlink" href="#voteeventnode" title="Permanent link">&para;</a></h3>
+<p>Represents a vote taken on a bill.</p>
+<ul>
+<li><code>id</code> - Internal ocd-vote identifier for this bill.</li>
+<li><code>identifier</code> - Identifier used by jurisdiction to uniquely identify
+    the vote.</li>
+<li><code>motionText</code> - Text of the motion being voted upon, such as "motion
+    to pass the bill as amended."</li>
+<li><code>motionClassification</code> - List with zero or more classifications for
+    this motion, such as "passage" or "veto-override"</li>
+<li><code>startDate</code> - Date on which the vote took place. (see
+    <code>date-format</code></li>
+<li><code>result</code> - Outcome of the vote, 'pass' or 'fail'.</li>
+<li><code>organization</code> - Related <a href="#organizationnode">OrganizationNode</a> where
+    vote took place.</li>
+<li><code>billAction</code> - Optional linked <a href="#billactionnode">BillActionNode</a>.</li>
+<li><code>votes</code> - List of <a href="#personvotenode">PersonVoteNode</a> for each
+    individual's recorded vote. (May not be present depending on
+    jurisdiction.)</li>
+<li><code>counts</code> - List of <a href="#votecountnode">VoteCountNode</a> with sums of each
+    outcome (e.g. yea/nay/abstain).</li>
+<li><code>sources</code> - URLs which were used in compiling Open States'
+    information on this subject, [LinkNode]</li>
+<li><code>createdAt</code> - date at which this object was created in our system</li>
+<li><code>updatedAt</code> - date at which this object was last updated in our
+    system</li>
+<li><code>extras</code> - JSON string with optional additional information about
+    the object</li>
+</ul>
+<p>See also: <a href="http://docs.opencivicdata.org/en/latest/data/vote.html">Open Civic Data vote
+format</a>.</p>
+<h3 id="personvotenode">PersonVoteNode<a class="headerlink" href="#personvotenode" title="Permanent link">&para;</a></h3>
+<p>Represents an individual person's vote (e.g. yea or nay) on a given
+bill.</p>
+<ul>
+<li><code>option</code> - Option chosen by this individual. (yea, nay, abstain,
+    other, etc.)</li>
+<li><code>voterName</code> - Raw name of voter as provided by jurisdiction.</li>
+<li><code>voter</code> - Resolved <a href="#personnode">PersonNode</a> representing voter.
+    (See <code>name-matching</code></li>
+<li><code>note</code> - Note attached to this vote, sometimes used for explaining
+    an "other" vote.</li>
+</ul>
+<h3 id="votecountnode">VoteCountNode<a class="headerlink" href="#votecountnode" title="Permanent link">&para;</a></h3>
+<p>Represents the sum of votes for a given <code>option</code>.</p>
+<ul>
+<li><code>option</code> - Option in question. (yea, nay, abstain, other, etc.)</li>
+<li><code>value</code> - Number of individuals voting this way.</li>
+</ul>
+<h2 id="other-nodes">Other Nodes<a class="headerlink" href="#other-nodes" title="Permanent link">&para;</a></h2>
+<h3 id="identifiernode">IdentifierNode<a class="headerlink" href="#identifiernode" title="Permanent link">&para;</a></h3>
+<p>Represents an alternate identifier, each with the following attributes:</p>
+<ul>
+<li><code>identifier</code> - the alternate identifier</li>
+<li><code>scheme</code> - a name for the identifier scheme</li>
+</ul>
+<h3 id="namenode">NameNode<a class="headerlink" href="#namenode" title="Permanent link">&para;</a></h3>
+<p>Represents an alterante name, each with the following attributes:</p>
+<ul>
+<li><code>name</code> - the alternate name</li>
+<li><code>note</code> - note about usage/origin of this alternate name</li>
+<li><code>startDate</code> - date at which this name began being valid (blank if
+    unknown)</li>
+<li><code>endDate</code> - date at which this name stopped being valid (blank if
+    unknown or still active)</li>
+</ul>
+<h3 id="linknode">LinkNode<a class="headerlink" href="#linknode" title="Permanent link">&para;</a></h3>
+<p>Represents a single link associated with a person or used as a source.</p>
+<ul>
+<li><code>url</code> - URL</li>
+<li><code>text</code> - text describing the use of this particular URL</li>
+</ul>
+<h3 id="contactdetailnode">ContactDetailNode<a class="headerlink" href="#contactdetailnode" title="Permanent link">&para;</a></h3>
+<p>Used to represent a contact method for a given person.</p>
+<ul>
+<li><code>type</code> - type of contact detail (e.g. voice, email, address, etc.)</li>
+<li><code>value</code> - actual phone number, email address, etc.</li>
+<li><code>note</code> - used to group contact data by location (e.g. Home Address,
+    Office Address)</li>
+<li><code>label</code> - human-readable label for this contact detail</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../root-nodes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Root Nodes" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Root Nodes
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../other/" class="md-footer__link md-footer__link--next" aria-label="Next: Other Notes" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Other Notes
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021 Open States
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/openstates" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/openstates" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.top", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
