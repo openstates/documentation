@@ -130,6 +130,26 @@ SELECT legislative_session,
        _id        AS vote_id,
        unnest(counts, recursive := true)
 FROM vote_events;
+
+-- Events
+CREATE VIEW events AS
+SELECT *
+FROM read_json('event*.json');
+CREATE VIEW event_media AS
+SELECT name AS event_name, _id AS event_id, unnest(media)
+FROM events;
+CREATE VIEW event_participants AS
+SELECT name AS event_name, _id AS event_id, unnest(participants, recursive := true)
+FROM events;
+CREATE VIEW event_agenda AS
+SELECT name AS event_name, _id AS event_id, unnest(agenda, recursive := true)
+FROM events;
+CREATE VIEW event_agenda_related_entities AS
+SELECT event_name, event_id, unnest(related_entities, recursive := true)
+FROM event_agenda;
+CREATE VIEW event_sources AS
+SELECT name AS event_name, _id AS event_id, unnest(sources, recursive := true)
+FROM events;
 ```
 
 To view Views in your DuckDB database: `SHOW TABLES;`
