@@ -251,3 +251,72 @@ FROM vote_event_counts
 GROUP BY 1, 2
 ORDER BY 1, 2 DESC;
 ```
+
+### Events
+
+#### Date-sorted lists of events to compare to source
+
+Basic event info
+
+```sql
+SELECT start_date, all_day, name, location.name, status, classification, description
+FROM events
+ORDER BY start_date;
+```
+
+Event info with source URL
+
+```sql
+SELECT e.start_date, e.all_day, e.name, e.location.name, e.status, e.classification, e.description, s.url
+FROM events e
+LEFT JOIN event_sources s ON e._id = s.event_id
+ORDER BY start_date;
+```
+
+#### Check distribution of related entity counts
+
+```sql
+SELECT len(media), COUNT(*)
+FROM events
+GROUP BY 1
+ORDER BY 2 DESC;
+SELECT len(documents), COUNT(*)
+FROM events
+GROUP BY 1
+ORDER BY 2 DESC;
+SELECT len(links), COUNT(*)
+FROM events
+GROUP BY 1
+ORDER BY 2 DESC;
+SELECT len(participants), COUNT(*)
+FROM events
+GROUP BY 1
+ORDER BY 2 DESC;
+SELECT len(agenda), COUNT(*)
+FROM events
+GROUP BY 1
+ORDER BY 2 DESC;
+SELECT len(sources), COUNT(*)
+FROM events
+GROUP BY 1
+ORDER BY 2 DESC;
+```
+
+#### Event Agenda Related Entities
+
+Distribution of entity types
+
+```sql
+SELECT entity_type, COUNT(*)
+FROM event_agenda_related_entities
+GROUP BY 1;
+```
+
+List of events with related entities, sorted by event date
+
+```sql
+SELECT e.start_date, re.event_name, re.name, entity_type
+FROM event_agenda_related_entities re
+         INNER JOIN events e ON re.event_id = e._id
+ORDER BY e.start_date;
+```
