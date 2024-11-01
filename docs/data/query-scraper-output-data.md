@@ -135,6 +135,12 @@ FROM vote_events;
 CREATE VIEW events AS
 SELECT *
 FROM read_json('event*.json');
+CREATE VIEW event_documents AS
+SELECT name AS event_name, _id AS event_id, unnest(documents, recursive := true)
+FROM events;
+CREATE VIEW event_document_links AS
+SELECT event_name, event_id, note AS document_note, unnest(links, recursive := true)
+FROM event_documents;
 CREATE VIEW event_media AS
 SELECT name AS event_name, _id AS event_id, unnest(media)
 FROM events;
@@ -218,7 +224,7 @@ GROUP BY 1;
 #### Vote Events over time (by month)
 
 ```sql
-SELECT date_trunc('month', start_date), COUNT(*)
+SELECT date_trunc('month', start_date::timestamp), COUNT(*)
 FROM vote_events
 GROUP BY 1,
 ORDER BY 1;
