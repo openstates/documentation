@@ -130,6 +130,13 @@ SELECT legislative_session,
        _id        AS vote_id,
        unnest(counts, recursive := true)
 FROM vote_events;
+CREATE VIEW vote_sources AS
+SELECT legislative_session,
+       bill_identifier,
+       identifier AS vote_identifier,
+       _id        AS vote_id,
+       unnest(sources, recursive := true)
+FROM vote_events;
 
 -- Events
 CREATE VIEW events AS
