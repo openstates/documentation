@@ -111,6 +111,10 @@ FROM bills;
 CREATE VIEW bill_version_links AS
 SELECT legislative_session, bill_identifier, bill_id, unnest(links, recursive := true)
 FROM bill_versions;
+CREATE VIEW bill_subjects AS
+SELECT legislative_session, identifier AS bill_identifier, _id AS bill_id, unnest(subject) AS subject
+FROM bills;
+
 
 -- Vote Events
 CREATE VIEW vote_events AS
