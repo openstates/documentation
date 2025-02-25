@@ -117,6 +117,8 @@ FROM bills;
 CREATE VIEW bill_documents AS
 SELECT legislative_session, identifier AS bill_identifier, _id AS bill_id, unnest(documents, recursive := true)
 FROM bills;
+CREATE VIEW bill_abstracts AS SELECT legislative_session, identifier AS bill_identifier, _id AS bill_id,
+unnest(abstracts, recursive := true) FROM bills;
 
 
 -- Vote Events
@@ -234,6 +236,17 @@ GROUP BY 1;
 ```
 
 ### Vote Events
+
+#### General summary
+
+```sql
+SELECT bill_identifier AS bill, start_date, motion_text,
+counts[1].option AS opt1, counts[1].value AS opt1_num,
+counts[2].option AS opt2, counts[2].value AS opt2_num,
+sources[1].url AS source_url
+FROM vote_events
+ORDER BY bill_identifier, start_date;
+```
 
 #### Vote Events over time (by month)
 
