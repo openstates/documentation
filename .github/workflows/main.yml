@@ -23,7 +23,7 @@ jobs:
       - name: set poetry config path
         run: poetry config virtualenvs.path ~/.virtualenvs
       - name: install dependencies
-        run: poetry install
+        run: poetry install --no-root
       - name: build with mkdocs
         run: poetry run mkdocs gh-deploy --force
     runs-on: ubuntu-latest
