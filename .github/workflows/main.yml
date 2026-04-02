@@ -15,9 +15,9 @@ jobs:
         with:
           submodules: true
       - name: setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v6.2.0
         with:
-          python-version: '3.9'
+          python-version: '3.11'
       - name: install Poetry
         uses: snok/install-poetry@v1.4.1
       - name: set poetry config path

@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "openstates-documentation"
-version = "2019.12"
+version = "2026.01"
 description = ""
 authors = ["James Turk <dev@jamesturk.net>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.11"
 mkdocs-material = "^8.5.11"
 
 [tool.poetry.dev-dependencies]
