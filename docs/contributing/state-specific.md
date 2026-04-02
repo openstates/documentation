@@ -30,49 +30,51 @@ we will use this data where possible.
 
 Our policy:
 
--   We will maintain (when possible) two copies of credentials, one for
-    development and one for production. (Thus minimizing the chance that
-    a mistake made w/ a development key will jeopardize our ability to
-    scrape.)
--   We encourage developers to get an API key of their own, but if
-    necessary we can share our testing key in limited circumstances.
+- We will maintain (when possible) two copies of credentials, one for
+  development and one for production. (Thus minimizing the chance that
+  a mistake made w/ a development key will jeopardize our ability to
+  scrape.)
+- We encourage developers to get an API key of their own, but if
+  necessary we can share our testing key in limited circumstances.
 
 Currently only a few states require API keys:
 
-###  New York
+### New York
 
 <http://legislation.nysenate.gov/static/docs/html/index.html>
 
--   Request Form: <http://legislation.nysenate.gov/>
--   Set in environment prior to running scrape: `NEW_YORK_API_KEY`
+- Request Form: <http://legislation.nysenate.gov/>
+- Set in environment prior to running scrape: `NEW_YORK_API_KEY`
 
 ### Indiana
 
 <http://docs.api.iga.in.gov/api.html>
 
--   API Key Request Process: Email Bob Amos (<bob.amos@iga.in.gov>
-    or <bamos@iga.in.gov>), and include your name, address, phone,
-    email address and company. Also indicate that you have read the
-    terms of service at the link above.
--   Set in environment prior to running scrape: `INDIANA_API_KEY`
--   As a side note, Indiana also requires a [user-agent string](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent),
-    so set that in your environment as well, prior to running
-    scrape: `USER_AGENT`
+<https://docs.api.iga.in.gov/usage.html>
 
-### Virginia 
+- API Key Request Process: Email the Office of Technology Services Team (apitoken.request@iga.in.gov), and include your
+  name, address, phone, email address and company. Also indicate that you have read the terms of service at the link
+  above.
+- Set in environment prior to running scrape: `INDIANA_API_KEY`
+- As a side note, Indiana also requires
+  a [user-agent string](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent),
+  so set that in your environment as well, prior to running
+  scrape: `USER_AGENT`
+
+### Virginia
 
 <https://lis.virginia.gov/SiteInformation/ftp.html>
 
--   API Credentials Request Process: To acquire access, please
-    contact the Virginia Legislative Information System help desk
-    at (804) 786-9631 for a user id.
--   Set in environment prior to running scrape: `VIRGINIA_FTP_USER`,
-    `VIRGINIA_FTP_PASSWORD`
+- API Credentials Request Process: To acquire access, please
+  contact the Virginia Legislative Information System help desk
+  at (804) 786-9631 for a user id.
+- Set in environment prior to running scrape: `VIRGINIA_FTP_USER`,
+  `VIRGINIA_FTP_PASSWORD`
 
 ### District of Columbia
 
 <https://lims.dccouncil.us/api/help/index.html>
 
--   API Key Request Form:
-    <https://lims.dccouncil.us/developerRegistration>
--   Set in environment prior to running scrape: `DC_API_KEY`
+- API Key Request Form:
+  <https://lims.dccouncil.us/developerRegistration>
+- Set in environment prior to running scrape: `DC_API_KEY`
