@@ -26,4 +26,4 @@ jobs:
         run: poetry install
       - name: build with mkdocs
         run: poetry run mkdocs gh-deploy --force
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
