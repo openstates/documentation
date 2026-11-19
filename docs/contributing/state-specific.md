@@ -63,13 +63,10 @@ Currently only a few states require API keys:
 
 ### Virginia
 
-<https://lis.virginia.gov/SiteInformation/ftp.html>
+<https://lis.virginia.gov/developers>
 
-- API Credentials Request Process: To acquire access, please
-  contact the Virginia Legislative Information System help desk
-  at (804) 786-9631 for a user id.
-- Set in environment prior to running scrape: `VIRGINIA_FTP_USER`,
-  `VIRGINIA_FTP_PASSWORD`
+- API Key Request Form: <https://lis.virginia.gov/apiregistration>
+- Set in environment prior to running scrape: `VA_API_KEY`
 
 ### District of Columbia
 
